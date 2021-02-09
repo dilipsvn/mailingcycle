@@ -1,0 +1,697 @@
+2010-02-10 23:34:37,890 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-10 23:35:04,453 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-10 23:35:16,484 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-10 23:36:56,906 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-10 23:38:15,125 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-10 23:38:52,281 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-10 23:39:11,421 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-10 23:40:00,000 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-10 23:40:41,890 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it 127.0.0.1:3207
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-02-13 23:09:50,093 [4] ERROR ForgotUserPassword [(null)] - Unknown Error
+System.Net.Mail.SmtpException: Mailbox unavailable. The server response was: 5.1.0 Authentication required
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, String from)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at ForgotUserPassword.SendPasswordEmail() in d:\MailingCycleProduction\MailingCycleProduction\Website\ForgotUserPassword.aspx.cs:line 139
+2010-02-14 12:08:32,109 [4] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 105
+2010-02-14 18:48:39,281 [4] ERROR RoleRegistrationConf [(null)] - User Registration Email Sending Failed
+System.Net.Mail.SmtpException: Mailbox unavailable. The server response was: 5.1.0 Authentication required
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, String from)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at RoleRegistrationConf.SendRegistrationEmail(RegistrationInfo registration) in d:\MailingCycleProduction\MailingCycleProduction\Website\RoleRegistrationConf.aspx.cs:line 183
+2010-02-14 20:19:35,281 [9] ERROR RoleRegistrationConf [(null)] - User Registration Email Sending Failed
+System.Net.Mail.SmtpException: Mailbox unavailable. The server response was: 5.1.0 Authentication required
+   at System.Net.Mail.MailCommand.CheckResponse(SmtpStatusCode statusCode, String response)
+   at System.Net.Mail.MailCommand.Send(SmtpConnection conn, Byte[] command, String from)
+   at System.Net.Mail.SmtpTransport.SendMail(MailAddress sender, MailAddressCollection recipients, String deliveryNotify, SmtpFailedRecipientException& exception)
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at RoleRegistrationConf.SendRegistrationEmail(RegistrationInfo registration) in d:\MailingCycleProduction\MailingCycleProduction\Website\RoleRegistrationConf.aspx.cs:line 183
+2010-02-15 22:27:57,312 [10] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 105
+2010-02-18 22:35:10,125 [4] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 105
+2010-02-21 23:14:19,703 [8] ERROR Members_EditDesign [(null)] - Unknown Error
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\MailingCycleProduction\Website\Members\ApprovedDesignPages\201002212311417031$1_sampledesign.pdf'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at Members_EditDesign.Save(Int32 statusId) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\EditDesign.aspx.cs:line 599
+2010-12-23 09:16:51,546 [9] ERROR Util [(null)] - Unknown Error
+System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Mail.SmtpConnection.Flush()
+   at System.Net.Mail.ReadLinesCommand.Send(SmtpConnection conn)
+   at System.Net.Mail.EHelloCommand.Send(SmtpConnection conn, String domain)
+   at System.Net.Mail.SmtpConnection.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpTransport.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Util.Mail.Send(String templatePath, Hashtable variables, MailAddressCollection mailAddresses, String subject, String applicationPath) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 160
+   at Util.Schedule.SendEmailAsFirmedUp(String farmName, String planName, DateTime startDate, String firstName, String lastName, String applicationPath) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 619
+2010-12-23 09:16:51,640 [9] ERROR Members_FirmUpCalendar [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at Members_FirmUpCalendar.FirmUpButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\FirmUpCalendar.aspx.cs:line 111
+2010-12-23 09:20:37,250 [9] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 105
+2010-02-23 20:22:53,765 [8] ERROR Members_EditDesign [(null)] - Unknown Error
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\MailingCycleProduction\Website\Members\ApprovedDesignPages\201002232017503906$1_sampledesign.pdf'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at Members_EditDesign.Save(Int32 statusId) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\EditDesign.aspx.cs:line 599
+2010-09-23 20:25:31,937 [8] ERROR ViewPlot [(null)] - UNKNOWN ERROR:
+System.ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+   at System.Collections.ArrayList.get_Item(Int32 index)
+   at System.Web.UI.WebControls.GridViewRowCollection.get_Item(Int32 index)
+   at ViewPlot.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewPlot.aspx.cs:line 160
+2010-09-23 20:35:30,203 [8] ERROR Util [(null)] - Unknown Error
+System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Mail.SmtpConnection.Flush()
+   at System.Net.Mail.ReadLinesCommand.Send(SmtpConnection conn)
+   at System.Net.Mail.EHelloCommand.Send(SmtpConnection conn, String domain)
+   at System.Net.Mail.SmtpConnection.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpTransport.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Util.Mail.Send(String templatePath, Hashtable variables, MailAddressCollection mailAddresses, String subject, String applicationPath) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 160
+   at Util.Design.SendEmailAsApproved(DesignInfo design, String applicationPath, String url) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 489
+2010-09-23 20:36:39,078 [4] ERROR Util [(null)] - Unknown Error
+System.Security.Authentication.AuthenticationException: The remote certificate is invalid according to the validation procedure.
+   at System.Net.Security.SslState.StartSendAuthResetSignal(ProtocolToken message, AsyncProtocolRequest asyncRequest, Exception exception)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessReceivedBlob(Byte[] buffer, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReadFrame(Byte[] buffer, Int32 readBytes, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartReceiveBlob(Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.CheckCompletionBeforeNextReceive(ProtocolToken message, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.StartSendBlob(Byte[] incoming, Int32 count, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ForceAuthentication(Boolean receiveFirst, Byte[] buffer, AsyncProtocolRequest asyncRequest)
+   at System.Net.Security.SslState.ProcessAuthentication(LazyAsyncResult lazyResult)
+   at System.Net.TlsStream.CallProcessAuthentication(Object state)
+   at System.Threading.ExecutionContext.runTryCode(Object userData)
+   at System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Net.TlsStream.ProcessAuthentication(LazyAsyncResult result)
+   at System.Net.TlsStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Mail.SmtpConnection.Flush()
+   at System.Net.Mail.ReadLinesCommand.Send(SmtpConnection conn)
+   at System.Net.Mail.EHelloCommand.Send(SmtpConnection conn, String domain)
+   at System.Net.Mail.SmtpConnection.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpTransport.GetConnection(String host, Int32 port)
+   at System.Net.Mail.SmtpClient.GetConnection()
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Util.Mail.Send(String templatePath, Hashtable variables, MailAddressCollection mailAddresses, String subject, String applicationPath) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 160
+   at Util.Schedule.SendEmailAsFirmedUp(String farmName, String planName, DateTime startDate, String firstName, String lastName, String applicationPath) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 619
+2010-09-23 20:36:39,078 [4] ERROR Members_FirmUpCalendar [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at Members_FirmUpCalendar.FirmUpButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\FirmUpCalendar.aspx.cs:line 111
+2010-03-07 17:51:41,625 [4] ERROR Agent_DesignManagement [(null)] - Unknown Error
+System.Net.WebException: The operation has timed out
+   at System.Web.Services.Protocols.WebClientProtocol.GetWebResponse(WebRequest request)
+   at System.Web.Services.Protocols.HttpWebClientProtocol.GetWebResponse(WebRequest request)
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetAgentsList() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 258
+   at Agent_DesignManagement.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\DesignManagement.aspx.cs:line 254
+2010-03-13 12:14:12,593 [4] ERROR Members_EditDesign [(null)] - Unknown Error
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'D:\MailingCycleProduction\Website\Members\ApprovedDesignPages\201003131213282031$1_SMITS, Amy PK.pdf'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at Members_EditDesign.Save(Int32 statusId) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\EditDesign.aspx.cs:line 599
+2010-03-13 12:27:08,937 [4] ERROR Util [(null)] - Unknown Error
+System.InvalidOperationException: A recipient must be specified.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Util.Mail.Send(String templatePath, Hashtable variables, MailAddressCollection mailAddresses, String subject, String applicationPath) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 160
+   at Util.Design.SendEmailAsSubmitted(DesignInfo design, String applicationPath, String url) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 432
+2010-03-14 00:23:48,828 [4] ERROR AgentRegistrationConf [(null)] - User Registration is not sucessful
+System.Web.Services.Protocols.SoapException: System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Irmac.MailingCycle.DAL.Registration.SetRegistrationParameters(SqlParameter[] parameters, RegistrationInfo registration) in D:\MailingCycleProduction\MailingCycleProduction\DAL\Registration.cs:line 92
+   at Irmac.MailingCycle.DAL.Registration.InsertWithWorkSpaceDirectory(RegistrationInfo registration, String workSpacePath) in D:\MailingCycleProduction\MailingCycleProduction\DAL\Registration.cs:line 283
+   at Irmac.MailingCycle.BLL.Registration.InsertWithWorkSpaceDirectory(RegistrationInfo registration, String workSpacePath) in D:\MailingCycleProduction\MailingCycleProduction\BLL\Registration.cs:line 67
+   at RegistrationService.Insert(RegistrationInfo registration) in d:\MailingCycleProduction\MailingCycleProduction\BLLService\App_Code\RegistrationService.cs:line 32
+   --- End of inner exception stack trace ---
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.ReadResponse(SoapClientMessage message, WebResponse response, Stream responseStream, Boolean asyncCall)
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Registration.RegistrationService.Insert(RegistrationInfo registration) in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Registration\Reference.cs:line 155
+   at AgentRegistrationConf.FinishButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistrationConf.aspx.cs:line 146
+2010-03-14 00:23:49,125 [4] ERROR AgentRegistrationConf [(null)] - User Registration is not sucessful
+System.Web.Services.Protocols.SoapException: System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Irmac.MailingCycle.DAL.Registration.SetRegistrationParameters(SqlParameter[] parameters, RegistrationInfo registration) in D:\MailingCycleProduction\MailingCycleProduction\DAL\Registration.cs:line 92
+   at Irmac.MailingCycle.DAL.Registration.InsertWithWorkSpaceDirectory(RegistrationInfo registration, String workSpacePath) in D:\MailingCycleProduction\MailingCycleProduction\DAL\Registration.cs:line 283
+   at Irmac.MailingCycle.BLL.Registration.InsertWithWorkSpaceDirectory(RegistrationInfo registration, String workSpacePath) in D:\MailingCycleProduction\MailingCycleProduction\BLL\Registration.cs:line 67
+   at RegistrationService.Insert(RegistrationInfo registration) in d:\MailingCycleProduction\MailingCycleProduction\BLLService\App_Code\RegistrationService.cs:line 32
+   --- End of inner exception stack trace ---
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.ReadResponse(SoapClientMessage message, WebResponse response, Stream responseStream, Boolean asyncCall)
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Registration.RegistrationService.Insert(RegistrationInfo registration) in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Registration\Reference.cs:line 155
+   at AgentRegistrationConf.FinishButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistrationConf.aspx.cs:line 146
+2010-03-14 00:23:59,171 [4] ERROR AgentRegistrationConf [(null)] - User Registration is not sucessful
+System.Web.Services.Protocols.SoapException: System.Web.Services.Protocols.SoapException: Server was unable to process request. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at Irmac.MailingCycle.DAL.Registration.SetRegistrationParameters(SqlParameter[] parameters, RegistrationInfo registration) in D:\MailingCycleProduction\MailingCycleProduction\DAL\Registration.cs:line 92
+   at Irmac.MailingCycle.DAL.Registration.InsertWithWorkSpaceDirectory(RegistrationInfo registration, String workSpacePath) in D:\MailingCycleProduction\MailingCycleProduction\DAL\Registration.cs:line 283
+   at Irmac.MailingCycle.BLL.Registration.InsertWithWorkSpaceDirectory(RegistrationInfo registration, String workSpacePath) in D:\MailingCycleProduction\MailingCycleProduction\BLL\Registration.cs:line 67
+   at RegistrationService.Insert(RegistrationInfo registration) in d:\MailingCycleProduction\MailingCycleProduction\BLLService\App_Code\RegistrationService.cs:line 32
+   --- End of inner exception stack trace ---
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.ReadResponse(SoapClientMessage message, WebResponse response, Stream responseStream, Boolean asyncCall)
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Registration.RegistrationService.Insert(RegistrationInfo registration) in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Registration\Reference.cs:line 155
+   at AgentRegistrationConf.FinishButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistrationConf.aspx.cs:line 146
+2010-03-22 22:13:36,328 [4] ERROR Util [(null)] - Unknown Error
+System.InvalidOperationException: A recipient must be specified.
+   at System.Net.Mail.SmtpClient.Send(MailMessage message)
+   at Util.Mail.Send(String templatePath, Hashtable variables, MailAddressCollection mailAddresses, String subject, String applicationPath) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 160
+   at Util.Design.SendEmailAsSubmitted(DesignInfo design, String applicationPath, String url) in d:\MailingCycleProduction\MailingCycleProduction\Website\App_Code\Util.cs:line 432
+2010-03-22 22:31:21,656 [9] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 105
+2010-03-22 22:41:00,296 [9] ERROR ProductList [(null)] - Error adding product to cart
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at ProductList.RedirectToShoppingCart() in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ProductList.aspx.cs:line 299
+   at ProductList.AddToCart(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ProductList.aspx.cs:line 284
+2010-03-22 22:42:40,593 [9] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 105
+2010-03-22 22:42:48,468 [9] ERROR ProductList [(null)] - Error adding product to cart
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at ProductList.RedirectToShoppingCart() in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ProductList.aspx.cs:line 299
+   at ProductList.AddToCart(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ProductList.aspx.cs:line 284
+2010-03-22 22:47:33,484 [9] ERROR Members_FirmUpCalendar [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at Members_FirmUpCalendar.FirmUpButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\FirmUpCalendar.aspx.cs:line 111
+2010-03-22 23:00:57,765 [9] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 105
+2010-03-22 23:11:15,734 [4] ERROR StartAcca [(null)] - Acca Error
+System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.DateTime.Parse(String s, IFormatProvider provider)
+   at System.Convert.ToDateTime(String value)
+   at StartAcca.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\StartAcca.aspx.cs:line 42
+2010-03-22 23:15:03,625 [9] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.SaveButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 295
+2010-03-22 23:15:15,187 [9] ERROR StartAcca [(null)] - Acca Error
+System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.DateTime.Parse(String s, IFormatProvider provider)
+   at System.Convert.ToDateTime(String value)
+   at StartAcca.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\StartAcca.aspx.cs:line 42
+2010-03-22 23:33:51,640 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.SaveButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 295
+2010-03-22 23:35:25,062 [9] ERROR StartAcca [(null)] - Acca Error
+System.FormatException: String was not recognized as a valid DateTime.
+   at System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   at System.DateTime.Parse(String s, IFormatProvider provider)
+   at System.Convert.ToDateTime(String value)
+   at StartAcca.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\StartAcca.aspx.cs:line 42
+2010-04-07 23:43:21,140 [9] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 103
+2010-04-07 00:03:40,031 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.CompleteEventButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 381
+2010-04-07 00:05:52,734 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.CompleteEventButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 381
+2010-04-07 00:06:11,468 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.CompleteEventButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 381
+2010-04-07 00:06:25,656 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.CompleteEventButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 381
+2010-04-07 00:06:39,515 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.CompleteEventButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 381
+2010-04-07 00:06:56,421 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.CompleteEventButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 381
+2010-04-07 00:07:15,578 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.CompleteEventButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 381
+2010-04-07 00:07:26,625 [4] ERROR Members_ViewEvent [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Members_ViewEvent.CancelButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 401
+   at Members_ViewEvent.CompleteEventButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ViewEvent.aspx.cs:line 381
+2010-04-07 00:08:29,250 [4] ERROR SearchOrders [(null)] - Error searching orders
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at SearchOrders.SearchButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\SearchOrders.aspx.cs:line 105
+2010-03-25 15:04:47,140 [4] ERROR StartAcca [(null)] - Acca Error
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Acca.AccaService.GetCreditCardDetailsForScheduledEvents(DateTime eventDate) in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Acca\Reference.cs:line 85
+   at StartAcca.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\StartAcca.aspx.cs:line 45
+2010-03-25 15:05:54,281 [9] ERROR StartAcca [(null)] - Acca Error
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Acca.AccaService.GetCreditCardDetailsForScheduledEvents(DateTime eventDate) in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Acca\Reference.cs:line 85
+   at StartAcca.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\StartAcca.aspx.cs:line 45
+2010-03-25 19:46:47,500 [9] ERROR Members_FirmUpCalendar [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at Members_FirmUpCalendar.FirmUpButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\FirmUpCalendar.aspx.cs:line 111
+2010-03-25 20:20:59,453 [9] ERROR Members_FirmUpCalendar [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at Members_FirmUpCalendar.FirmUpButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\FirmUpCalendar.aspx.cs:line 111
+2010-03-25 22:47:16,203 [9] ERROR Members_FirmUpCalendar [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at Members_FirmUpCalendar.FirmUpButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\FirmUpCalendar.aspx.cs:line 111
+2010-03-25 22:53:42,031 [9] ERROR Members_FirmUpCalendar [(null)] - Unknown Error
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at Members_FirmUpCalendar.FirmUpButton_Click(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\FirmUpCalendar.aspx.cs:line 111
+2010-03-25 23:02:40,109 [4] ERROR ProductList [(null)] - Error adding product to cart
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at ProductList.RedirectToShoppingCart() in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ProductList.aspx.cs:line 299
+   at ProductList.AddToCart(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ProductList.aspx.cs:line 284
+2010-03-25 23:02:51,046 [4] ERROR ProductList [(null)] - Error adding product to cart
+System.Threading.ThreadAbortException: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse)
+   at System.Web.HttpResponse.Redirect(String url)
+   at ProductList.RedirectToShoppingCart() in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ProductList.aspx.cs:line 299
+   at ProductList.AddToCart(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\Members\ProductList.aspx.cs:line 284
+2010-03-31 19:17:52,406 [4] ERROR RoleRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at RoleRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\RoleRegistration.aspx.cs:line 68
+2010-03-31 19:18:01,765 [4] ERROR RoleRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at RoleRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\RoleRegistration.aspx.cs:line 68
+2010-03-31 19:18:14,562 [8] ERROR RoleRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at RoleRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\RoleRegistration.aspx.cs:line 68
+2010-03-31 19:18:46,062 [8] ERROR RoleRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at RoleRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\RoleRegistration.aspx.cs:line 68
+2010-03-31 19:20:33,265 [8] ERROR RoleRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at RoleRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\RoleRegistration.aspx.cs:line 68
+2010-03-31 19:21:03,765 [8] ERROR RoleRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at RoleRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\RoleRegistration.aspx.cs:line 68
+2010-03-31 19:23:08,140 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68
+2010-04-01 12:03:26,734 [4] ERROR AgentRegistration [(null)] - UNKNOWN ERROR:
+System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetRequestStream()
+   at System.Web.Services.Protocols.SoapHttpClientProtocol.Invoke(String methodName, Object[] parameters)
+   at Irmac.MailingCycle.BLLServiceLoader.Common.CommonService.GetCountries() in D:\MailingCycleProduction\MailingCycleProduction\BLLServiceLoader\Web References\Common\Reference.cs:line 115
+   at AgentRegistration.Page_Load(Object sender, EventArgs e) in d:\MailingCycleProduction\MailingCycleProduction\Website\AgentRegistration.aspx.cs:line 68

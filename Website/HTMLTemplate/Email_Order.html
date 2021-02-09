@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>email template1</title>
+
+<link type="text/css" rel="stylesheet" href="Style_email.css" />
+</head>
+
+<body>
+
+<div id="holder">
+<table width="550" height="136" border="0" cellspacing="0">
+  <tr>
+    <td height="91" align="left" valign="top" bgcolor="#000000"><div align="left"><img src="##URL##/images/email_header.gif" alt="MailingCycle" width="549" height="87" /></div></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="33">&nbsp;</td>
+        <td height="30">&nbsp;</td>
+        <td width="34">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td valign="top"><p>Hello Dear ##FIRSTNAME## </p>
+          <p>Thanks for shopping with MailingCycle. This is to confirm that your order has been received and is being processed.</p>
+          <p>&nbsp;</p></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="1" colspan="3" bgcolor="#cfcfcf"><img src="../images/transparent.gif" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td >&nbsp;</td>
+            <td >&nbsp;</td>
+            <td >&nbsp;</td>
+          </tr>
+          <tr>
+            <td " style="height: 15px">&nbsp;</td>
+            <td " style="height: 15px"><strong>Order No</strong></td>
+            <td " style="height: 15px">: <strong>##ORDER_NUMBER##</strong></td>
+          </tr>
+          <tr>
+            <td >&nbsp;</td>
+            <td ><strong>Method of Payment</strong></td>
+            <td >: ##CARD_TYPE## ending in ##CARD_NUMBER##</td>
+          </tr>
+          <tr>
+            <td width="2%" >&nbsp;</td>
+            <td width="32%" >&nbsp;</td>
+            <td width="66%" >&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="1" colspan="3" bgcolor="#cfcfcf"><img src="../images/transparent.gif" width="1" height="1" /></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="29">&nbsp;</td>
+        <td><p><strong>Billing Address:</strong> <br />
+          ##CARDHOLDER_NAME##<br />
+          ##BILLING_ADDRESS1## ##BILLING_ADDRESS2##<br />
+          ##BILLING_CITY##, ##BILLING_STATE##&nbsp; ##BILLING_ZIP##&nbsp; &nbsp; &nbsp;
+        </p>          </td>
+        <td>&nbsp;</td>
+      </tr>
+     <tr><td colspan=3 align=center>Ordered Items</td></tr>
+     <tr><td></td><td>
+     <table width="100%"><tr><td><b>Item</b></td><td><b>Quantity</b></td><td><b>Rate</b></td></tr>
+     <!-- for inserting here-->                   
+     </table>
+     </td><td></td></tr>
+     
+      
+      <tr>
+        <td>&nbsp;</td>
+        <td><p> MailingCycle is not responsible for typographical errors or omissions.               This email was sent to <EMAIL_ADDRESS> in response to Order # <ORDER_NUMBER>. <br />
+            <br />
+Note that MailingCycle never sells, rents, or shares your email               address. For more information, please review the MailingCycle Privacy               Policy at: <a rel="nofollow" target="_blank" href="#">http://www.MailingCycle.com/sectors/aboutus/privacy.asp</a><br />
+<br />
+Copyright 2006, MailingCyclet, Inc. 7795 West Flagler Street, Suite               35, Miami, FL 33144<br />
+<a rel="nofollow" target="_blank" href="#">LEGAL               NOTICES</a>| <a rel="nofollow" target="_blank" href="#">PRIVACY               POLICY</a></p>
+          <p>&nbsp;</p></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</div>
+
+</body>
+</html>

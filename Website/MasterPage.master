@@ -1,0 +1,184 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Mailing Cycle</title>
+    <link type="text/css" rel="stylesheet" href="~/CSS/StyleSheet.css" runat="server" />
+    
+</head>
+<body>
+<form id="form1" runat="server">
+    <!-- Page Holder -->
+    <div id="page-holder">
+        
+        <!-- Header Container -->
+        <div id="header-container">
+            <div>
+                <!-- Logo Section -->
+                <div id="header-logo">
+                    <img src="Images/logo_mc.jpg" alt="MailingCycle.com" runat="server" />
+                </div>
+                <!-- End Logo Section -->
+                
+                <!-- Header Content Section -->
+                <div id="header-content">
+                    <div style="width: 100%; text-align:right;margin-top: 10px;font-size: 1.1em;">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolderDateTime" runat="server">
+                            &nbsp;
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    
+                    <div style="width: 100%; text-align:right;margin-top: 65px;font-size: 1.1em;">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolderLogin" runat="server">
+                            &nbsp;
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                <!-- End of Header Content Section -->
+                
+                <!-- Clearing Float -->
+                <div class="clear-float"></div>
+            </div>
+            
+            <div>
+                
+                <!-- Header Primary Nagv -->
+                <div id="primary-nav">
+                     <a id="a_Default" runat="server">Home</a> | <a href="~/Members/AboutUs.aspx" runat="server">About Us</a> | <a href="~/Members/Feedback.aspx" runat="server">Feedback</a> | <a href="~/Members/ContactUs.aspx" runat="server">Contact Us</a> | <a href="~/Members/Sitemap.aspx" runat="server">Sitemap</a>
+                </div>
+                <!--
+                     <div align="right">
+                     Logged in as: <strong>Kevin Smith</strong> | Logout
+                     </div> -->
+                <!-- End of Header Primary Nagv -->
+                
+                <!-- Login Nagv -->
+                <div id="login-nav">
+                    
+                </div>
+                
+                <!-- Clearing Float -->
+                <div class="clear-float"></div>
+            </div>
+            
+        </div>
+        <!-- Header Container -->
+        
+        <!-- Middle Content Section -->
+	    <div style="width: 100%; background-color: #ffffff;">
+	        
+	        <!-- Page Title Section -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderPageTitle" runat="server">
+                <div id="page-title">
+                    <br />
+	                <asp:ContentPlaceHolder ID="ContentPlaceHolderPageTitleText" runat="server">
+	                    Page Title
+	                </asp:ContentPlaceHolder>
+	            </div>
+            </asp:ContentPlaceHolder>
+            <!-- End of Page Title Section -->
+                        
+            <!-- HomePage Section -->
+            <asp:ContentPlaceHolder ID="ContentPlaceHomePage" runat="server">
+                <div style="padding-top: 10px;">
+                    <div style="float: left; height: 234px; width: 688px; overflow: hidden;">
+			            <img src="images/home_img1.jpg" alt="Flash Animation goes here" onclick="javascript:location.href='Index.aspx?Page=0'"/>
+		            </div>
+		            
+		            <div style="width: 270px; height: 234px; float: right; overflow: hidden;">
+		                <div style="width: 270px; height: 150px; overflow: hidden;">
+				            <img src="images/home_img2.gif" alt="Some Attractive Ad/Offer goes here" />
+			            </div>
+			            <div style="width: 270px; margin-top: 2px; height: 82px; overflow: hidden; background-color:#CCCCCC">
+			                <br />
+			        &nbsp;&nbsp;&nbsp;&nbsp;
+			        <span class="style1">
+			            Already a member? Click here to 
+			            <a href="UserLogin.aspx"><strong>Login</strong></a>
+				        <br />
+				        <br />
+			            &nbsp;&nbsp;&nbsp;&nbsp;
+			            Not a member? Click here to 
+			            <a href="AgentRegistration.aspx"><strong>Register</strong></a>			
+			    		<br />
+			    		<!--<br />
+			            &nbsp;&nbsp;&nbsp;&nbsp;
+			            Non Agent User? Click here to 
+			            <a href="RoleRegistration.aspx"><strong>Register</strong></a>			-->
+			        </span> 
+			            </div>
+		            </div>
+                </div>
+            </asp:ContentPlaceHolder>
+            <!-- End HomePage Section -->
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderLeftPanelMenu" runat="server">
+                <!--#include virtual="./Include/Menu.inc"-->
+            </asp:ContentPlaceHolder>
+            
+            
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderLeftPanelText" runat="server">
+                <div id="left-nav-text">
+                    <p align="justify" style="background-color:#CCCCCC">
+                        <strong>Customer Speaks... </strong>
+                    </p>
+			        <p align="justify" style="background-color:#CCCCCC">
+			            &quot;Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed dui felis, accumdsan eget, cursus a, euismod id, tortor. Aenean commodo magna sed mauris lacinia blandit. Cras posuere enim id nisi. Quisque lacus diam, mollis ac, vestibulum eget, laoreet eget, quam. Mauris dapibus urna cursus mi. Vivamus et quam.&quot;-
+			        </p>
+			        <p align="right" style="background-color:#CCCCCC">
+			            <strong>John Smith, VP <br />Irmac Inc. </strong>
+			        </p>
+			        <script type="text/javascript">
+			        <!--
+			            function popUp(URL) 
+			            {
+                            day = new Date();
+                            id = day.getTime();
+                            /*eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=1,menubar=0,resizable=1,width=500,height=450,left = 262,top = 159');");*/
+                            eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=1,menubar=0,resizable=1,width=660,height=570,left = 262,top = 159');");
+                        }
+			        //-->
+			        </script>
+			        <p style="background-color: #CCCCCC; text-align: center; font-weight: bold;">
+			            <!--<a href="javascript:popUp('./how-it-works.htm')" title="Click here to view the application demo">
+			                How it Works? <br />
+			                <span style="color:BlueViolet; font-size: 0.8em;">Click here to view the application demo</span>
+			            </a>-->
+			            <a href="javascript:popUp('./mc.html')" title="Click here to view the application demo">
+			                How it Works? <br />
+			                <span style="color:BlueViolet; font-size: 0.8em;">Click here to view the application demo</span>
+			            </a>
+			        </p>
+                </div>
+            </asp:ContentPlaceHolder>
+            
+            <div id="right-content">
+                <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                </asp:contentplaceholder>
+            </div>
+            
+           
+            
+            <!-- Clearing Float -->
+            <div class="clear-float"></div>
+        </div>
+        <!-- End of Middle Content Section -->
+        
+        <!-- Bottom Nagv -->
+        <div id="bottom-nav">
+        <a id="a_Default_Bottom" runat="server">Home</a> | <a id="A2" href="~/Members/AboutUs.aspx" runat="server">About Us</a> | <a id="A3" href="~/Members/Feedback.aspx" runat="server">Feedback</a> | <a id="A4" href="~/Members/ContactUs.aspx" runat="server">Contact Us</a> | <a id="A5" href="~/Members/Sitemap.aspx" runat="server">Sitemap</a>
+        </div>
+        <!-- End of Bottom Nagv -->
+        
+        <!-- Page Footer -->
+        <div id="footer">
+            Copyrights @ MailingCycle.com All Rights Reserved.
+        </div>
+        <!-- End of Page Footer -->
+        
+    </div>
+    <!-- End of Page Holder -->
+</form>
+</body>
+</html>

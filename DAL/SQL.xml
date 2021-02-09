@@ -1,0 +1,967 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlStaements>
+	<Registration>
+		<SQL_INSERT_ACCOUNT>
+			INSERT INTO TBL_APP_USER (user_name, password, email, sec_question, sec_answer, first_name, middle_name, last_name,company_name,user_status, signup_date,  role_id)
+			VALUES (@UserName, @Password, @Email, @PasswordQuestion, @PasswordAnswer, @FirstName, @MiddleName, @LastName,
+			@CompanyName, @Status, @SignupDate, @RoleId) SET @UserId = SCOPE_IDENTITY()
+		</SQL_INSERT_ACCOUNT>
+		<SQL_INSERT_ACCOUNT_SHIPPINGADDRESS>
+			INSERT INTO TBL_SHIP_ADDRESS(ship_user_id, address1, address2, city, state_id, zip, country_id, phone,fax, mobile)
+			VALUES (@UserId, @Address1, @Address2, @City, @StateId, @Zip, @CountryId, @Phone,@Fax, @Mobile)
+		</SQL_INSERT_ACCOUNT_SHIPPINGADDRESS>
+		<SP_UPDATE_CREDIT_CARD>
+			MC_UpdateCreditCardDetails
+		</SP_UPDATE_CREDIT_CARD>
+		<SQL_VALIDATE_USER>
+      SELECT user_id from TBL_APP_USER WHERE user_name = @UserName and password COLLATE SQL_Latin1_General_CP1_CS_AS = @Password COLLATE SQL_Latin1_General_CP1_CS_AS and user_status=1
+    </SQL_VALIDATE_USER>
+    <SQL_IS_EMAIL_EXISTS>
+      SELECT COUNT(*) FROM TBL_APP_USER where email=@email and user_id not in (@UserId)
+    </SQL_IS_EMAIL_EXISTS>
+    <SQL_GET_ACCOUNT_DETAILS>
+			SELECT U.user_id,U.user_name,U.password, U.email, U.sec_question, U.sec_answer, U.first_name, U.middle_name, U.last_name, U.company_name,
+			A.address1, A.address2, A.city, A.country_Id, C.Name AS country, A.state_id, S.name AS state, A.zip,
+			A.phone, A.fax, A.mobile, U.user_status, U.signup_date,U.role_id FROM TBL_APP_USER AS U
+			INNER JOIN TBL_SHIP_ADDRESS AS A ON U.user_id = A.ship_user_id
+			INNER JOIN TBL_States AS S ON A.state_id = S.state_Id
+			INNER JOIN TBL_Countries AS C ON A.country_id = C.country_id
+			WHERE (U.user_id = @UserId)
+		</SQL_GET_ACCOUNT_DETAILS>
+		<SQL_GET_ACCOUNTNAME_DETAILS>
+			SELECT U.user_id,U.user_name,U.password, U.email, U.sec_question, U.sec_answer, U.first_name, U.middle_name, U.last_name, U.company_name,
+			A.address1, A.address2, A.city, A.country_Id, C.Name AS country, A.state_id, S.name AS state, A.zip,
+			A.phone, A.fax, A.mobile, U.user_status, U.signup_date,U.role_id FROM TBL_APP_USER AS U
+			INNER JOIN TBL_SHIP_ADDRESS AS A ON U.user_id = A.ship_user_id
+			INNER JOIN TBL_States AS S ON A.state_id = S.state_Id
+			INNER JOIN TBL_Countries AS C ON A.country_id = C.country_id
+			WHERE (U.user_name = @UserName and user_status=1)
+		</SQL_GET_ACCOUNTNAME_DETAILS>
+		<SP_UPDATE_ACCOUNT>
+			MC_UpdateAccount
+		</SP_UPDATE_ACCOUNT>
+		<SQL_UPDATE_PASSWORD>
+			UPDATE TBL_APP_USER
+			SET password = @password
+			WHERE user_id = @UserId;
+		</SQL_UPDATE_PASSWORD>
+		<SQL_UPDATE_SECURITYQUESTION>
+			UPDATE TBL_APP_USER
+			SET sec_question = @passwordQuestion, sec_answer = @passwordAnswer
+			WHERE user_id = @UserId;
+		</SQL_UPDATE_SECURITYQUESTION>
+		<SQL_GET_CREDIT_CARD>
+			SELECT CC.card_type, L.name AS card_type, CC.card_number, CC.cvv_code, CC.card_owner_name, CC.card_expiry_month, CC.card_expiry_year,
+			CC.address1, CC.address2, CC.city,  CC.country_id, C.name AS country, CC.state_id, S.name AS state, CC.zip
+			FROM  TBL_BILLING AS CC INNER JOIN
+			TBL_Lookup AS L ON CC.card_type = L.lookup_id INNER JOIN
+			TBL_Lookup_Category AS LC ON L.lookup_category_id = LC.lookup_category_id AND LC.name = 'Credit Card Type' INNER JOIN
+			TBL_States AS S ON CC.state_id = S.state_id INNER JOIN
+			TBL_Countries AS C ON CC.country_id = C.country_id
+			WHERE (CC.bill_user_id = @UserId)
+		</SQL_GET_CREDIT_CARD>
+		<SQL_UPDATE_STATUS>
+			UPDATE TBL_APP_USER
+			SET user_status = @Status
+			WHERE user_id = @UserId
+		</SQL_UPDATE_STATUS>
+		<SQL_GET_STATUS>
+			SELECT Status
+			FROM TBL_Users
+			WHERE user_id = @UserId
+		</SQL_GET_STATUS>
+		<SQL_GET_ROLES>
+			SELECT role_id,role_name,description
+			FROM TBL_Roles
+		</SQL_GET_ROLES>
+    <SQL_GET_USERS>
+      SELECT U.user_id,U.user_name,U.password, U.email, U.sec_question, U.sec_answer, U.first_name, U.middle_name, U.last_name, U.company_name,
+      A.address1, A.address2, A.city, A.country_Id, C.Name AS country, A.state_id, S.name AS state, A.zip,
+      A.phone, A.fax, A.mobile, U.user_status, U.signup_date,U.role_id FROM TBL_APP_USER AS U
+      INNER JOIN TBL_SHIP_ADDRESS AS A ON U.user_id = A.ship_user_id
+      INNER JOIN TBL_States AS S ON A.state_id = S.state_Id
+      INNER JOIN TBL_Countries AS C ON A.country_id = C.country_id
+      WHERE 1=1
+    </SQL_GET_USERS>
+    <SP_DELETE_USER>
+      MC_DeleteUser
+    </SP_DELETE_USER>
+    <SQL_GET_APPROVALREQUIRED_USERS>
+        SELECT role_id,count(role_id) FROM TBL_APP_User
+        where user_status=2
+        group by role_id
+    </SQL_GET_APPROVALREQUIRED_USERS>
+  </Registration>
+	<Common>
+		<SQL_GET_COUNTRIES>
+			SELECT country_id, name, defaultflag
+			FROM TBL_Countries
+		</SQL_GET_COUNTRIES>
+		<SQL_GET_STATES>
+			SELECT state_id, name
+			FROM TBL_States
+			WHERE country_id = @CountryId
+		</SQL_GET_STATES>
+		<SQL_GET_LOOKUP_VALUES>
+			SELECT L.lookup_id, L.name
+			FROM TBL_Lookup AS L
+			INNER JOIN TBL_Lookup_Category LC ON L.lookup_category_id = LC.lookup_category_id
+			WHERE LC.name = @Category
+		</SQL_GET_LOOKUP_VALUES>
+		<SQL_GET_LOOKUPDETAILS>
+			SELECT * from TBL_Lookup where lookup_id = @LookupId
+		</SQL_GET_LOOKUPDETAILS>
+		<SQL_GET_ACCOUNT_CCDETAILS>
+			SELECT count(*) as isCreditEntered
+			FROM TBL_Users_CreditCards
+			where Userid=@UserId
+		</SQL_GET_ACCOUNT_CCDETAILS>
+		<SQL_GET_PROPERTY>
+			SELECT property_name, property_values
+			FROM TBL_APP_PROPERTIES
+			WHERE property_name = @PropertyName
+		</SQL_GET_PROPERTY>
+		<SP_INSERTUPDATE_PROPERTY>
+			MC_InsertUpdateProperty
+		</SP_INSERTUPDATE_PROPERTY>
+		<SP_GETAGENTS>
+			MC_GetAgentList
+		</SP_GETAGENTS>
+		<SQL_GET_USERS_BY_ROLE>
+			SELECT U.user_id, U.user_name, U.email, U.first_name, U.last_name, U.role_id, R.role_name
+			FROM TBL_APP_USER AS U INNER JOIN
+			TBL_ROLES AS R ON U.role_id = R.role_id
+			WHERE (R.role_name IN (@roles))
+		</SQL_GET_USERS_BY_ROLE>
+	</Common>
+	<Farm>
+		<SQL_GET_USER_NAME>
+			SELECT user_name FROM TBL_APP_USER WHERE user_id = @UserId
+		</SQL_GET_USER_NAME>
+		<SQL_GET_USER_ID_FOR_FARM>
+			SELECT user_id FROM TBL_FARM WHERE farm_id = @FarmId
+		</SQL_GET_USER_ID_FOR_FARM>
+		<SQL_GET_USER_ID_FOR_PLOT>
+			SELECT F.user_id FROM TBL_FARM AS F INNER JOIN TBL_PLOT AS P ON F.farm_id = P.Farm_Id
+			WHERE P.plot_id = @PlotId
+		</SQL_GET_USER_ID_FOR_PLOT>
+		<SQL_GET_USER_ID_FOR_CONTACT>
+			SELECT F.user_id FROM TBL_FARM AS F
+			INNER JOIN TBL_PLOT AS P ON F.farm_id = P.farm_id
+			INNER JOIN TBL_CONTACT AS C ON P.plot_id = C.plot_id
+			WHERE C.contact_id = @ContactId
+		</SQL_GET_USER_ID_FOR_CONTACT>
+		<SP_GET_FARM_SUMMARY>
+			MC_GetFarmSummary
+		</SP_GET_FARM_SUMMARY>
+		<SP_GET_FARM_ARCHIVED_SUMMARY>
+			MC_GetArchivedFarmSummary
+		</SP_GET_FARM_ARCHIVED_SUMMARY>
+		<SP_ARCHIVED_FARM_SUMMARY_DETAILS>
+			MC_GetArchivedFarmSummaryDetails
+		</SP_ARCHIVED_FARM_SUMMARY_DETAILS>
+		<SP_GET_PLOT_ARCHIVED_SUMMARY>
+			MC_GetArchivedPlotSummary
+		</SP_GET_PLOT_ARCHIVED_SUMMARY>
+		<SP_GET_PLOT_ARCHIVED_SUMMARY_DETAILS>
+			MC_GetArchivedPlotSummaryDetails
+		</SP_GET_PLOT_ARCHIVED_SUMMARY_DETAILS>
+		<SQL_GET_MAILING_PLAN_LIST>
+			SELECT Plan_Id, Plan_Name, Create_Date FROM TBL_MAILING_PLAN
+		</SQL_GET_MAILING_PLAN_LIST>
+		<SQL_FARM_LIST_FOR_USER>
+			SELECT farm_id, farm_name, create_date, user_id, plan_id, last_modify_date, last_modify_by, deleted FROM TBL_Farm WHERE User_Id = @UserId
+		</SQL_FARM_LIST_FOR_USER>
+		<SQL_INSERT_FARM>
+			INSERT INTO TBL_Farm (farm_name,create_date, user_id, plan_id, last_modify_date, last_modify_by)
+			VALUES (@FarmName,GetDate(),@UserId,@PlanId,GetDate(),@LastModifiedBy)
+			SET @FarmId = SCOPE_IDENTITY()
+		</SQL_INSERT_FARM>
+		<SQL_UPDATE_FARM>
+			UPDATE TBL_Farm SET farm_name = @FarmName ,plan_id = @PlanId, last_modify_by=@LastModifiedBy
+			WHERE  farm_id=@FarmId
+		</SQL_UPDATE_FARM>
+		<GET_COUNT_OF_DUPLICATE_FARM_NAME_FOR_EDIT>
+			SELECT COUNT(*) FROM TBL_FARM WHERE user_id = @UserId AND farm_id NOT IN (@FarmId) AND farm_name = @FarmName
+		</GET_COUNT_OF_DUPLICATE_FARM_NAME_FOR_EDIT>
+		<SQL_PLOT_LIST_FOR_FARM>
+			SELECT plot_id, plot_name, create_date, farm_id, last_modify_date, last_modify_by, deleted FROM TBL_PLOT WHERE Farm_Id = @FarmId
+		</SQL_PLOT_LIST_FOR_FARM>
+		<SQL_GET_PLOT_COUNT_FOR_FARM>
+			SELECT COUNT(*) AS Plot_Count FROM TBL_Plot WHERE deleted = 0 AND farm_id=@FarmId
+		</SQL_GET_PLOT_COUNT_FOR_FARM>
+		<SQL_DELETE_FARM>
+			UPDATE TBL_Farm SET deleted = 1, last_modify_date = GetDate(), last_modify_by = @LastModifyBy WHERE farm_id=@FarmId
+		</SQL_DELETE_FARM>
+		<SQL_UPDATE_PLOT>
+			UPDATE TBL_Plot SET Plot_name = @PlotName, last_modify_by=@LastModifiedBy
+			WHERE plot_id = @PlotId and farm_id=@FarmId
+		</SQL_UPDATE_PLOT>
+		<GET_COUNT_OF_DUPLICATE_PLOT_NAME_FOR_EDIT>
+			SELECT COUNT(*) FROM TBL_PLOT WHERE farm_id = @FarmId AND plot_id NOT IN (@PlotID) AND plot_name = @PlotName
+		</GET_COUNT_OF_DUPLICATE_PLOT_NAME_FOR_EDIT>
+		<SQL_INSERT_PLOT>
+			INSERT INTO TBL_Plot (Plot_Name,Create_Date,Farm_Id, last_modify_date, last_modify_by)
+			Values (@PlotName,GetDate(),@FarmId, GetDate(), @LastModifiedBy)
+			SET @PlotId = SCOPE_IDENTITY()
+		</SQL_INSERT_PLOT>
+		<SQL_DELETE_PLOT>
+			UPDATE TBL_Plot SET deleted = 1, last_modify_date = GetDate(), last_modify_by = @LastModifyBy WHERE plot_id = @PlotId
+		</SQL_DELETE_PLOT>
+		<SQL_INSERT_CONTACT>
+			INSERT INTO TBL_CONTACT (schedule_number,owner_fullname,lot,block,
+			subdivision,filing,site_address,bedrooms,full_bath,
+			three_quarter_bath,half_bath,acres,act_mkt_comb,owner_first_name,
+			owner_last_name,owner_address1,owner_address2,owner_city,owner_state,
+			owner_zip,owner_country,sale_date,trans_amount,create_date,last_modify_date,
+			last_modify_by,plot_id) VALUES (@ScheduleNumber,@OwnerFullName,@Lot,@Block,
+			@SubDivision,@Filing,@SiteAddress,@Bedrooms,@FullBath,
+			@ThreeQuaterBath,@HalfBath,@Acres,@ActMktComb,@OwnerFirstName,
+			@OwnerLastName,@OwnerAddress1,@OwnerAddress2,@OwnerCity,@OwnerState,
+			@OwnerZip,@OwnerCountry,@SaleDate,@TransAmount,GetDate(),GetDate(),
+			@LastModifyBy,@PlotId) SET @ContactId = SCOPE_IDENTITY()
+		</SQL_INSERT_CONTACT>
+		<SQL_GET_CONTACT_COUNT_FOR_PLOT>
+			SELECT COUNT(*) AS Contact_Count FROM TBL_CONTACT WHERE deleted = 0 AND plot_id = @PlotId
+		</SQL_GET_CONTACT_COUNT_FOR_PLOT>
+		<SQL_GET_FARM_DETAIL>
+			SELECT F.farm_id,F.farm_name,F.create_date,F.user_id,F.plan_id,MP.plan_name
+			FROM TBL_FARM AS F INNER JOIN TBL_MAILING_PLAN AS MP ON F.plan_id = MP.plan_id
+			WHERE F.farm_id = @FarmId
+		</SQL_GET_FARM_DETAIL>
+		<SQL_GET_COUNT_OF_FARMS_FOR_FARM_NAME_ON_USER>
+			SELECT COUNT(*) FROM TBL_FARM WHERE user_id = @userId and farm_name = @farmName
+		</SQL_GET_COUNT_OF_FARMS_FOR_FARM_NAME_ON_USER>
+		<SQL_GET_COUNT_OF_PLOTS_FOR_PLOT_NAME_ON_FARM>
+			SELECT COUNT(*) FROM TBL_Plot WHERE farm_id = @farmId and plot_name = @PlotName
+		</SQL_GET_COUNT_OF_PLOTS_FOR_PLOT_NAME_ON_FARM>
+		<SQL_IS_FARM_EXISTS>
+			SELECT COUNT(*) FROM TBL_FARM where farm_name=@farmName
+		</SQL_IS_FARM_EXISTS>
+    <SQL_IS_FARM_EXISTS_FOR_USER>
+      SELECT COUNT(*) FROM TBL_FARM where user_id = @UserId AND farm_name=@farmName
+    </SQL_IS_FARM_EXISTS_FOR_USER>
+    <SQL_IS_FARM_EXISTS_FOR_USER_ON_UPDATE>
+      SELECT COUNT(*) FROM TBL_FARM where user_id = @UserId AND farm_id NOT IN(@FarmId) AND farm_name=@farmName 
+    </SQL_IS_FARM_EXISTS_FOR_USER_ON_UPDATE>
+		<SQL_IS_PLOT_EXISTS>
+			SELECT COUNT(*) FROM TBL_PLOT where plot_name=@plotName
+		</SQL_IS_PLOT_EXISTS>
+    <SQL_IS_PLOT_EXISTS_FOR_FARM>
+      SELECT COUNT(*) FROM TBL_PLOT where farm_id=@FarmId AND plot_name=@plotName
+    </SQL_IS_PLOT_EXISTS_FOR_FARM>
+    <SQL_IS_PLOT_EXISTS_FOR_FARM_ON_UPDATE>
+      SELECT COUNT(*) FROM TBL_PLOT where farm_id=@FarmId AND plot_id NOT IN(@PlotId) AND plot_name=@plotName
+    </SQL_IS_PLOT_EXISTS_FOR_FARM_ON_UPDATE>
+		<SQL_GET_FARM_SUMMARY_DETAIL>
+			MC_GetFarmSummaryDetail
+		</SQL_GET_FARM_SUMMARY_DETAIL>
+		<SQL_GET_FARM_BASIC_DETAIL>
+			SELECT farm_id,farm_name,create_date,user_id,plan_id
+			FROM TBL_FARM WHERE farm_id = @FarmId
+		</SQL_GET_FARM_BASIC_DETAIL>
+		<SQL_UPDATE_FARM_NAME>
+			UPDATE TBL_FARM SET farm_name = @FarmName WHERE farm_id = @FarmId
+		</SQL_UPDATE_FARM_NAME>
+		<SQL_GET_DEFAULT_PLOT_FOR_FARM>
+			SELECT P.plot_id,P.plot_name,P.create_date,P.farm_id
+			FROM TBL_FARM AS F INNER JOIN TBL_PLOT AS P on F.farm_id = P.farm_id
+			WHERE F.farm_id = @FarmId AND F.farm_name = P.plot_name
+		</SQL_GET_DEFAULT_PLOT_FOR_FARM>
+		<SQL_GET_PLOT_LIST_FOR_FARM>
+			SELECT plot_id,plot_name,create_date,farm_id
+			FROM TBL_PLOT WHERE deleted = 0 AND farm_id = @FarmId
+		</SQL_GET_PLOT_LIST_FOR_FARM>
+		<SQL_GET_PLOT_LIST_SUMMARY_FOR_FARM>
+			MC_GetPlotSummary
+		</SQL_GET_PLOT_LIST_SUMMARY_FOR_FARM>
+		<SQL_GET_PLOT_DETAIL>
+			SELECT plot_id,plot_name,create_date,farm_id
+			FROM TBL_PLOT
+			WHERE plot_id = @PlotId
+		</SQL_GET_PLOT_DETAIL>
+		<SQL_UPDATE_PLOT_NAME>
+			UPDATE TBL_PLOT SET plot_name = @PlotName WHERE plot_id = @PlotId
+		</SQL_UPDATE_PLOT_NAME>
+		<SQL_GET_PLOT_SUMMARY_DETAIL>
+			MC_GetPlotSummaryDetail
+		</SQL_GET_PLOT_SUMMARY_DETAIL>
+		<SQL_GET_CONTACT_LIST_FOR_PLOT>
+			SELECT contact_id, schedule_number, owner_fullname, lot,
+			block, subdivision, filing, site_address, bedrooms,
+			full_bath, three_quarter_bath, half_bath, acres,
+			act_mkt_comb, owner_first_name, owner_last_name, owner_address1,
+			owner_address2, owner_city, owner_state, owner_zip,
+			owner_country, sale_date, trans_amount, create_date,
+			last_modify_date, last_modify_by, plot_id
+			FROM TBL_CONTACT
+			WHERE deleted = 0 AND plot_id = @PlotId
+			ORDER BY owner_first_name
+		</SQL_GET_CONTACT_LIST_FOR_PLOT>
+		<SQL_GET_ARCHIVED_CONTACT_LIST_FOR_PLOT>
+			SELECT contact_id, schedule_number, owner_fullname, lot,
+			block, subdivision, filing, site_address, bedrooms,
+			full_bath, three_quarter_bath, half_bath, acres,
+			act_mkt_comb, owner_first_name, owner_last_name, owner_address1,
+			owner_address2, owner_city, owner_state, owner_zip,
+			owner_country, sale_date, trans_amount, create_date,
+			last_modify_date, last_modify_by, plot_id
+			FROM TBL_CONTACT
+			WHERE deleted = 1 AND plot_id = @PlotId
+			ORDER BY owner_first_name
+		</SQL_GET_ARCHIVED_CONTACT_LIST_FOR_PLOT>
+		<SQL_GET_CONTACT_DETAILS>
+			SELECT contact_id, schedule_number, owner_fullname, lot,
+			block, subdivision, filing, site_address, bedrooms,
+			full_bath, three_quarter_bath, half_bath, acres,
+			act_mkt_comb, owner_first_name, owner_last_name, owner_address1,
+			owner_address2, owner_city, owner_state, owner_zip,
+			owner_country, sale_date, trans_amount, create_date,
+			last_modify_date, last_modify_by, plot_id
+			FROM TBL_CONTACT
+			WHERE
+			contact_id = @ContactId
+		</SQL_GET_CONTACT_DETAILS>
+		<SQL_UPDATE_CONTACT_DETAILS>
+			UPDATE TBL_CONTACT SET
+			schedule_number = @ScheduleNumber,owner_fullname = @OwnerFullName, lot = @Lot, block = @Block,
+			subdivision = @SubDivision, filing = @Filing, site_address = @SiteAddress, bedrooms = @Bedrooms, full_bath = @FullBath,
+			three_quarter_bath = @ThreeQuaterBath, half_bath = @HalfBath, acres = @Acres, act_mkt_comb = @ActMktComb, owner_first_name = @OwnerFirstName,
+			owner_last_name = @OwnerLastName, owner_address1 = @OwnerAddress1, owner_address2 = @OwnerAddress2, owner_city = @OwnerCity, owner_state = @OwnerState,
+			owner_zip = @OwnerZip, owner_country = @OwnerCountry, sale_date = @SaleDate, trans_amount = @TransAmount, last_modify_date = GetDate(),
+			last_modify_by = @LastModifiedBy, plot_id = @PlotId
+			WHERE contact_id = @ContactId
+		</SQL_UPDATE_CONTACT_DETAILS>
+		<SQL_UPDATE_PLOT_ID>
+			UPDATE TBL_CONTACT SET
+			last_modify_date = GetDate(),last_modify_by = @LastModifiedBy, plot_id = @PlotId
+			WHERE contact_id = @ContactId
+		</SQL_UPDATE_PLOT_ID>
+		<SQL_MOVE_CONTACT_TO_PLOT>
+			MC_MoveContact
+		</SQL_MOVE_CONTACT_TO_PLOT>
+		<SQL_DELETE_CONTACT>
+			MC_DeleteContact
+		</SQL_DELETE_CONTACT>
+		<SQL_RESTORE_CONTACT>
+			MC_RestoreContact
+		</SQL_RESTORE_CONTACT>
+		<SQL_DELETE_FARM_PLOT_CONTACT>
+			MC_DeleteFarmPlot
+		</SQL_DELETE_FARM_PLOT_CONTACT>
+		<SQL_RESTORE_FARM_PLOT_CONTACT>
+			MC_RestoreFarmPlot
+		</SQL_RESTORE_FARM_PLOT_CONTACT>
+		<SQL_DELETE_PLOT_CONTACT>
+			MC_DeletePlotContact
+		</SQL_DELETE_PLOT_CONTACT>
+		<SQL_RESTORE_PLOT_CONTACT>
+			MC_RestorePlotContact
+		</SQL_RESTORE_PLOT_CONTACT>
+		<SQL_CHECK_DEFAULT_PLOT>
+			SELECT COUNT(*) FROM TBL_FARM AS F INNER JOIN TBL_PLOT AS P ON F.Farm_Id = P.Farm_Id AND F.Farm_Name = P.Plot_Name
+			WHERE P.Plot_Id = @PlotId
+		</SQL_CHECK_DEFAULT_PLOT>
+    <SQL_FARM_UP_COUNT>
+      SELECT COUNT(*) FROM TBL_Farm WHERE f8_accepted=1 AND farm_id = @FarmId
+    </SQL_FARM_UP_COUNT>
+    <SQL_GET_DEFAULT_MESSAGE_ID>
+      SELECT message_id FROM TBL_MESSAGE WHERE (is_default_message = 1)
+    </SQL_GET_DEFAULT_MESSAGE_ID>
+		<SQL_TOTAL_ACTIVE_FARMS>
+			SELECT COUNT(*) FROM TBL_FARM WHERE deleted = 0
+		</SQL_TOTAL_ACTIVE_FARMS>
+		<SQL_TOTAL_ARCHIVED_FARMS>
+			SELECT COUNT(*) FROM TBL_FARM WHERE deleted = 1
+		</SQL_TOTAL_ARCHIVED_FARMS>
+		<SQL_TOTAL_ACTIVE_PLOTS>
+			SELECT COUNT(*) FROM TBL_PLOT WHERE deleted = 0
+		</SQL_TOTAL_ACTIVE_PLOTS>
+		<SQL_TOTAL_ARCHIVED_PLOTS>
+			SELECT COUNT(*) FROM TBL_PLOT WHERE deleted = 1
+		</SQL_TOTAL_ARCHIVED_PLOTS>
+		<SQL_TOTAL_ACTIVE_CONTACTS>
+			SELECT COUNT(*) FROM TBL_CONTACT WHERE deleted = 0
+		</SQL_TOTAL_ACTIVE_CONTACTS>
+		<SQL_TOTAL_ARCHIVED_CONTACTS>
+			SELECT COUNT(*) FROM TBL_CONTACT WHERE deleted = 1
+		</SQL_TOTAL_ARCHIVED_CONTACTS>
+		<SQL_DETAIL_FARM_REPORT>
+			SELECT TBL_FARM.farm_id, TBL_FARM.farm_name,TBL_PLOT.plot_id,TBL_PLOT.plot_name,
+			TBL_CONTACT.contact_id, TBL_CONTACT.schedule_number, TBL_CONTACT.owner_fullname,
+			TBL_CONTACT.lot, TBL_CONTACT.block, TBL_CONTACT.subdivision, TBL_CONTACT.filing,
+			TBL_CONTACT.site_address, TBL_CONTACT.bedrooms, TBL_CONTACT.full_bath, TBL_CONTACT.three_quarter_bath,
+			TBL_CONTACT.half_bath, TBL_CONTACT.acres, TBL_CONTACT.act_mkt_comb, TBL_CONTACT.owner_first_name, TBL_CONTACT.owner_last_name,
+			TBL_CONTACT.owner_address1, TBL_CONTACT.owner_address2, TBL_CONTACT.owner_city, TBL_CONTACT.owner_state, TBL_CONTACT.owner_zip,
+			TBL_CONTACT.owner_country, TBL_CONTACT.sale_date, TBL_CONTACT.trans_amount, TBL_CONTACT.create_date, TBL_CONTACT.last_modify_date,
+			TBL_CONTACT.last_modify_by, TBL_CONTACT.deleted,TBL_FARM.user_id
+			FROM TBL_FARM INNER JOIN
+			TBL_PLOT ON TBL_FARM.farm_id = TBL_PLOT.farm_id INNER JOIN
+			TBL_CONTACT ON TBL_PLOT.plot_id = TBL_CONTACT.plot_id
+			WHERE (TBL_CONTACT.deleted = 0) AND (TBL_FARM.user_id = @UserId)
+		</SQL_DETAIL_FARM_REPORT>
+		<SQL_SEARCH_FARM_DATA>
+			SELECT TBL_FARM.farm_id, TBL_FARM.farm_name,TBL_PLOT.plot_id,TBL_PLOT.plot_name,
+			TBL_CONTACT.contact_id, TBL_CONTACT.schedule_number, TBL_CONTACT.owner_fullname,
+			TBL_CONTACT.lot, TBL_CONTACT.block, TBL_CONTACT.subdivision, TBL_CONTACT.filing,
+			TBL_CONTACT.site_address, TBL_CONTACT.bedrooms, TBL_CONTACT.full_bath, TBL_CONTACT.three_quarter_bath,
+			TBL_CONTACT.half_bath, TBL_CONTACT.acres, TBL_CONTACT.act_mkt_comb, TBL_CONTACT.owner_first_name, TBL_CONTACT.owner_last_name,
+			TBL_CONTACT.owner_address1, TBL_CONTACT.owner_address2, TBL_CONTACT.owner_city, TBL_CONTACT.owner_state, TBL_CONTACT.owner_zip,
+			TBL_CONTACT.owner_country, TBL_CONTACT.sale_date, TBL_CONTACT.trans_amount, TBL_CONTACT.create_date, TBL_CONTACT.last_modify_date,
+			TBL_CONTACT.last_modify_by, TBL_CONTACT.deleted,TBL_FARM.user_id
+			FROM TBL_FARM INNER JOIN
+			TBL_PLOT ON TBL_FARM.farm_id = TBL_PLOT.farm_id INNER JOIN
+			TBL_CONTACT ON TBL_PLOT.plot_id = TBL_CONTACT.plot_id
+		</SQL_SEARCH_FARM_DATA>
+		<SQL_MAILING_LABELS_REPORT>
+			SELECT		F.farm_name, P.plot_name, C.owner_first_name, C.owner_last_name,
+			C.owner_address1, ISNULL(C.owner_address2, '') AS owner_address2,
+			C.owner_city, C.owner_state, C.owner_zip, C.owner_country
+			FROM		TBL_CONTACT AS C INNER JOIN
+			TBL_PLOT AS P ON C.plot_id = P.plot_id INNER JOIN
+			TBL_FARM AS F ON P.farm_id = F.farm_id
+			WHERE		F.user_id = @user_id AND F.deleted = 0 AND P.deleted = 0 AND C.deleted = 0 AND
+			F.farm_id = CASE WHEN @farm_id = 0 THEN F.farm_id ELSE @farm_id END AND
+			P.plot_id = CASE WHEN @plot_id = 0 THEN P.plot_id ELSE @plot_id END
+		</SQL_MAILING_LABELS_REPORT>
+		<SP_FIRM_UP_STATUS_REPORT>
+			MC_GetFarmUpStatusSummary
+		</SP_FIRM_UP_STATUS_REPORT>
+    <SQL_FARM_DATA_REPORT>
+      SELECT  AgentId, AgentFullName, Phone, FarmCount, FarmId, FarmName, PlanId, Plan_Name, CreateDate, PlotCount, ContactCount, DeletedContactCount,
+      FirmUpStatus
+      FROM dbo.MC_GetFarmDataSummary(@UserId) AS FarmData
+    </SQL_FARM_DATA_REPORT>
+    <SP_INSERT_PLOT_EVENTS>
+      MC_AddPlotToEvents  
+    </SP_INSERT_PLOT_EVENTS>
+    <SP_DELETE_CONTACT_CONSEQUENCE>
+      MC_CheckContactDeleteConsiquence
+    </SP_DELETE_CONTACT_CONSEQUENCE>
+		<SQL_GET_FARM_NAME_OF_PLOT>
+			SELECT		F.farm_name
+			FROM		TBL_FARM AS F INNER JOIN
+			TBL_PLOT AS P ON F.farm_id = P.farm_id
+			WHERE		(P.plot_id = @plot_id)
+		</SQL_GET_FARM_NAME_OF_PLOT>
+	</Farm>
+	<Order>
+		<SQL_INSERT_ORDER>
+			INSERT INTO TBL_ORDER_HEADER
+			(order_number, order_type, order_date, amount, cc_trxn_code,cc_trxn_message,
+			card_type, card_number, cvv_code, card_owner_name,
+			card_expiry_month, card_expiry_year, address1, address2, city,
+			state_id, zip, country_id, user_id)
+			VALUES
+			(@OrderNumber, @OrderType, @OrderDate, @Amount, @TransactionCode,@TransactionMessage,
+			@CreditCardTypeId, @CreditCardNo, @CVVNo, @HolderName,
+			@ExpirationMonth, @ExpirationYear, @BillingAddress1, @BillingAddress2, @BillingCity,
+			@BillingStateId, @BillingZip, @BillingCountryId, @UserId)
+			SET @OrderId = SCOPE_IDENTITY()
+		</SQL_INSERT_ORDER>
+		<SQL_INSERT_ORDER_DETAIL>
+			INSERT INTO	TBL_ORDER_DETAILS
+			(Order_Id, line_number,product_id, Quantity, Amount)
+			VALUES
+			(@OrderId,@line_number, @ItemId, @Quantity, @Rate)
+		</SQL_INSERT_ORDER_DETAIL>
+		<SQL_GET_ORDERS>
+			SELECT   TBL_ORDER_HEADER.user_id ,  TBL_ORDER_HEADER.order_id, TBL_ORDER_HEADER.order_date, TBL_ORDER_HEADER.card_type, TBL_LOOKUP.name AS card_name,
+			TBL_ORDER_HEADER.card_number, TBL_ORDER_HEADER.amount, TBL_ORDER_HEADER.cc_trxn_code, TBL_ORDER_HEADER.address1,
+			TBL_ORDER_HEADER.address2, TBL_ORDER_HEADER.city, TBL_ORDER_HEADER.state_id, TBL_STATES.name AS state,
+			TBL_ORDER_HEADER.country_id, TBL_COUNTRIES.name AS Country, TBL_ORDER_HEADER.zip,TBL_ORDER_HEADER.order_type,TBL_ORDER_HEADER.refund_amount
+			FROM         TBL_ORDER_HEADER INNER JOIN
+			TBL_LOOKUP ON TBL_ORDER_HEADER.card_type = TBL_LOOKUP.lookup_id INNER JOIN
+			TBL_COUNTRIES ON TBL_ORDER_HEADER.country_id = TBL_COUNTRIES.country_id INNER JOIN
+			TBL_STATES ON TBL_ORDER_HEADER.state_id = TBL_STATES.state_id
+			WHERE      (DATEDIFF(month, TBL_ORDER_HEADER.order_date, GETDATE()) &lt;= 2) AND (TBL_ORDER_HEADER.user_id = @UserId) 
+		</SQL_GET_ORDERS>
+		<SQL_GET_ORDER_DETAILS>
+			SELECT     product_id, quantity, amount, order_id
+			FROM         TBL_ORDER_DETAILS
+			WHERE     (order_id = @OrderId)
+		</SQL_GET_ORDER_DETAILS>
+		<SQL_GET_SEARCH_ORDERS>
+      SELECT     TBL_APP_USER.user_name, TBL_ORDER_HEADER.order_id, TBL_ORDER_HEADER.order_date, TBL_ORDER_HEADER.card_type,
+      TBL_LOOKUP.name AS card_name, TBL_ORDER_HEADER.card_number, TBL_ORDER_HEADER.amount, TBL_ORDER_HEADER.cc_trxn_code,
+      TBL_ORDER_HEADER.address1, TBL_ORDER_HEADER.address2, TBL_ORDER_HEADER.city, TBL_ORDER_HEADER.state_id,
+      TBL_STATES.name AS state, TBL_ORDER_HEADER.country_id, TBL_COUNTRIES.name AS Country, TBL_ORDER_HEADER.zip,
+      TBL_ORDER_HEADER.order_type,TBL_ORDER_HEADER.refund_amount
+      FROM         TBL_ORDER_HEADER INNER JOIN
+      TBL_LOOKUP ON TBL_ORDER_HEADER.card_type = TBL_LOOKUP.lookup_id INNER JOIN
+      TBL_COUNTRIES ON TBL_ORDER_HEADER.country_id = TBL_COUNTRIES.country_id INNER JOIN
+      TBL_STATES ON TBL_ORDER_HEADER.state_id = TBL_STATES.state_id INNER JOIN
+      TBL_APP_USER ON TBL_ORDER_HEADER.user_id = TBL_APP_USER.user_id
+      WHERE     1=1
+    </SQL_GET_SEARCH_ORDERS>
+    <SQL_GET_INVETORY>
+      select ORDER_TYPE, ORDER_DATE, sum(QUANTITY) AS Quantity , CATEGORY_CODE,CATEGORY_NAME FROM
+      (SELECT     TBL_ORDER_HEADER.ORDER_TYPE, convert(varchar,TBL_ORDER_HEADER.ORDER_DATE,101) as order_date,
+      QUANTITY = CASE WHEN TBL_ORDER_DETAILS.QUANTITY IS NULL
+      THEN TBL_EVENT_HEADER.contact_count
+      ELSE TBL_ORDER_DETAILS.QUANTITY * TBL_PRODUCT_DETAILS.QUANTITY
+      END, TBL_ORDER_HEADER.CC_TRXN_MESSAGE,
+      CATEGORY_CODE = CASE WHEN TBL_ORDER_HEADER.ORDER_TYPE = 5
+      THEN (select category_code from tbl_product_category where upper										(category_name) = (select upper(tbl_lookup.name) from tbl_design inner join							tbl_lookup on tbl_design.category = tbl_lookup.lookup_id where design_id =							TBL_EVENT_HEADER.design_id))
+      ELSE CATEGORY_CODE
+      END,
+      CATEGORY_NAME = CASE WHEN TBL_ORDER_HEADER.ORDER_TYPE = 5
+      THEN (select category_name from tbl_product_category where upper(category_name) = (select upper(tbl_lookup.name) from tbl_design inner join							tbl_lookup on tbl_design.category = tbl_lookup.lookup_id where design_id =							TBL_EVENT_HEADER.design_id))
+      ELSE (select category_name from tbl_product_category where category_code = tbl_product_details.category_code)
+      END,TBL_ORDER_HEADER.USER_ID FROM TBL_ORDER_DETAILS RIGHT OUTER JOIN  TBL_ORDER_HEADER			ON TBL_ORDER_HEADER.ORDER_ID = TBL_ORDER_DETAILS.ORDER_ID
+      LEFT OUTER JOIN TBL_PRODUCT_HEADER ON TBL_PRODUCT_HEADER.PRODUCT_ID = TBL_ORDER_DETAILS.			PRODUCT_ID	LEFT OUTER JOIN TBL_PRODUCT_DETAILS ON TBL_PRODUCT_HEADER.PRODUCT_ID =					TBL_PRODUCT_DETAILS.PRODUCT_ID LEFT OUTER JOIN TBL_EVENT_HEADER ON TBL_ORDER_HEADER.				ORDER_ID = TBL_EVENT_HEADER.ORDER_ID WHERE TBL_ORDER_HEADER.USER_ID = @UserId AND					(TBL_ORDER_HEADER.ORDER_TYPE = 4 OR TBL_ORDER_HEADER.ORDER_TYPE = 5)) A
+      group by ORDER_TYPE, ORDER_DATE, CATEGORY_CODE,CATEGORY_NAME,quantity
+      having QUANTITY IS NOT NULL AND
+      (category_code &lt;> 100003 OR category_code is null)
+    </SQL_GET_INVETORY>
+    <SP_GET_INVENTORY_DETAILS>
+			MC_GetInventoryDetails
+		</SP_GET_INVENTORY_DETAILS>
+		<SP_INSERT_UPDATE_INVENTORY>
+			MC_InsertUpdateInventory
+		</SP_INSERT_UPDATE_INVENTORY>    
+	</Order>
+	<Design>
+		<SQL_GET_DESIGN_SUMMARY>
+			SELECT DC.lookup_id AS category_id, DC.name AS category_name,
+			DS.lookup_id AS status_id, DS.name AS status_name,
+			COUNT(D.design_id) AS design_count
+			FROM (SELECT L.lookup_id, L.name FROM TBL_LOOKUP L
+			INNER JOIN TBL_LOOKUP_CATEGORY LC ON L.lookup_category_id = LC.lookup_category_id
+			WHERE LC.name = 'Design Category') AS DC CROSS JOIN
+			(SELECT L.lookup_id, L.name FROM TBL_LOOKUP L
+			INNER JOIN TBL_LOOKUP_CATEGORY LC ON L.lookup_category_id = LC.lookup_category_id
+			WHERE LC.name = 'Design Status' AND L.name IN('Uploaded', 'Submitted', 'Hold', 'Inactivated', 'Approved')) AS DS LEFT JOIN
+			TBL_DESIGN D ON DC.lookup_id = D.category AND DS.lookup_id = D.status
+			GROUP BY DC.lookup_id, DC.name, DS.lookup_id, DS.name
+			ORDER BY DC.lookup_id, DS.lookup_id
+		</SQL_GET_DESIGN_SUMMARY>
+		<SQL_GET_DESIGNS>
+			SELECT ISNULL(D.design_id, 0) AS design_id, C.lookup_id, C.name,
+			ISNULL(D.type, 0) AS type_id, ISNULL(L1.name, '') AS type,
+			ISNULL(D.length, 0) AS length, ISNULL(D.width, 0) AS width,
+			ISNULL(D.status, 21) AS status_id, ISNULL(L2.name, 'Not Uploaded') AS status,
+			ISNULL(D.low_res_file, '') AS low_res_file
+			FROM (SELECT L.lookup_id, L.name FROM TBL_LOOKUP L
+			INNER JOIN TBL_LOOKUP_CATEGORY LC ON L.lookup_category_id = LC.lookup_category_id
+			WHERE LC.name = 'Design Category') AS C
+			LEFT JOIN TBL_DESIGN D ON C.lookup_id = D.category AND D.user_id = @user_id AND D.status != 25
+			LEFT JOIN TBL_LOOKUP L1 ON D.type = L1.lookup_id
+			LEFT JOIN TBL_LOOKUP L2 ON D.status = L2.lookup_id
+		</SQL_GET_DESIGNS>
+		<SQL_GET_DESIGNS_ALL>
+			SELECT ISNULL(D.design_id, 0) AS design_id, C.lookup_id, C.name,
+			ISNULL(D.type, 0) AS type_id, ISNULL(L1.name, '') AS type,
+			ISNULL(D.length, 0) AS length, ISNULL(D.width, 0) AS width,
+			ISNULL(D.status, 21) AS status_id, ISNULL(L2.name, 'Not Uploaded') AS status,
+			ISNULL(D.low_res_file, '') AS low_res_file,
+			ISNULL(D.last_modify_date, '1/1/1753') AS last_modify_date,
+			ISNULL(D.user_id, 0) AS user_id, U.user_name
+			FROM (SELECT L.lookup_id, L.name FROM TBL_LOOKUP L
+			INNER JOIN TBL_LOOKUP_CATEGORY LC ON L.lookup_category_id = LC.lookup_category_id
+			WHERE LC.name = 'Design Category') AS C
+			LEFT JOIN TBL_DESIGN D ON C.lookup_id = D.category AND D.user_id = @user_id
+			LEFT JOIN TBL_LOOKUP L1 ON D.type = L1.lookup_id
+			LEFT JOIN TBL_LOOKUP L2 ON D.status = L2.lookup_id
+			LEFT JOIN TBL_APP_USER U ON D.user_id = U.user_id
+			ORDER BY C.lookup_id, D.last_modify_date
+		</SQL_GET_DESIGNS_ALL>
+		<SP_UPDATE_DESIGN>
+			MC_UpdateDesign
+		</SP_UPDATE_DESIGN>
+		<SQL_GET_DESIGN>
+			SELECT D.design_id, D.user_id, D.category, L1.name AS category_name,
+			D.type, L2.name AS type_name, D.length, D.width, D.gender,
+			D.on_design_name, D.justification, D.gutter, D.msg_locn_x,
+			D.msg_locn_y, D.msg_size_length, D.msg_size_width, D.low_res_file,
+			D.high_res_file, D.extra_file, D.status, L3.name AS status_name,
+			D.create_date, D.last_modify_date, D.last_modify_by,
+			ISNULL(D.approve_date, '1/1/1753') AS approve_date,
+			ISNULL(D.approve_by, 0) AS approve_by,
+			(SELECT COUNT(*) FROM TBL_EVENT_HEADER WHERE (design_id = D.design_id)) AS design_used,
+			(SELECT COUNT(*) FROM TBL_EVENT_HEADER WHERE (design_id = D.design_id AND status NOT IN (29, 30))) AS design_active
+			FROM TBL_DESIGN AS D INNER JOIN
+			TBL_LOOKUP AS L1 ON D.category = L1.lookup_id INNER JOIN
+			TBL_LOOKUP AS L2 ON D.type = L2.lookup_id INNER JOIN
+			TBL_LOOKUP AS L3 ON D.status = L3.lookup_id
+			WHERE (D.design_id = @design_id)
+		</SQL_GET_DESIGN>
+		<SQL_GET_DESIGN_HISTORY>
+			SELECT DN.commentor_id, U.user_name, R.role_name, DN.comments, DN.event_date
+			FROM TBL_DESIGN_NOTES AS DN INNER JOIN
+			TBL_APP_USER AS U ON DN.commentor_id = U.user_id INNER JOIN
+			TBL_ROLES AS R ON U.role_id = R.role_id
+			WHERE (DN.design_id = @design_id)
+			ORDER BY DN.event_date DESC
+		</SQL_GET_DESIGN_HISTORY>
+		<SP_DELETE_DESIGN>
+			MC_DeleteDesign
+		</SP_DELETE_DESIGN>
+		<SQL_DESIGN_STATUS_REPORT>
+			SELECT		RPT.*	FROM
+			(
+			SELECT		TDC.user_id, U.first_name + ' ' + U.last_name AS agent_name, SA.phone,
+			DC.name AS category, ISNULL(DS.name, 'Not Uploaded') AS status, D.last_modify_date,
+			DATEDIFF(day, D.last_modify_date, GETDATE()) AS days_in_status, ISNULL(D.status, 21) AS status_id
+			FROM		(SELECT user_id, lookup_id FROM TBL_APP_USER CROSS JOIN TBL_LOOKUP WHERE role_id = 1 AND lookup_category_id = 5) AS TDC INNER JOIN
+			TBL_APP_USER AS U ON TDC.user_id = U.user_id INNER JOIN
+			TBL_SHIP_ADDRESS AS SA ON U.user_id = SA.ship_user_id INNER JOIN
+			TBL_LOOKUP AS DC ON TDC.lookup_id = DC.lookup_id LEFT JOIN
+			TBL_DESIGN AS D ON TDC.user_id = D.user_id AND TDC.lookup_id = D.category LEFT JOIN
+			TBL_LOOKUP AS DS ON D.status = DS.lookup_id
+			WHERE		TDC.user_id = CASE WHEN @user_id = 0 THEN TDC.user_id ELSE @user_id END AND
+			TDC.lookup_id = CASE WHEN @category = 0 THEN TDC.lookup_id ELSE @category END
+			) AS RPT
+			WHERE		RPT.status_id = CASE WHEN @status = 0 THEN RPT.status_id ELSE @status END
+			ORDER BY	RPT.agent_name, RPT.category, RPT.status
+		</SQL_DESIGN_STATUS_REPORT>
+	</Design>
+	<Schedule>
+		<SQL_GET_MAILING_PLAN_RECURSION>
+			SELECT		PR.recursion_number, PR.IsWeekday, ISNULL(PR.week_no, 0) AS week_no,
+			PR.recursion_on, PR.recursion_type, PR.recursion_count,
+			PR.product_category, PC.category_name
+			FROM		TBL_PLAN_RECURSION AS PR INNER JOIN
+			TBL_PRODUCT_CATEGORY AS PC ON PR.product_category = PC.category_code
+			WHERE		(PR.plan_id = @plan_id)
+			ORDER BY	PR.recursion_number
+		</SQL_GET_MAILING_PLAN_RECURSION>
+		<SQL_GET_MAILING_PLANS>
+			SELECT		S.farm_id, F.farm_name, S.plan_id, MP.plan_name, S.start_date, S.end_date,
+			(SELECT		COUNT(plot_id) FROM TBL_PLOT
+			WHERE		(farm_id = S.farm_id) AND (deleted = 0)) AS plot_count,
+			(SELECT		COUNT(C.contact_id) FROM TBL_CONTACT AS C INNER JOIN
+			TBL_PLOT AS P ON C.plot_id = P.plot_id
+			WHERE		(P.farm_id = S.farm_id) AND (P.deleted = 0) AND (C.deleted = 0)) AS contact_count,
+			S.schedule_id, CASE WHEN S.end_date >= GETDATE() THEN 1 ELSE 0 END AS IsActive
+			FROM		TBL_SCHEDULE AS S INNER JOIN
+			TBL_FARM AS F ON S.farm_id = F.farm_id INNER JOIN
+			TBL_MAILING_PLAN AS MP ON F.plan_id = MP.plan_id
+			WHERE		(F.user_id = @user_id)
+			ORDER BY	S.start_date DESC
+		</SQL_GET_MAILING_PLANS>
+		<SQL_GET_EVENTS>
+			SELECT		S.farm_id, F.farm_name, S.plan_id, MP.plan_name, S.start_date, S.end_date,
+			EH.event_id, EH.event_number, EH.event_date, D.category,
+			DC.name AS category_name, EH.postal_tariff,
+			ISNULL(EH.plot_count, (SELECT COUNT(plot_id) FROM TBL_PLOT WHERE farm_id = S.farm_id AND deleted = 0)) AS plot_count,
+			ISNULL(EH.contact_count, (SELECT COUNT(C.contact_id) FROM TBL_CONTACT AS C INNER JOIN TBL_PLOT AS P ON C.plot_id = P.plot_id WHERE P.farm_id = S.farm_id AND P.deleted = 0 AND C.deleted = 0)) AS contact_count,
+			EH.status, ES.name AS status_name, EH.completed_on
+			FROM		TBL_SCHEDULE AS S INNER JOIN
+			TBL_FARM AS F ON S.farm_id = F.farm_id INNER JOIN
+			TBL_MAILING_PLAN AS MP ON S.plan_id = MP.plan_id INNER JOIN
+			TBL_EVENT_HEADER AS EH ON S.schedule_id = EH.schedule_id INNER JOIN
+			TBL_DESIGN AS D ON EH.design_id = D.design_id INNER JOIN
+			TBL_LOOKUP AS DC ON D.category = DC.lookup_id INNER JOIN
+			TBL_LOOKUP AS ES ON EH.status = ES.lookup_id
+			WHERE		(S.schedule_id = @schedule_id)
+			ORDER BY	EH.event_number
+		</SQL_GET_EVENTS>
+		<SQL_GET_EVENT_DETAILS>
+			SELECT		VW_SED.farm_id, VW_SED.farm_name, VW_SED.plan_id, VW_SED.plan_name,
+			VW_SED.start_date, VW_SED.end_date, VW_SED.event_id, VW_SED.event_number,
+			VW_SED.event_date, VW_SED.category_id, VW_SED.category, VW_SED.postal_tariff,
+			1 AS plot_count, ISNULL(VW_SED.contact_count, 0) AS contact_count,
+			VW_SED.status_id, VW_SED.status, VW_SED.completed_on, VW_SED.order_id,
+			VW_SED.order_value, VW_SED.notes, VW_SED.mailing_list_file, VW_SED.remarks,
+			VW_SED.plot_id, VW_SED.plot_name, VW_SED.contact_count AS exact_count,
+			VW_SED.contact_count AS current_count, VW_SED.message_id,
+			VW_SED.message_type_id, VW_SED.message_type, VW_SED.message_text,
+			VW_SED.short_desc, VW_SED.IsImage, VW_SED.file_name, VW_SED.mailing_count,
+			VW_SED.high_res_file, EH.refund_amount, EH.exception_reported
+			FROM		VW_SCHEDULE_EVENT_DETAILS AS VW_SED INNER JOIN
+			TBL_EVENT_HEADER AS EH ON VW_SED.event_id = EH.event_id
+			WHERE		(VW_SED.event_id = @event_id)
+		</SQL_GET_EVENT_DETAILS>
+		<SQL_UPDATE_POSTAL_TARIFF>
+			UPDATE    TBL_EVENT_HEADER
+			SET              postal_tariff = @postal_tariff, notes = @notes
+			WHERE     (event_id = @event_id)
+		</SQL_UPDATE_POSTAL_TARIFF>
+		<SQL_CANCEL_EVENT>
+			UPDATE    TBL_EVENT_HEADER
+			SET              status = 30, notes = @notes
+			WHERE     (event_id = @event_id)
+		</SQL_CANCEL_EVENT>
+		<SQL_COMPLETE_EVENT>
+			UPDATE    TBL_EVENT_HEADER
+			SET              status = 29, completed_on = GETDATE(),
+			mailing_list_file = @mailing_list_file, remarks = @remarks,
+			mailing_count = @mailing_count, refund_amount = @refund_amount
+			WHERE     (event_id = @event_id);
+			UPDATE    TBL_ORDER_HEADER
+			SET              refund_amount = @refund_amount
+			WHERE     (order_id = @order_id)
+		</SQL_COMPLETE_EVENT>
+		<SQL_GET_EVENT_ENTRY_DETAILS>
+			SELECT		EH.event_id, EH.event_number, EH.event_date, S.farm_id, F.farm_name,
+			S.plan_id, MP.plan_name, S.start_date, S.end_date, EH.postal_tariff,
+			D.category, DC.name AS category_name, P.plot_id, P.plot_name, ED.message_id,
+			CONVERT(nvarchar(50), M.short_desc) AS short_desc, M.message_text, M.type,
+			MT.name AS type_name
+			FROM		TBL_SCHEDULE S INNER JOIN
+			TBL_EVENT_HEADER AS EH ON S.schedule_id = EH.schedule_id INNER JOIN
+			TBL_FARM AS F ON S.farm_id = F.farm_id INNER JOIN
+			TBL_MAILING_PLAN AS MP ON S.plan_id = MP.plan_id INNER JOIN
+			TBL_DESIGN AS D ON EH.design_id = D.design_id INNER JOIN
+			TBL_LOOKUP AS DC ON D.category = DC.lookup_id INNER JOIN
+			TBL_PLOT AS P ON S.farm_id = P.farm_id LEFT JOIN
+			TBL_EVENT_DETAILS AS ED ON EH.event_id = ED.event_id AND S.farm_id = ED.farm_id AND P.plot_id = ED.plot_id LEFT JOIN
+			TBL_MESSAGE AS M ON ED.message_id = M.message_id LEFT JOIN
+			TBL_LOOKUP AS MT ON M.type = MT.lookup_id
+			WHERE		(EH.event_id = @event_id) AND (P.plot_id = @plot_id)
+		</SQL_GET_EVENT_ENTRY_DETAILS>
+		<SQL_GET_ACTIVE_CUSTOM_MESSAGES>
+			SELECT     message_id, type, message_text, short_desc, IsImage, file_name
+			FROM         TBL_MESSAGE
+			WHERE     (owner_id = @user_id) AND (status = 1)
+		</SQL_GET_ACTIVE_CUSTOM_MESSAGES>
+		<SQL_GET_MESSAGE_DETAILS>
+			SELECT     message_id, type, message_text, short_desc, IsImage, file_name
+			FROM         TBL_MESSAGE
+			WHERE     (message_id = @message_id)
+		</SQL_GET_MESSAGE_DETAILS>
+		<SQL_INSERT_EVENT_ENTRY>
+			INSERT INTO TBL_EVENT_DETAILS
+			(farm_id, plot_id, message_id, event_id, contact_count)
+			VALUES     (@farm_id,@plot_id,@message_id,@event_id,0)
+		</SQL_INSERT_EVENT_ENTRY>
+		<SQL_UPDATE_EVENT_ENTRY>
+			UPDATE    TBL_EVENT_DETAILS
+			SET              message_id = @message_id
+			WHERE     (event_id = @event_id) AND (farm_id = @farm_id) AND (plot_id = @plot_id)
+		</SQL_UPDATE_EVENT_ENTRY>
+		<SQL_GET_EVENT_DESIGN>
+			SELECT		EH.design_id, D.length, D.width, D.gender, D.on_design_name, D.justification,
+			D.gutter, D.msg_locn_x, D.msg_locn_y, D.msg_size_length, D.msg_size_width,
+			D.low_res_file
+			FROM		TBL_EVENT_HEADER AS EH INNER JOIN
+			TBL_DESIGN AS D ON EH.design_id = D.design_id
+			WHERE		(EH.event_id = @event_id)
+		</SQL_GET_EVENT_DESIGN>
+		<SQL_GET_SCHEDULE_SUMMARY>
+			SELECT		'Active Mailing Plans' AS title, COUNT(*) AS record_count
+			FROM		TBL_SCHEDULE
+			WHERE		(end_date &gt; GETDATE())
+			UNION ALL
+			SELECT		'Delayed Shipping Events' AS title, COUNT(*) AS record_count
+			FROM		TBL_SCHEDULE AS S INNER JOIN
+			TBL_EVENT_HEADER AS EH ON S.schedule_id = EH.schedule_id
+			WHERE		(EH.status = 28) AND (event_date &lt; GETDATE())
+		</SQL_GET_SCHEDULE_SUMMARY>
+		<SQL_GET_SCHEDULE_SUMMARY_OF_USER>
+			SELECT		'Active Mailing Plans' AS title, COUNT(*) AS record_count
+			FROM		TBL_SCHEDULE AS S INNER JOIN
+			TBL_FARM AS F ON S.farm_id = F.farm_id
+			WHERE		(S.end_date &gt; GETDATE()) AND (F.user_id = @user_id)
+			UNION ALL
+			SELECT		'Delayed Shipping Events' AS title, COUNT(*) AS record_count
+			FROM		TBL_SCHEDULE AS S INNER JOIN
+			TBL_EVENT_HEADER AS EH ON S.schedule_id = EH.schedule_id INNER JOIN
+			TBL_FARM AS F ON S.farm_id = F.farm_id
+			WHERE		(EH.status = 28) AND (EH.event_date &lt; GETDATE()) AND (F.user_id = @user_id)
+		</SQL_GET_SCHEDULE_SUMMARY_OF_USER>
+		<SQL_IS_ACTIVE_FARM>
+			SELECT		COUNT(*) FROM TBL_SCHEDULE 
+			WHERE		(end_date > GETDATE()) AND farm_id = @farm_id
+		</SQL_IS_ACTIVE_FARM>
+		<SP_FIRM_UP_EVENT>
+			MC_FirmUpPlan
+		</SP_FIRM_UP_EVENT>
+		<SQL_SCHEDULE_MANAGEMENT_REPORT>
+			SELECT Schecdules.* FROM
+			(
+			SELECT		U.first_name, U.last_name, F.farm_name, MP.plan_name,
+			(SELECT COUNT(*) FROM TBL_EVENT_HEADER WHERE schedule_id = S.schedule_id) AS event_count,
+			S.start_date, S.end_date, EH.event_number, EH.event_date, DC.name AS category,
+			ES.name AS status, CASE WHEN S.end_date > GETDATE() THEN 'A' ELSE 'C' END AS ActivePlan,
+			CASE WHEN EH.event_date >= GETDATE() THEN 'F' ELSE 'P' END AS PastEvent
+			FROM		TBL_SCHEDULE AS S INNER JOIN
+			TBL_EVENT_HEADER AS EH ON S.schedule_id = EH.schedule_id INNER JOIN
+			TBL_FARM AS F ON S.farm_id = F.farm_id INNER JOIN
+			TBL_MAILING_PLAN AS MP ON F.plan_id = MP.plan_id INNER JOIN
+			TBL_APP_USER AS U ON F.user_id = U.user_id INNER JOIN
+			TBL_DESIGN AS D ON EH.design_id = D.design_id INNER JOIN
+			TBL_LOOKUP AS DC ON D.category = DC.lookup_id  INNER JOIN
+			TBL_LOOKUP AS ES ON EH.status = ES.lookup_id
+			WHERE		U.user_id = @user_id
+			AND EH.event_date >= CASE WHEN @start_date = '' THEN EH.event_date ELSE @start_date END
+			AND EH.event_date &lt;= CASE WHEN @end_date = '' THEN EH.event_date ELSE @end_date END
+			) AS Schecdules
+			WHERE Schecdules.ActivePlan = CASE WHEN @mailing_plan = '*' THEN Schecdules.ActivePlan ELSE @mailing_plan END
+			AND Schecdules.PastEvent = CASE WHEN @report_type = '*' THEN Schecdules.PastEvent ELSE @report_type END
+			ORDER BY Schecdules.start_date
+		</SQL_SCHEDULE_MANAGEMENT_REPORT>
+		<SQL_SCHEDULE_EVENTS_REPORT>
+			SELECT		user_id, first_name, last_name, phone, farm_name,
+			plan_name, start_date, end_date, event_count,
+			event_number, event_date, category, length, width,
+			high_res_file, postal_tariff, status, plot_name,
+			contact_count, message_id, short_desc
+			FROM		VW_SCHEDULE_EVENT_DETAILS
+			WHERE		user_id = CASE WHEN @user_id = 0 THEN user_id ELSE @user_id END AND
+			PlanType = CASE WHEN @plan_type = '*' THEN PlanType ELSE @plan_type END AND
+			EventType = CASE WHEN @event_type = '*' THEN EventType ELSE @event_type END AND
+			event_date >= CASE WHEN @start_date = '' THEN event_date ELSE @start_date END AND
+			event_date &lt;= CASE WHEN @end_date = '' THEN event_date ELSE @end_date END
+			ORDER BY	first_name, farm_name, event_number, plot_name
+		</SQL_SCHEDULE_EVENTS_REPORT>
+		<SQL_SCHEDULE_EVENT_CONTACTS>
+			SELECT		EH.event_number, EH.event_date, EH.farm_id, F.farm_name,
+			F.plan_id, MP.plan_name, S.start_date, S.end_date,
+			EC.plot_id, P.plot_name, EC.contact_id, EC.owner_first_name,
+			EC.owner_last_name, EC.owner_address1, ISNULL(EC.owner_address2, '') AS owner_address2,
+			EC.owner_city, EC.owner_state, EC.owner_zip, EC.owner_country
+			FROM		TBL_EVENT_HEADER AS EH INNER JOIN
+			TBL_FARM AS F ON EH.farm_id = F.farm_id INNER JOIN
+			TBL_MAILING_PLAN AS MP ON F.plan_id = MP.plan_id INNER JOIN
+			TBL_SCHEDULE AS S ON EH.schedule_id = S.schedule_id INNER JOIN
+			TBL_CONTACTLISTFORPASTEVENTS AS EC ON EH.event_id = EC.event_id INNER JOIN
+			TBL_PLOT AS P ON F.farm_id = P.farm_id AND EC.plot_id = P.plot_id
+			WHERE		(EH.event_id = @event_id)
+			ORDER BY EC.plot_id
+		</SQL_SCHEDULE_EVENT_CONTACTS>
+		<SQL_GET_AGENT_ID>
+			SELECT		F.user_id
+			FROM		TBL_EVENT_HEADER AS EH INNER JOIN
+			TBL_FARM AS F ON EH.farm_id = F.farm_id
+			WHERE		(EH.event_id = @event_id)
+		</SQL_GET_AGENT_ID>
+		<SQL_ADD_INVENTORY>
+			UPDATE		TBL_INVENTORY
+			SET			count = count + @quantity
+			WHERE		(owner_id = @owner_id) AND (category_code = @category_code)
+		</SQL_ADD_INVENTORY>
+		<SQL_GET_ACTIVE_EVENTS>
+			SELECT		COUNT(*)
+			FROM		TBL_EVENT_HEADER
+			WHERE		(schedule_id IN (SELECT schedule_id FROM TBL_EVENT_HEADER WHERE (event_id = @event_id))) AND
+			(event_id &lt;> @event_id) AND (status NOT IN (29, 30))
+		</SQL_GET_ACTIVE_EVENTS>
+		<SQL_RELEASE_FARM>
+			UPDATE		TBL_FARM
+			SET			start_date = NULL, end_date = NULL, f8_accepted = 0
+			WHERE		(farm_id = (SELECT farm_id FROM TBL_EVENT_HEADER WHERE (event_id = @event_id)));
+			UPDATE		TBL_SCHEDULE
+			SET			end_date = GETDATE()
+			WHERE		(schedule_id = (SELECT schedule_id FROM TBL_EVENT_HEADER WHERE (event_id = @event_id)))
+		</SQL_RELEASE_FARM>
+		<SQL_GET_EVENT_SUMMARY>
+			SELECT		U.user_id, U.first_name, U.last_name, S.schedule_id,
+			F.farm_id, F.farm_name, EH.event_id, EH.event_number,
+			EH.event_date, EH.status
+			FROM		TBL_EVENT_HEADER AS EH INNER JOIN
+			TBL_SCHEDULE AS S ON EH.schedule_id = S.schedule_id INNER JOIN
+			TBL_FARM AS F ON EH.farm_id = F.farm_id INNER JOIN
+			TBL_APP_USER AS U ON F.user_id = U.user_id
+			WHERE		event_id = @event_id
+		</SQL_GET_EVENT_SUMMARY>
+		<SQL_GET_EVENT_ENTRY_SUMMARY>
+			SELECT		U.user_id, U.first_name, U.last_name, S.schedule_id,
+			F.farm_id, F.farm_name, EH.event_id, EH.event_number,
+			EH.event_date, EH.status, ED.plot_id, P.plot_name
+			FROM		TBL_EVENT_HEADER AS EH INNER JOIN
+			TBL_SCHEDULE AS S ON EH.schedule_id = S.schedule_id INNER JOIN
+			TBL_FARM AS F ON EH.farm_id = F.farm_id INNER JOIN
+			TBL_APP_USER AS U ON F.user_id = U.user_id INNER JOIN
+			TBL_EVENT_DETAILS AS ED ON EH.event_id = ED.event_id INNER JOIN
+			TBL_PLOT AS P ON F.farm_id = P.farm_id AND ED.plot_id = P.plot_id
+			WHERE		(EH.event_id = @event_id) AND (ED.plot_id = @plot_id)
+		</SQL_GET_EVENT_ENTRY_SUMMARY>
+	</Schedule>
+	<Message>
+		<SQL_GET_MESSAGE_DETAILS>
+			SELECT     message_id, type, short_desc,message_text, status, IsImage, file_name, owner_id,
+			(SELECT     COUNT(message_id) AS Expr1
+			FROM          TBL_EVENT_DETAILS
+			WHERE      (message_id = TBL_MESSAGE.message_id)) AS usage_count
+			FROM         TBL_MESSAGE WHERE (1=1)
+		</SQL_GET_MESSAGE_DETAILS>
+		<SP_INSERT_MESSAGE>
+			MC_InsertMessage
+		</SP_INSERT_MESSAGE>
+		<SP_DELETE_STD_MESSAGE>
+			MC_DeleteStandardMessage
+		</SP_DELETE_STD_MESSAGE>
+		<SP_UPDATE_STD_MESSAGE>
+			MC_UpdateMessage
+		</SP_UPDATE_STD_MESSAGE>
+		<SP_GET_STD_MESSAGE>
+			MC_GetStandardMessages
+		</SP_GET_STD_MESSAGE>
+		<SP_GET_CUSTOM_MESSAGE>
+			MC_GetCustomMessages
+		</SP_GET_CUSTOM_MESSAGE>
+	</Message>
+	<Product>
+		<SP_GET_PRODUCTCATEGORIES>
+			MC_GetProductCategories
+		</SP_GET_PRODUCTCATEGORIES>
+		<SP_GET_PRODUCTS>
+			MC_GetProducts
+		</SP_GET_PRODUCTS>
+		<SP_GET_SINGLEPRODUCTDETAILS>
+			MC_GetSingleProductDetails
+		</SP_GET_SINGLEPRODUCTDETAILS>
+		<SP_INSERT_PRODUCTHEADER>
+			MC_InsertProductHeader
+		</SP_INSERT_PRODUCTHEADER>
+		<SP_INSERT_PRODUCTDETAILS>
+			MC_InsertProductDetails
+		</SP_INSERT_PRODUCTDETAILS>
+		<SP_UPDATE_PRODUCTDETAILS>
+			MC_UpdateProductDetails
+		</SP_UPDATE_PRODUCTDETAILS>
+		<SP_UPDATE_PRODUCTHEADER>
+			MC_UpdateProductHeader
+		</SP_UPDATE_PRODUCTHEADER>
+		<SP_DELETE_PRODUCT>
+			MC_DeleteProduct
+		</SP_DELETE_PRODUCT>
+		<SP_GET_INVENTORYCOUNT>
+			MC_GetInventoryLevels
+		</SP_GET_INVENTORYCOUNT>
+	</Product>
+	<ShoppingCart>
+		<SP_INSERT_CARTITEM>
+			MC_AddToCart
+		</SP_INSERT_CARTITEM>
+		<SP_GET_CARTITEMS>
+			MC_GetCartItems
+		</SP_GET_CARTITEMS>
+		<SP_GET_PROMOTIONDISCOUNT>
+			MC_GetPromotionDiscount
+		</SP_GET_PROMOTIONDISCOUNT>
+		<SP_UPDATE_CARTITEM>
+			MC_UpdateCartItem
+		</SP_UPDATE_CARTITEM>
+		<SP_DELETE_CARTITEM>
+			MC_DeleteCartItem
+		</SP_DELETE_CARTITEM>   
+	</ShoppingCart>
+  <Acca>
+    <SP_GETSCHEDULEDEVENTS>
+      MC_GetScheduledEvents
+    </SP_GETSCHEDULEDEVENTS>
+    <SP_GETCREDITCARD>
+      MC_GetUserBillingDetails
+    </SP_GETCREDITCARD>
+    <SP_UPDATESTATUSSCHEDULEDEVENTS>
+      MC_UpdateStatusScheduledEvents
+    </SP_UPDATESTATUSSCHEDULEDEVENTS>
+    <SP_UPDATESCHEDULEDEVENTS>
+      MC_UpdateScheduledEvents
+    </SP_UPDATESCHEDULEDEVENTS>
+    <SQL_DEDUCTINVENTORY>
+      Update TBL_INVENTORY SET count = count - @quantity 
+      WHERE owner_id = @user_id and category_code = @category_id
+    </SQL_DEDUCTINVENTORY>
+  </Acca>
+	<AuditTrail>
+		<SQL_WRITE_ENTRY>
+			INSERT INTO TBL_AUDIT_LOG
+			(module, record, action, owner_id, modified_by, modified_on)
+			VALUES		(@module,@record,@action,@owner_id,@modified_by,GETDATE())
+		</SQL_WRITE_ENTRY>
+	</AuditTrail>
+</sqlStaements>

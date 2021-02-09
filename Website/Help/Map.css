@@ -1,0 +1,36 @@
+body {
+	margin: 0px; padding: 0px; font-family: Tahoma; font-size: small; color: #000000; line-height: 1.2;
+}
+h5 {
+	font-weight: bold
+}
+h5.page_head {
+	margin: 8px -10px; padding: 0px 8px 8px 10px; font-size: 100%; font-weight: bold; border-bottom: #cbdbef 1px solid
+}
+p {
+	margin-top: 0.6em; margin-bottom: 0.6em
+}
+p.other_head {
+	margin-top: 1.1em; font-size: 100%; font-weight: bold
+}
+ul {
+	margin: 0.4em 0.4em 0.4em 1.7em
+}
+ul li {
+	margin-bottom: 0.4em
+}
+a:link, a:visited, a:active {
+	color: Blue; text-decoration: none
+}
+a:hover {
+	color: Blue; text-decoration: underline
+}
+#contents {
+	padding: 8px 10px 15px 10px; font-size: 90%; background-color: #ffffff
+}
+#footer {
+	border-top: #cbdbef 1px solid; padding-top: 1em; text-align: center
+}
+.more_info {
+	margin-bottom: 1.1em
+}

@@ -1,0 +1,101 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AgentMasterPage.master.cs" Inherits="Agent_AgentMasterPage" MasterPageFile="~/MasterPage.master"  %>
+<%@ Register Src="~/WebUserControls/LeftNavMenuWebUserControl.ascx" TagName="LeftNavMenuWebUserControl" TagPrefix="uc1" %>
+
+<asp:Content ContentPlaceHolderID="ContentPlaceHolderLeftPanelText" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderLeftPanelText" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHomePage" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHomePage" runat="server" />
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderPageTitleText" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderPageTitleText" runat="server" />
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server" />
+</asp:Content>
+
+
+<asp:Content ID="DateTimeContent" ContentPlaceHolderID="ContentPlaceHolderDateTime" runat="server">
+    <span style="font-size:0.9em; color:#333333">
+        <asp:Label ID="pageDateLabel" runat="server"></asp:Label>
+         </span>&nbsp;
+</asp:Content>
+
+<asp:Content ID="LoginContent" ContentPlaceHolderID="ContentPlaceHolderLogin" runat="server">
+    <asp:Panel ID="LoginPanel" runat="server">
+    Logged in as <asp:Label ID="NameLabel" runat="server"></asp:Label> / <asp:Label ID="RoleLabel" runat="server"></asp:Label> | <asp:LinkButton ID="LogoutLinkButton" CausesValidation="false" runat="server" OnClick="LogoutLinkButton_Click" CssClass="logout" Text="Logout"></asp:LinkButton>&nbsp;
+    </asp:Panel>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderLeftPanelMenu" runat="server">
+    <script type="text/javascript">
+    <!--
+    function OpenAgentReport(reportLocation , reportTitle)
+    {
+        var w = 800;
+        var h = 600;
+            
+        var left = (screen.width - w) / 2;
+        var top = (screen.height - h) / 2;
+             
+        window.open(reportLocation , reportTitle, "toolbar=0,scrollbars=1,location=0,statusbar=1,menubar=0,resizable=0,width=" + w + ",height=" + h + ",left=" + left + ",top=" + top + "");
+    }
+    
+    function ele(eid)
+	{
+		return document.getElementById(eid);
+	}
+	
+	function showMenu(eid)
+	{
+		var e = ele(eid);
+		e.style.display = "block";
+	}
+	
+	function hideMenu(eid)
+	{
+		var e = ele(eid);
+		e.style.display = "none";
+	}
+    //-->    
+    </script>
+            <uc1:LeftNavMenuWebUserControl id="LeftNavMenuWebUserControl1" runat="server">
+             </uc1:LeftNavMenuWebUserControl>                                                     
+
+			   <!-- 
+			    <div id="left-nav">
+                    <div class="vertical-menu">
+	                    <div class="menu-item"><a id="a_Welcome" runat="server" href="~/Members/Welcome.aspx">Welcome Page </a></div>
+	                    <div class="menu-item"><a id="a_FarmManagement" runat="server" href="~/Members/FarmManagement.aspx">Farm Management </a></div>
+	                    <div class="menu-item"><a id="a_DesignManagement" runat="server" href="~/Members/DesignManagement.aspx">Design Management </a></div>
+                        <div class="menu-item"><a id="a_MessageManagement" runat="server" href="~/Members/MessageManagement.aspx">Message Management </a></div>
+                        <div class="menu-item"><a id="a_ScheduleManagement" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/ScheduleManagement.aspx">Schedule Management </a></div>
+                        <div class="menu-item"><a id="a_ProductCatalog" runat="server" href="~/Members/ProductCatalog.aspx">Product Catalog </a></div>
+                        <div class="menu-item"><a id="a_ShoppingCart" runat="server" href="~/Members/ShoppingCart.aspx">Shopping Cart </a></div>
+                        <div class="menu-item"><a id="a_SearchFarmData" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/SearchFarmData.aspx">Search Farm Data </a></div>
+                        <div class="menu-item"><a id="a_BillingHistory" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/BillingHistory.aspx">Billing History </a></div>
+                        <div class="menu-item"><a id="a_SearchOrders" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/SearchOrders.aspx">Search Orders</a></div>
+                        <div class="menu-item"><a id="Inventory" runat="server" href="~/Members/Inventory.aspx">Inventory</a></div>
+                        <div class="menu-item" onmouseover="showMenu('menu_AgentReports')" onmouseout="hideMenu('menu_AgentReports')"><a href="javascript: void(0);">Agent Reports &gt;&gt; </a>
+                            <div id="menu_AgentReports" class="submenu">
+                                <div class="menu-item"><a id="a_rep_BillingHistory" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/Reports/rpt_BillingHistory_Criteria.aspx">Billing History</a></div>
+		                        <div class="menu-item"><a id="a_rep_ScheduleManagement" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/Reports/rpt_ScheduleManagement_Criteria.aspx">Schedule Management</a></div>
+		                        <div class="menu-item"><a id="a_rep_Inventory" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/Reports/rpt_InventoryReport_Criteria.aspx">Inventory</a></div>
+		                        <div class="menu-item"><a id="a_rep_FarmPlot" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/Reports/rpt_FarmPlot.aspx">Farm Plot</a></div>
+		                        <div class="menu-item"><a id="a_ContactList" runat="server" href="javascript: alert('Under development.'); //remove upto here~/Members/Reports/rpt_ContactList.aspx">Contact List</a></div>
+                            </div>
+                        </div>
+                        <div class="menu-item" onmouseover="showMenu('menu_MyAccount')" onmouseout="hideMenu('menu_MyAccount')"><a href="javascript: void(0);">My Account &gt;&gt; </a>
+                            <div id="menu_MyAccount" class="submenu">
+                                <div class="menu-item"><a id="a_ChangeUserPassword" runat="server" href="~/Members/ChangeUserPassword.aspx">Change Password</a></div>
+                                <div class="menu-item"><a id="a_ChangeProfile" runat="server" href="~/Members/ChangeProfile.aspx">Update Profile</a></div>
+                                <div class="menu-item"><a id="a_ChangeCreditCard" runat="server" href="~/Members/ChangeCreditCard.aspx">Update Credit Card</a></div>
+                                <div class="menu-item"><a id="a_ChangeSecurityQuestion" runat="server" href="~/Members/ChangeSecurityQuestion.aspx">Change Secret Question</a></div>
+                            </div>  
+                        </div>
+	                </div>
+	                <p>&nbsp;</p>
+	                <p>&nbsp;</p>
+	                <p>&nbsp;</p>
+	            </div>-->
+
+</asp:Content>
