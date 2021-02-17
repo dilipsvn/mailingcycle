@@ -1,13 +1,16 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Website\", "Website\", "{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = ""
 		SccAuxPath = ""
 		SccLocalPath = ""
 		SccProvider = ""
-		ProjectReferences = "{ABDC69F9-118F-41DB-BB00-C8894D03EBFD}|Irmac.MailingCycle.BLLServiceLoader.dll;{A1FF0826-B957-4ECD-A783-5B83B1D7CF34}|Irmac.MailingCycle.DAL.dll;{53626966-89C4-43A2-8A56-8E71A75C7CB0}|Irmac.MailingCycle.BLL.dll;{D95C0921-B1A3-4F82-B0AF-B8EA11B4852D}|TemplateParser.dll;"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{ABDC69F9-118F-41DB-BB00-C8894D03EBFD}|Irmac.MailingCycle.BLLServiceLoader.dll;{A1FF0826-B957-4ECD-A783-5B83B1D7CF34}|Irmac.MailingCycle.DAL.dll;{53626966-89C4-43A2-8A56-8E71A75C7CB0}|Irmac.MailingCycle.BLL.dll;{D95C0921-B1A3-4F82-B0AF-B8EA11B4852D}|TemplateParser.dll;{15F3F69E-3C44-4EA5-8655-03461227FCC0}|Irmac.MailingCycle.IDAL.dll;{3F377FBE-9FD7-4902-929A-C4C782324383}|Irmac.MailingCycle.Model.dll;{62949EAE-1DBB-436D-B319-DB225C67A4A4}|Irmac.MailingCycle.DALFactory.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Website"
 		Debug.AspNetCompiler.PhysicalPath = "Website\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
@@ -23,6 +26,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Website\", "Website\
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "1070"
+		SlnRelativePath = "Website\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
@@ -36,13 +40,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALFactory", "DALFactory\DA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{53626966-89C4-43A2-8A56-8E71A75C7CB0}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\BLLService\", "BLLService\", "{8B26E760-7A5D-4436-8933-B058E303C624}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BLLService", "BLLService\", "{8B26E760-7A5D-4436-8933-B058E303C624}"
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = ""
 		SccAuxPath = ""
 		SccLocalPath = ""
 		SccProvider = ""
-		ProjectReferences = "{53626966-89C4-43A2-8A56-8E71A75C7CB0}|BLL.dll;{A1FF0826-B957-4ECD-A783-5B83B1D7CF34}|DAL.dll;"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{53626966-89C4-43A2-8A56-8E71A75C7CB0}|Irmac.MailingCycle.BLL.dll;{A1FF0826-B957-4ECD-A783-5B83B1D7CF34}|Irmac.MailingCycle.DAL.dll;{15F3F69E-3C44-4EA5-8655-03461227FCC0}|Irmac.MailingCycle.IDAL.dll;{3F377FBE-9FD7-4902-929A-C4C782324383}|Irmac.MailingCycle.Model.dll;{62949EAE-1DBB-436D-B319-DB225C67A4A4}|Irmac.MailingCycle.DALFactory.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/BLLService"
 		Debug.AspNetCompiler.PhysicalPath = "BLLService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\BLLService\"
@@ -58,6 +63,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\BLLService\", "BLLSe
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "1073"
+		SlnRelativePath = "BLLService\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
@@ -78,8 +84,8 @@ Global
 		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Debug|.NET.ActiveCfg = Debug|.NET
 		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Debug|.NET.Build.0 = Debug|.NET
 		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Debug|Any CPU.ActiveCfg = Debug|.NET
-		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
-		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Release|.NET.ActiveCfg = Debug|.NET
 		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Release|.NET.Build.0 = Debug|.NET
 		{A4F7B422-F5C3-46C1-A41F-4D63CA9EC98F}.Release|Any CPU.ActiveCfg = Debug|.NET
@@ -138,8 +144,8 @@ Global
 		{8B26E760-7A5D-4436-8933-B058E303C624}.Debug|.NET.ActiveCfg = Debug|.NET
 		{8B26E760-7A5D-4436-8933-B058E303C624}.Debug|.NET.Build.0 = Debug|.NET
 		{8B26E760-7A5D-4436-8933-B058E303C624}.Debug|Any CPU.ActiveCfg = Debug|.NET
-		{8B26E760-7A5D-4436-8933-B058E303C624}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
-		{8B26E760-7A5D-4436-8933-B058E303C624}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{8B26E760-7A5D-4436-8933-B058E303C624}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8B26E760-7A5D-4436-8933-B058E303C624}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{8B26E760-7A5D-4436-8933-B058E303C624}.Release|.NET.ActiveCfg = Debug|.NET
 		{8B26E760-7A5D-4436-8933-B058E303C624}.Release|.NET.Build.0 = Debug|.NET
 		{8B26E760-7A5D-4436-8933-B058E303C624}.Release|Any CPU.ActiveCfg = Debug|.NET
@@ -168,5 +174,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDC9FFA1-7F3E-4536-933A-D039AA4487EE}
 	EndGlobalSection
 EndGlobal

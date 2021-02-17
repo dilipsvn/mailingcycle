@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mc.mkbedev.com/BLLService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mc.mkbedev.com/BLLService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mc.mkbedev.com/BLLService/">
+      <s:element name="GetSummary">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSummaryResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RectangleF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Location" type="tns:PointF" />
+          <s:element minOccurs="1" maxOccurs="1" name="Size" type="tns:SizeF" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PointF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SizeF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BaseInfo" abstract="true" />
+      <s:complexType name="LookupInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="LookupId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DesignInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="DesignId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Category" type="tns:LookupInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" type="tns:LookupInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="Size" type="tns:SizeF" />
+              <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OnDesignName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Justification" type="tns:JustificationType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Gutter" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MessageRectangle" type="tns:RectangleF" />
+              <s:element minOccurs="0" maxOccurs="1" name="LowResolutionFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HighResolutionFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExtraFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:LookupInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyBy" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ApproveDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ApproveBy" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="History" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Used" type="tns:DesignUsed" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="JustificationType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Left" />
+          <s:enumeration value="Right" />
+          <s:enumeration value="Center" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DesignUsed">
+        <s:restriction base="s:string">
+          <s:enumeration value="Never" />
+          <s:enumeration value="Found" />
+          <s:enumeration value="FoundActive" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfDesignInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DesignInfo" nillable="true" type="tns:DesignInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListResult" type="tns:ArrayOfDesignInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListAllResult" type="tns:ArrayOfDesignInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="design" type="tns:DesignInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="designId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResult" type="tns:DesignInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="designId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDesignStatuses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="category" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDesignStatusInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DesignStatusInfo" nillable="true" type="tns:DesignStatusInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DesignStatusInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AgentId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgentName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastModifyDate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DaysInStatus" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetDesignStatusesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDesignStatusesResult" type="tns:ArrayOfDesignStatusInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfAnyType" nillable="true" type="tns:ArrayOfAnyType" />
+      <s:element name="ArrayOfDesignInfo" nillable="true" type="tns:ArrayOfDesignInfo" />
+      <s:element name="DesignInfo" nillable="true" type="tns:DesignInfo" />
+      <s:element name="ArrayOfDesignStatusInfo" nillable="true" type="tns:ArrayOfDesignStatusInfo" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListAll" />
+  </wsdl:message>
+  <wsdl:message name="GetListAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDesignStatusesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDesignStatuses" />
+  </wsdl:message>
+  <wsdl:message name="GetDesignStatusesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDesignStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryHttpGetIn" />
+  <wsdl:message name="GetSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="GetListHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDesignInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetListAllHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetListAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDesignInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetHttpGetIn">
+    <wsdl:part name="designId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHttpGetOut">
+    <wsdl:part name="Body" element="tns:DesignInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpGetIn">
+    <wsdl:part name="designId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpGetOut" />
+  <wsdl:message name="GetDesignStatusesHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDesignStatusesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDesignStatusInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryHttpPostIn" />
+  <wsdl:message name="GetSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="GetListHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDesignInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetListAllHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetListAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDesignInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetHttpPostIn">
+    <wsdl:part name="designId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHttpPostOut">
+    <wsdl:part name="Body" element="tns:DesignInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpPostIn">
+    <wsdl:part name="designId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteHttpPostOut" />
+  <wsdl:message name="GetDesignStatusesHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDesignStatusesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDesignStatusInfo" />
+  </wsdl:message>
+  <wsdl:portType name="DesignServiceSoap">
+    <wsdl:operation name="GetSummary">
+      <wsdl:input message="tns:GetSummarySoapIn" />
+      <wsdl:output message="tns:GetSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListSoapIn" />
+      <wsdl:output message="tns:GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListAll">
+      <wsdl:input message="tns:GetListAllSoapIn" />
+      <wsdl:output message="tns:GetListAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input message="tns:GetSoapIn" />
+      <wsdl:output message="tns:GetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input message="tns:DeleteSoapIn" />
+      <wsdl:output message="tns:DeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignStatuses">
+      <wsdl:input message="tns:GetDesignStatusesSoapIn" />
+      <wsdl:output message="tns:GetDesignStatusesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DesignServiceHttpGet">
+    <wsdl:operation name="GetSummary">
+      <wsdl:input message="tns:GetSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListHttpGetIn" />
+      <wsdl:output message="tns:GetListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListAll">
+      <wsdl:input message="tns:GetListAllHttpGetIn" />
+      <wsdl:output message="tns:GetListAllHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input message="tns:GetHttpGetIn" />
+      <wsdl:output message="tns:GetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input message="tns:DeleteHttpGetIn" />
+      <wsdl:output message="tns:DeleteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignStatuses">
+      <wsdl:input message="tns:GetDesignStatusesHttpGetIn" />
+      <wsdl:output message="tns:GetDesignStatusesHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DesignServiceHttpPost">
+    <wsdl:operation name="GetSummary">
+      <wsdl:input message="tns:GetSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListHttpPostIn" />
+      <wsdl:output message="tns:GetListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListAll">
+      <wsdl:input message="tns:GetListAllHttpPostIn" />
+      <wsdl:output message="tns:GetListAllHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input message="tns:GetHttpPostIn" />
+      <wsdl:output message="tns:GetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input message="tns:DeleteHttpPostIn" />
+      <wsdl:output message="tns:DeleteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignStatuses">
+      <wsdl:input message="tns:GetDesignStatusesHttpPostIn" />
+      <wsdl:output message="tns:GetDesignStatusesHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DesignServiceSoap" type="tns:DesignServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSummary">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListAll">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetListAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignStatuses">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetDesignStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DesignServiceSoap12" type="tns:DesignServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSummary">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListAll">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetListAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignStatuses">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetDesignStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DesignServiceHttpGet" type="tns:DesignServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetSummary">
+      <http:operation location="/GetSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <http:operation location="/GetList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListAll">
+      <http:operation location="/GetListAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <http:operation location="/Get" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <http:operation location="/Delete" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignStatuses">
+      <http:operation location="/GetDesignStatuses" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DesignServiceHttpPost" type="tns:DesignServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetSummary">
+      <http:operation location="/GetSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <http:operation location="/GetList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListAll">
+      <http:operation location="/GetListAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <http:operation location="/Get" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <http:operation location="/Delete" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignStatuses">
+      <http:operation location="/GetDesignStatuses" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DesignService">
+    <wsdl:port name="DesignServiceSoap" binding="tns:DesignServiceSoap">
+      <soap:address location="http://mc1.mkbedev.com/BLLService/DesignService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DesignServiceSoap12" binding="tns:DesignServiceSoap12">
+      <soap12:address location="http://mc1.mkbedev.com/BLLService/DesignService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DesignServiceHttpGet" binding="tns:DesignServiceHttpGet">
+      <http:address location="http://mc1.mkbedev.com/BLLService/DesignService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DesignServiceHttpPost" binding="tns:DesignServiceHttpPost">
+      <http:address location="http://mc1.mkbedev.com/BLLService/DesignService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

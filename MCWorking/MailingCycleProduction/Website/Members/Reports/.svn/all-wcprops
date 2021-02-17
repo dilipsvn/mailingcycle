@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/Projects/!svn/ver/1185/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports
+END
+ScheduleEventsReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/ScheduleEventsReport.rdlc
+END
+MailingLabelsReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/MailingLabelsReport.rdlc
+END
+EventMailingLabelsReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/EventMailingLabelsReport.rdlc
+END
+FarmReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/FarmReport.rdlc
+END
+BillingHistory.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/BillingHistory.rdlc
+END
+FirmUpStatusReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/FirmUpStatusReport.rdlc
+END
+MessagesReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/MessagesReport.rdlc
+END
+ScheduleManagementReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/ScheduleManagementReport.rdlc
+END
+ContactList.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/ContactList.rdlc
+END
+FarmPlotContactListReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/Projects/!svn/ver/1185/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/FarmPlotContactListReport.rdlc
+END
+DesignStatusReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/DesignStatusReport.rdlc
+END
+InventoryReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/InventoryReport.rdlc
+END
+FarmDataReport.rdlc
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Reports/FarmDataReport.rdlc
+END

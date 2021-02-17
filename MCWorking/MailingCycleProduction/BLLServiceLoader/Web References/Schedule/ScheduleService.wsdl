@@ -1,0 +1,2046 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mc.mkbedev.com/BLLService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mc.mkbedev.com/BLLService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mc.mkbedev.com/BLLService/">
+      <s:element name="GetPlanEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="planId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlanEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlanEventsResult" type="tns:ArrayOfScheduleEventInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScheduleEventInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduleEventInfo" nillable="true" type="tns:ScheduleEventInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduleEventInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="EventId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EventNumber" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EventDate" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProductType" type="tns:LookupInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="DesignFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostalTariff" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberOfPlots" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberOfContacts" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:LookupInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompletedOn" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderValue" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingListFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MailingCount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Entries" type="tns:ArrayOfScheduleEventEntryInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="RefundAmount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExceptionReported" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseInfo" abstract="true" />
+      <s:complexType name="MessageInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IsDefaultMessage" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EventInProgress" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UsageCount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsImage" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MessageTextShort" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MessageType" type="tns:MessageType" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:MessageStatus" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShortDesc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MessageText" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="MessageType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Standard" />
+          <s:enumeration value="Custom" />
+          <s:enumeration value="NullType" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MessageStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Active" />
+          <s:enumeration value="InActive" />
+          <s:enumeration value="NullStatus" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ScheduleEventEntryInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PlotId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlotName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberOfContacts" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Message" type="tns:MessageInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LookupInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="LookupId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfScheduleEventEntryInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduleEventEntryInfo" nillable="true" type="tns:ScheduleEventEntryInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMailingPlans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="planType" type="tns:PlanType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="PlanType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Active" />
+          <s:enumeration value="Completed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetMailingPlansResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailingPlansResult" type="tns:ArrayOfScheduleInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScheduleInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduleInfo" nillable="true" type="tns:ScheduleInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduleInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ScheduleId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Plan" type="tns:MailingPlanInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberOfPlots" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberOfContacts" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Events" type="tns:ArrayOfScheduleEventInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MailingPlanInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MailingPlanId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetEvents">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="scheduleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEventsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEventsResult" type="tns:ScheduleInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEventEntries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEventEntriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEventEntriesResult" type="tns:ScheduleInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePostalTariff">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalTariff" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePostalTariffResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CancelEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CompleteEvent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailingListFile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="remarks" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mailingCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompleteEventResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEventEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEventEntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEventEntryResult" type="tns:ScheduleInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveCustomMessages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveCustomMessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveCustomMessagesResult" type="tns:ArrayOfMessageInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessageInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="messageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMessageResult" type="tns:MessageInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertEventEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertEventEntryResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateEventEntry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEventEntryResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDesign">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDesignResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDesignResult" type="tns:DesignInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DesignInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="DesignId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Category" type="tns:LookupInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="Type" type="tns:LookupInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="Size" type="tns:SizeF" />
+              <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OnDesignName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Justification" type="tns:JustificationType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Gutter" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MessageRectangle" type="tns:RectangleF" />
+              <s:element minOccurs="0" maxOccurs="1" name="LowResolutionFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HighResolutionFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExtraFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:LookupInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyBy" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ApproveDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ApproveBy" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="History" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Used" type="tns:DesignUsed" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SizeF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="JustificationType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Left" />
+          <s:enumeration value="Right" />
+          <s:enumeration value="Center" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RectangleF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Location" type="tns:PointF" />
+          <s:element minOccurs="1" maxOccurs="1" name="Size" type="tns:SizeF" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Height" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PointF">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DesignUsed">
+        <s:restriction base="s:string">
+          <s:enumeration value="Never" />
+          <s:enumeration value="Found" />
+          <s:enumeration value="FoundActive" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetSummary">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSummaryResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSummaryOfUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSummaryOfUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSummaryOfUserResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsActive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsActiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsActiveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="planId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FirmUpResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSchedulesReportSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mailingPlan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScheduleSummaryInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduleSummaryInfo" nillable="true" type="tns:ScheduleSummaryInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduleSummaryInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AgentId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgentName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EventType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlanType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DateRangeStart" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DateRangeEnd" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlanName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="EventCount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="EventNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="EventDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HighResolutionFile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PostalTariff" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlotName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContactCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MessageShortText" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetSchedulesReportSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSchedulesReportSummaryResult" type="tns:ArrayOfScheduleSummaryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleEventsReportSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="planType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="urlPath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleEventsReportSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScheduleEventsReportSummaryResult" type="tns:ArrayOfScheduleSummaryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetScheduleEventContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScheduleEventContactInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduleEventContactInfo" nillable="true" type="tns:ScheduleEventContactInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduleEventContactInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="EventNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="EventDate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PlanId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlanName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PlotId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlotName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContactId" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetScheduleEventContactsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetScheduleEventContactsResult" type="tns:ArrayOfScheduleEventContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailingLabels">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eventId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfScheduleEventMailingLabelInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ScheduleEventMailingLabelInfo" nillable="true" type="tns:ScheduleEventMailingLabelInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ScheduleEventMailingLabelInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EventDate" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlanName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlotName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingLabel_1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingLabel_2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingLabel_3" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetMailingLabelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailingLabelsResult" type="tns:ArrayOfScheduleEventMailingLabelInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfScheduleEventInfo" nillable="true" type="tns:ArrayOfScheduleEventInfo" />
+      <s:element name="ArrayOfScheduleInfo" nillable="true" type="tns:ArrayOfScheduleInfo" />
+      <s:element name="ScheduleInfo" nillable="true" type="tns:ScheduleInfo" />
+      <s:element name="ArrayOfMessageInfo" nillable="true" type="tns:ArrayOfMessageInfo" />
+      <s:element name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+      <s:element name="DesignInfo" nillable="true" type="tns:DesignInfo" />
+      <s:element name="ArrayOfAnyType" nillable="true" type="tns:ArrayOfAnyType" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfScheduleSummaryInfo" nillable="true" type="tns:ArrayOfScheduleSummaryInfo" />
+      <s:element name="ArrayOfScheduleEventContactInfo" nillable="true" type="tns:ArrayOfScheduleEventContactInfo" />
+      <s:element name="ArrayOfScheduleEventMailingLabelInfo" nillable="true" type="tns:ArrayOfScheduleEventMailingLabelInfo" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPlanEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlanEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetPlanEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlanEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlansSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailingPlans" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlansSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailingPlansResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEventsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEvents" />
+  </wsdl:message>
+  <wsdl:message name="GetEventsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEventEntries" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEventEntriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePostalTariffSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePostalTariff" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePostalTariffSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePostalTariffResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelEventSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelEvent" />
+  </wsdl:message>
+  <wsdl:message name="CancelEventSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompleteEventSoapIn">
+    <wsdl:part name="parameters" element="tns:CompleteEvent" />
+  </wsdl:message>
+  <wsdl:message name="CompleteEventSoapOut">
+    <wsdl:part name="parameters" element="tns:CompleteEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:GetEventEntry" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:GetEventEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveCustomMessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveCustomMessages" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveCustomMessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveCustomMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertEventEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:InsertEventEntry" />
+  </wsdl:message>
+  <wsdl:message name="InsertEventEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:InsertEventEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEventEntrySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEventEntry" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEventEntrySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEventEntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDesignSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDesign" />
+  </wsdl:message>
+  <wsdl:message name="GetDesignSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDesignResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryOfUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSummaryOfUser" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryOfUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSummaryOfUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsActiveSoapIn">
+    <wsdl:part name="parameters" element="tns:IsActive" />
+  </wsdl:message>
+  <wsdl:message name="IsActiveSoapOut">
+    <wsdl:part name="parameters" element="tns:IsActiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="FirmUpSoapIn">
+    <wsdl:part name="parameters" element="tns:FirmUp" />
+  </wsdl:message>
+  <wsdl:message name="FirmUpSoapOut">
+    <wsdl:part name="parameters" element="tns:FirmUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulesReportSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSchedulesReportSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulesReportSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSchedulesReportSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventsReportSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetScheduleEventsReportSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventsReportSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetScheduleEventsReportSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetScheduleEventContacts" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetScheduleEventContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailingLabels" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailingLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlanEventsHttpGetIn">
+    <wsdl:part name="planId" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlanEventsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleEventInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlansHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="planType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlansHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEventsHttpGetIn">
+    <wsdl:part name="scheduleId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEventsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntriesHttpGetIn">
+    <wsdl:part name="eventId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntriesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePostalTariffHttpGetIn">
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="postalTariff" type="s:string" />
+    <wsdl:part name="notes" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePostalTariffHttpGetOut" />
+  <wsdl:message name="CancelEventHttpGetIn">
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="notes" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelEventHttpGetOut" />
+  <wsdl:message name="CompleteEventHttpGetIn">
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="mailingListFile" type="s:string" />
+    <wsdl:part name="remarks" type="s:string" />
+    <wsdl:part name="mailingCount" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CompleteEventHttpGetOut" />
+  <wsdl:message name="GetEventEntryHttpGetIn">
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveCustomMessagesHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveCustomMessagesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMessageInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpGetIn">
+    <wsdl:part name="messageId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:MessageInfo" />
+  </wsdl:message>
+  <wsdl:message name="InsertEventEntryHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="messageId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertEventEntryHttpGetOut" />
+  <wsdl:message name="UpdateEventEntryHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="messageId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEventEntryHttpGetOut" />
+  <wsdl:message name="GetDesignHttpGetIn">
+    <wsdl:part name="eventId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDesignHttpGetOut">
+    <wsdl:part name="Body" element="tns:DesignInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryHttpGetIn" />
+  <wsdl:message name="GetSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryOfUserHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryOfUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="IsActiveHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsActiveHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FirmUpHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="planId" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FirmUpHttpGetOut" />
+  <wsdl:message name="GetSchedulesReportSummaryHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="reportType" type="s:string" />
+    <wsdl:part name="mailingPlan" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulesReportSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleSummaryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventsReportSummaryHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="planType" type="s:string" />
+    <wsdl:part name="eventType" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+    <wsdl:part name="urlPath" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventsReportSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleSummaryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventContactsHttpGetIn">
+    <wsdl:part name="eventId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventContactsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleEventContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsHttpGetIn">
+    <wsdl:part name="eventId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleEventMailingLabelInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPlanEventsHttpPostIn">
+    <wsdl:part name="planId" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlanEventsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleEventInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlansHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="planType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlansHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEventsHttpPostIn">
+    <wsdl:part name="scheduleId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEventsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntriesHttpPostIn">
+    <wsdl:part name="eventId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntriesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePostalTariffHttpPostIn">
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="postalTariff" type="s:string" />
+    <wsdl:part name="notes" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePostalTariffHttpPostOut" />
+  <wsdl:message name="CancelEventHttpPostIn">
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="notes" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelEventHttpPostOut" />
+  <wsdl:message name="CompleteEventHttpPostIn">
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="mailingListFile" type="s:string" />
+    <wsdl:part name="remarks" type="s:string" />
+    <wsdl:part name="mailingCount" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CompleteEventHttpPostOut" />
+  <wsdl:message name="GetEventEntryHttpPostIn">
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetEventEntryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ScheduleInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveCustomMessagesHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveCustomMessagesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMessageInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpPostIn">
+    <wsdl:part name="messageId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:MessageInfo" />
+  </wsdl:message>
+  <wsdl:message name="InsertEventEntryHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="messageId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InsertEventEntryHttpPostOut" />
+  <wsdl:message name="UpdateEventEntryHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="eventId" type="s:string" />
+    <wsdl:part name="messageId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateEventEntryHttpPostOut" />
+  <wsdl:message name="GetDesignHttpPostIn">
+    <wsdl:part name="eventId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDesignHttpPostOut">
+    <wsdl:part name="Body" element="tns:DesignInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryHttpPostIn" />
+  <wsdl:message name="GetSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryOfUserHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSummaryOfUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="IsActiveHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsActiveHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="FirmUpHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="planId" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FirmUpHttpPostOut" />
+  <wsdl:message name="GetSchedulesReportSummaryHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="reportType" type="s:string" />
+    <wsdl:part name="mailingPlan" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSchedulesReportSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleSummaryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventsReportSummaryHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="planType" type="s:string" />
+    <wsdl:part name="eventType" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+    <wsdl:part name="urlPath" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventsReportSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleSummaryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventContactsHttpPostIn">
+    <wsdl:part name="eventId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetScheduleEventContactsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleEventContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsHttpPostIn">
+    <wsdl:part name="eventId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfScheduleEventMailingLabelInfo" />
+  </wsdl:message>
+  <wsdl:portType name="ScheduleServiceSoap">
+    <wsdl:operation name="GetPlanEvents">
+      <wsdl:input message="tns:GetPlanEventsSoapIn" />
+      <wsdl:output message="tns:GetPlanEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlans">
+      <wsdl:input message="tns:GetMailingPlansSoapIn" />
+      <wsdl:output message="tns:GetMailingPlansSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <wsdl:input message="tns:GetEventsSoapIn" />
+      <wsdl:output message="tns:GetEventsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntries">
+      <wsdl:input message="tns:GetEventEntriesSoapIn" />
+      <wsdl:output message="tns:GetEventEntriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePostalTariff">
+      <wsdl:input message="tns:UpdatePostalTariffSoapIn" />
+      <wsdl:output message="tns:UpdatePostalTariffSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <wsdl:input message="tns:CancelEventSoapIn" />
+      <wsdl:output message="tns:CancelEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteEvent">
+      <wsdl:input message="tns:CompleteEventSoapIn" />
+      <wsdl:output message="tns:CompleteEventSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntry">
+      <wsdl:input message="tns:GetEventEntrySoapIn" />
+      <wsdl:output message="tns:GetEventEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCustomMessages">
+      <wsdl:input message="tns:GetActiveCustomMessagesSoapIn" />
+      <wsdl:output message="tns:GetActiveCustomMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageSoapIn" />
+      <wsdl:output message="tns:GetMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventEntry">
+      <wsdl:input message="tns:InsertEventEntrySoapIn" />
+      <wsdl:output message="tns:InsertEventEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEventEntry">
+      <wsdl:input message="tns:UpdateEventEntrySoapIn" />
+      <wsdl:output message="tns:UpdateEventEntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesign">
+      <wsdl:input message="tns:GetDesignSoapIn" />
+      <wsdl:output message="tns:GetDesignSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSummary">
+      <wsdl:input message="tns:GetSummarySoapIn" />
+      <wsdl:output message="tns:GetSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryOfUser">
+      <wsdl:input message="tns:GetSummaryOfUserSoapIn" />
+      <wsdl:output message="tns:GetSummaryOfUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsActive">
+      <wsdl:input message="tns:IsActiveSoapIn" />
+      <wsdl:output message="tns:IsActiveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmUp">
+      <wsdl:input message="tns:FirmUpSoapIn" />
+      <wsdl:output message="tns:FirmUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesReportSummary">
+      <wsdl:input message="tns:GetSchedulesReportSummarySoapIn" />
+      <wsdl:output message="tns:GetSchedulesReportSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventsReportSummary">
+      <wsdl:input message="tns:GetScheduleEventsReportSummarySoapIn" />
+      <wsdl:output message="tns:GetScheduleEventsReportSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventContacts">
+      <wsdl:input message="tns:GetScheduleEventContactsSoapIn" />
+      <wsdl:output message="tns:GetScheduleEventContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <wsdl:input message="tns:GetMailingLabelsSoapIn" />
+      <wsdl:output message="tns:GetMailingLabelsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ScheduleServiceHttpGet">
+    <wsdl:operation name="GetPlanEvents">
+      <wsdl:input message="tns:GetPlanEventsHttpGetIn" />
+      <wsdl:output message="tns:GetPlanEventsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlans">
+      <wsdl:input message="tns:GetMailingPlansHttpGetIn" />
+      <wsdl:output message="tns:GetMailingPlansHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <wsdl:input message="tns:GetEventsHttpGetIn" />
+      <wsdl:output message="tns:GetEventsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntries">
+      <wsdl:input message="tns:GetEventEntriesHttpGetIn" />
+      <wsdl:output message="tns:GetEventEntriesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePostalTariff">
+      <wsdl:input message="tns:UpdatePostalTariffHttpGetIn" />
+      <wsdl:output message="tns:UpdatePostalTariffHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <wsdl:input message="tns:CancelEventHttpGetIn" />
+      <wsdl:output message="tns:CancelEventHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteEvent">
+      <wsdl:input message="tns:CompleteEventHttpGetIn" />
+      <wsdl:output message="tns:CompleteEventHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntry">
+      <wsdl:input message="tns:GetEventEntryHttpGetIn" />
+      <wsdl:output message="tns:GetEventEntryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCustomMessages">
+      <wsdl:input message="tns:GetActiveCustomMessagesHttpGetIn" />
+      <wsdl:output message="tns:GetActiveCustomMessagesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageHttpGetIn" />
+      <wsdl:output message="tns:GetMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventEntry">
+      <wsdl:input message="tns:InsertEventEntryHttpGetIn" />
+      <wsdl:output message="tns:InsertEventEntryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEventEntry">
+      <wsdl:input message="tns:UpdateEventEntryHttpGetIn" />
+      <wsdl:output message="tns:UpdateEventEntryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesign">
+      <wsdl:input message="tns:GetDesignHttpGetIn" />
+      <wsdl:output message="tns:GetDesignHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSummary">
+      <wsdl:input message="tns:GetSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryOfUser">
+      <wsdl:input message="tns:GetSummaryOfUserHttpGetIn" />
+      <wsdl:output message="tns:GetSummaryOfUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsActive">
+      <wsdl:input message="tns:IsActiveHttpGetIn" />
+      <wsdl:output message="tns:IsActiveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmUp">
+      <wsdl:input message="tns:FirmUpHttpGetIn" />
+      <wsdl:output message="tns:FirmUpHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesReportSummary">
+      <wsdl:input message="tns:GetSchedulesReportSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetSchedulesReportSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventsReportSummary">
+      <wsdl:input message="tns:GetScheduleEventsReportSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetScheduleEventsReportSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventContacts">
+      <wsdl:input message="tns:GetScheduleEventContactsHttpGetIn" />
+      <wsdl:output message="tns:GetScheduleEventContactsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <wsdl:input message="tns:GetMailingLabelsHttpGetIn" />
+      <wsdl:output message="tns:GetMailingLabelsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ScheduleServiceHttpPost">
+    <wsdl:operation name="GetPlanEvents">
+      <wsdl:input message="tns:GetPlanEventsHttpPostIn" />
+      <wsdl:output message="tns:GetPlanEventsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlans">
+      <wsdl:input message="tns:GetMailingPlansHttpPostIn" />
+      <wsdl:output message="tns:GetMailingPlansHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <wsdl:input message="tns:GetEventsHttpPostIn" />
+      <wsdl:output message="tns:GetEventsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntries">
+      <wsdl:input message="tns:GetEventEntriesHttpPostIn" />
+      <wsdl:output message="tns:GetEventEntriesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePostalTariff">
+      <wsdl:input message="tns:UpdatePostalTariffHttpPostIn" />
+      <wsdl:output message="tns:UpdatePostalTariffHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <wsdl:input message="tns:CancelEventHttpPostIn" />
+      <wsdl:output message="tns:CancelEventHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteEvent">
+      <wsdl:input message="tns:CompleteEventHttpPostIn" />
+      <wsdl:output message="tns:CompleteEventHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntry">
+      <wsdl:input message="tns:GetEventEntryHttpPostIn" />
+      <wsdl:output message="tns:GetEventEntryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCustomMessages">
+      <wsdl:input message="tns:GetActiveCustomMessagesHttpPostIn" />
+      <wsdl:output message="tns:GetActiveCustomMessagesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <wsdl:input message="tns:GetMessageHttpPostIn" />
+      <wsdl:output message="tns:GetMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventEntry">
+      <wsdl:input message="tns:InsertEventEntryHttpPostIn" />
+      <wsdl:output message="tns:InsertEventEntryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEventEntry">
+      <wsdl:input message="tns:UpdateEventEntryHttpPostIn" />
+      <wsdl:output message="tns:UpdateEventEntryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesign">
+      <wsdl:input message="tns:GetDesignHttpPostIn" />
+      <wsdl:output message="tns:GetDesignHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSummary">
+      <wsdl:input message="tns:GetSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryOfUser">
+      <wsdl:input message="tns:GetSummaryOfUserHttpPostIn" />
+      <wsdl:output message="tns:GetSummaryOfUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsActive">
+      <wsdl:input message="tns:IsActiveHttpPostIn" />
+      <wsdl:output message="tns:IsActiveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FirmUp">
+      <wsdl:input message="tns:FirmUpHttpPostIn" />
+      <wsdl:output message="tns:FirmUpHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesReportSummary">
+      <wsdl:input message="tns:GetSchedulesReportSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetSchedulesReportSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventsReportSummary">
+      <wsdl:input message="tns:GetScheduleEventsReportSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetScheduleEventsReportSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventContacts">
+      <wsdl:input message="tns:GetScheduleEventContactsHttpPostIn" />
+      <wsdl:output message="tns:GetScheduleEventContactsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <wsdl:input message="tns:GetMailingLabelsHttpPostIn" />
+      <wsdl:output message="tns:GetMailingLabelsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ScheduleServiceSoap" type="tns:ScheduleServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPlanEvents">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlanEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlans">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetMailingPlans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntries">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetEventEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePostalTariff">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/UpdatePostalTariff" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/CancelEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteEvent">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/CompleteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntry">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetEventEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCustomMessages">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetActiveCustomMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventEntry">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/InsertEventEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEventEntry">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/UpdateEventEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDesign">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetDesign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummary">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryOfUser">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetSummaryOfUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsActive">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/IsActive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmUp">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/FirmUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesReportSummary">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetSchedulesReportSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventsReportSummary">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetScheduleEventsReportSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventContacts">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetScheduleEventContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetMailingLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScheduleServiceSoap12" type="tns:ScheduleServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPlanEvents">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlanEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlans">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetMailingPlans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetEvents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntries">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetEventEntries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePostalTariff">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/UpdatePostalTariff" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/CancelEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteEvent">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/CompleteEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntry">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetEventEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCustomMessages">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetActiveCustomMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventEntry">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/InsertEventEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEventEntry">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/UpdateEventEntry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDesign">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetDesign" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummary">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryOfUser">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetSummaryOfUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsActive">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/IsActive" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmUp">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/FirmUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesReportSummary">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetSchedulesReportSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventsReportSummary">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetScheduleEventsReportSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventContacts">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetScheduleEventContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetMailingLabels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScheduleServiceHttpGet" type="tns:ScheduleServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetPlanEvents">
+      <http:operation location="/GetPlanEvents" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlans">
+      <http:operation location="/GetMailingPlans" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <http:operation location="/GetEvents" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntries">
+      <http:operation location="/GetEventEntries" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePostalTariff">
+      <http:operation location="/UpdatePostalTariff" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <http:operation location="/CancelEvent" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteEvent">
+      <http:operation location="/CompleteEvent" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntry">
+      <http:operation location="/GetEventEntry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCustomMessages">
+      <http:operation location="/GetActiveCustomMessages" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <http:operation location="/GetMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventEntry">
+      <http:operation location="/InsertEventEntry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEventEntry">
+      <http:operation location="/UpdateEventEntry" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesign">
+      <http:operation location="/GetDesign" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummary">
+      <http:operation location="/GetSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryOfUser">
+      <http:operation location="/GetSummaryOfUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsActive">
+      <http:operation location="/IsActive" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmUp">
+      <http:operation location="/FirmUp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesReportSummary">
+      <http:operation location="/GetSchedulesReportSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventsReportSummary">
+      <http:operation location="/GetScheduleEventsReportSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventContacts">
+      <http:operation location="/GetScheduleEventContacts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <http:operation location="/GetMailingLabels" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ScheduleServiceHttpPost" type="tns:ScheduleServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetPlanEvents">
+      <http:operation location="/GetPlanEvents" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlans">
+      <http:operation location="/GetMailingPlans" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvents">
+      <http:operation location="/GetEvents" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntries">
+      <http:operation location="/GetEventEntries" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePostalTariff">
+      <http:operation location="/UpdatePostalTariff" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CancelEvent">
+      <http:operation location="/CancelEvent" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteEvent">
+      <http:operation location="/CompleteEvent" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventEntry">
+      <http:operation location="/GetEventEntry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCustomMessages">
+      <http:operation location="/GetActiveCustomMessages" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessage">
+      <http:operation location="/GetMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEventEntry">
+      <http:operation location="/InsertEventEntry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEventEntry">
+      <http:operation location="/UpdateEventEntry" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesign">
+      <http:operation location="/GetDesign" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummary">
+      <http:operation location="/GetSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSummaryOfUser">
+      <http:operation location="/GetSummaryOfUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsActive">
+      <http:operation location="/IsActive" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FirmUp">
+      <http:operation location="/FirmUp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetSchedulesReportSummary">
+      <http:operation location="/GetSchedulesReportSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventsReportSummary">
+      <http:operation location="/GetScheduleEventsReportSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleEventContacts">
+      <http:operation location="/GetScheduleEventContacts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <http:operation location="/GetMailingLabels" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ScheduleService">
+    <wsdl:port name="ScheduleServiceSoap" binding="tns:ScheduleServiceSoap">
+      <soap:address location="http://mc1.mkbedev.com/BLLService/ScheduleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduleServiceSoap12" binding="tns:ScheduleServiceSoap12">
+      <soap12:address location="http://mc1.mkbedev.com/BLLService/ScheduleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduleServiceHttpGet" binding="tns:ScheduleServiceHttpGet">
+      <http:address location="http://mc1.mkbedev.com/BLLService/ScheduleService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ScheduleServiceHttpPost" binding="tns:ScheduleServiceHttpPost">
+      <http:address location="http://mc1.mkbedev.com/BLLService/ScheduleService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

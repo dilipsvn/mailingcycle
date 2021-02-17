@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Design Approval</title>
+
+<link type="text/css" rel="stylesheet" href="Style_email.css" />
+</head>
+
+<body>
+<div id="holder">
+<table width="550" height="136" border="0" cellspacing="0">
+  <tr>
+    <td height="91" align="left" valign="top" bgcolor="#000000"><div align="left"><img src="images/email_designapproval.gif" alt="MailingCycle.com" width="549" height="87" /></div></td>
+  </tr>
+  <tr>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="33">&nbsp;</td>
+        <td width="220" height="30">&nbsp;</td>
+        <td width="263">&nbsp;</td>
+        <td width="34">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td valign="top"><p><strong>User Detais:</strong><br />
+          User Name: Bill Clinton <br />
+          User Id: BCRealPrint </p>
+          <p><strong>Design Details: </strong><br />
+            Card Type: Power Card <br />
+            Card Size: 4.5 x 6<br />
+            Justification: Left Aligned <br />
+  <br />
+  <strong>Mailing Plan Details:</strong><br />
+            Plan Selected: 8 x 8<br />
+            Farm Count: 145</p>
+          <p></p></td>
+        <td valign="top"><table width="100%" border="1" cellpadding="10" cellspacing="0" bordercolor="#CCCCCC">
+          <tr>
+            <td height="203" bgcolor="#F5F5F5"><div align="center"><img src="images/postcard_template.jpg" alt="Pos Card Template" width="200" height="129" /></div></td>
+          </tr>
+        </table>        </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="2">&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="2"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="1" bgcolor="#CCCCCC"><img src="images/transparent.gif" width="1" height="1" /></td>
+          </tr>
+        </table></td>
+        <td>&nbsp;</td>
+      </tr>
+     
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="2">&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td colspan="2"><p><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit</strong><br />
+          <br /> 
+          sed do  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad  minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p>&nbsp;</p></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

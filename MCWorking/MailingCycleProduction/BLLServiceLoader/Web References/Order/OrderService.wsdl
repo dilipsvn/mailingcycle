@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mc.mkbedev.com/BLLService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mc.mkbedev.com/BLLService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mc.mkbedev.com/BLLService/">
+      <s:element name="Insert">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:OrderInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OrderInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="RefundAmount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransactionStatus" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Number" />
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:OrderType" />
+              <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransactionCode" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="TransactionMessage" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreditCard" type="tns:CreditCardInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfOrderItemInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseInfo" abstract="true" />
+      <s:complexType name="OrderItemInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ItemId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:OrderItemType" />
+              <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Rate" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="OrderItemType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Product" />
+          <s:enumeration value="ProductPackage" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="StateInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="StateId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CountryInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsDefault" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AddressInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Country" type="tns:CountryInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" type="tns:StateInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LookupInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="LookupId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CreditCardInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Type" type="tns:LookupInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CvvNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="HolderName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExpirationMonth" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExpirationYear" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:AddressInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="OrderType">
+        <s:restriction base="s:string">
+          <s:enumeration value="MembershipFee" />
+          <s:enumeration value="MailingFee" />
+          <s:enumeration value="PrePrintedCards" />
+          <s:enumeration value="ShoppingCart" />
+          <s:enumeration value="Event" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfOrderItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderItemInfo" nillable="true" type="tns:OrderItemInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCreditCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCreditCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCreditCardResult" type="tns:CreditCardInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrderInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderInfo" nillable="true" type="tns:OrderInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListResult" type="tns:ArrayOfOrderInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetItemsResult" type="tns:ArrayOfOrderItemInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInventoryItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InventoryItemInfo" nillable="true" type="tns:InventoryItemInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InventoryItemInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderTransactionType" type="tns:TransactionType" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransactionId" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="TransactionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Purchased" />
+          <s:enumeration value="Used" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfInventoryInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InventoryInfo" nillable="true" type="tns:InventoryInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InventoryInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="InventoryItems" type="tns:ArrayOfInventoryItemInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="QuantityOnHand" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CategoryType" type="tns:ProductCategory" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="ProductCategory">
+        <s:restriction base="s:string">
+          <s:enumeration value="PowerKard" />
+          <s:enumeration value="Brochure" />
+          <s:enumeration value="Envelope" />
+          <s:enumeration value="House_Fliers" />
+          <s:enumeration value="Generic_Product" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetInventoryListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInventoryListResult" type="tns:ArrayOfInventoryInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cardType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSearchOrdersResult" type="tns:ArrayOfOrderInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInventoryItemReportInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InventoryItemReportInfo" nillable="true" type="tns:InventoryItemReportInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InventoryItemReportInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="SumQuantityBR" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="SumQuantityPK" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="SumQuantityEN" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QuantityEN" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QuantityBR" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QuantityPK" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="OrderTransactionType" type="tns:TransactionType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetSearchInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSearchInventoryResult" type="tns:ArrayOfInventoryItemReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreditCardInfo" nillable="true" type="tns:CreditCardInfo" />
+      <s:element name="ArrayOfOrderInfo" nillable="true" type="tns:ArrayOfOrderInfo" />
+      <s:element name="ArrayOfOrderItemInfo" nillable="true" type="tns:ArrayOfOrderItemInfo" />
+      <s:element name="ArrayOfInventoryInfo" nillable="true" type="tns:ArrayOfInventoryInfo" />
+      <s:element name="ArrayOfInventoryItemReportInfo" nillable="true" type="tns:ArrayOfInventoryItemReportInfo" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert" />
+  </wsdl:message>
+  <wsdl:message name="InsertSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditCardSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCreditCard" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditCardSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCreditCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetList" />
+  </wsdl:message>
+  <wsdl:message name="GetListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItems" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInventoryList" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInventoryListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSearchOrders" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSearchOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSearchInventory" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSearchInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditCardHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditCardHttpGetOut">
+    <wsdl:part name="Body" element="tns:CreditCardInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetListHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsHttpGetIn">
+    <wsdl:part name="orderId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrderItemInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryListHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInventoryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchOrdersHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="orderId" type="s:string" />
+    <wsdl:part name="cardType" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchOrdersHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchInventoryHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchInventoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInventoryItemReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditCardHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCreditCardHttpPostOut">
+    <wsdl:part name="Body" element="tns:CreditCardInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetListHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsHttpPostIn">
+    <wsdl:part name="orderId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetItemsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrderItemInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryListHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInventoryInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchOrdersHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="orderId" type="s:string" />
+    <wsdl:part name="cardType" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchOrdersHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfOrderInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchInventoryHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="startDate" type="s:string" />
+    <wsdl:part name="endDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchInventoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInventoryItemReportInfo" />
+  </wsdl:message>
+  <wsdl:portType name="OrderServiceSoap">
+    <wsdl:operation name="Insert">
+      <wsdl:input message="tns:InsertSoapIn" />
+      <wsdl:output message="tns:InsertSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditCard">
+      <wsdl:input message="tns:GetCreditCardSoapIn" />
+      <wsdl:output message="tns:GetCreditCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListSoapIn" />
+      <wsdl:output message="tns:GetListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <wsdl:input message="tns:GetItemsSoapIn" />
+      <wsdl:output message="tns:GetItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryList">
+      <wsdl:input message="tns:GetInventoryListSoapIn" />
+      <wsdl:output message="tns:GetInventoryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchOrders">
+      <wsdl:input message="tns:GetSearchOrdersSoapIn" />
+      <wsdl:output message="tns:GetSearchOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchInventory">
+      <wsdl:input message="tns:GetSearchInventorySoapIn" />
+      <wsdl:output message="tns:GetSearchInventorySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="OrderServiceHttpGet">
+    <wsdl:operation name="GetCreditCard">
+      <wsdl:input message="tns:GetCreditCardHttpGetIn" />
+      <wsdl:output message="tns:GetCreditCardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListHttpGetIn" />
+      <wsdl:output message="tns:GetListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <wsdl:input message="tns:GetItemsHttpGetIn" />
+      <wsdl:output message="tns:GetItemsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryList">
+      <wsdl:input message="tns:GetInventoryListHttpGetIn" />
+      <wsdl:output message="tns:GetInventoryListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchOrders">
+      <wsdl:input message="tns:GetSearchOrdersHttpGetIn" />
+      <wsdl:output message="tns:GetSearchOrdersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchInventory">
+      <wsdl:input message="tns:GetSearchInventoryHttpGetIn" />
+      <wsdl:output message="tns:GetSearchInventoryHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="OrderServiceHttpPost">
+    <wsdl:operation name="GetCreditCard">
+      <wsdl:input message="tns:GetCreditCardHttpPostIn" />
+      <wsdl:output message="tns:GetCreditCardHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <wsdl:input message="tns:GetListHttpPostIn" />
+      <wsdl:output message="tns:GetListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <wsdl:input message="tns:GetItemsHttpPostIn" />
+      <wsdl:output message="tns:GetItemsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryList">
+      <wsdl:input message="tns:GetInventoryListHttpPostIn" />
+      <wsdl:output message="tns:GetInventoryListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchOrders">
+      <wsdl:input message="tns:GetSearchOrdersHttpPostIn" />
+      <wsdl:output message="tns:GetSearchOrdersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchInventory">
+      <wsdl:input message="tns:GetSearchInventoryHttpPostIn" />
+      <wsdl:output message="tns:GetSearchInventoryHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderServiceSoap" type="tns:OrderServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insert">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditCard">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetCreditCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryList">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetInventoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchOrders">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetSearchOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchInventory">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetSearchInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrderServiceSoap12" type="tns:OrderServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insert">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/Insert" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCreditCard">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetCreditCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryList">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetInventoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchOrders">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetSearchOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchInventory">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetSearchInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrderServiceHttpGet" type="tns:OrderServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetCreditCard">
+      <http:operation location="/GetCreditCard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <http:operation location="/GetList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <http:operation location="/GetItems" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryList">
+      <http:operation location="/GetInventoryList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchOrders">
+      <http:operation location="/GetSearchOrders" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchInventory">
+      <http:operation location="/GetSearchInventory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrderServiceHttpPost" type="tns:OrderServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetCreditCard">
+      <http:operation location="/GetCreditCard" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetList">
+      <http:operation location="/GetList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItems">
+      <http:operation location="/GetItems" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryList">
+      <http:operation location="/GetInventoryList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchOrders">
+      <http:operation location="/GetSearchOrders" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchInventory">
+      <http:operation location="/GetSearchInventory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderService">
+    <wsdl:port name="OrderServiceSoap" binding="tns:OrderServiceSoap">
+      <soap:address location="http://mc1.mkbedev.com/BLLService/OrderService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrderServiceSoap12" binding="tns:OrderServiceSoap12">
+      <soap12:address location="http://mc1.mkbedev.com/BLLService/OrderService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrderServiceHttpGet" binding="tns:OrderServiceHttpGet">
+      <http:address location="http://mc1.mkbedev.com/BLLService/OrderService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrderServiceHttpPost" binding="tns:OrderServiceHttpPost">
+      <http:address location="http://mc1.mkbedev.com/BLLService/OrderService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

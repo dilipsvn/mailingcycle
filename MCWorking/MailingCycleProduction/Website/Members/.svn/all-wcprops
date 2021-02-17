@@ -1,0 +1,1091 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/Website/Members
+END
+FirmUpStatusReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FirmUpStatusReport.aspx.cs
+END
+CreatePlot.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreatePlot.aspx.cs
+END
+CustomMessages.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/CustomMessages.aspx.cs
+END
+DesignExtractor.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignExtractor.aspx.cs
+END
+ViewPlot.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Projects/!svn/ver/1205/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewPlot.aspx
+END
+ProductCatalog.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ProductCatalog.aspx
+END
+SearchUsersResults.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchUsersResults.aspx.cs
+END
+InventoryReportCriteria.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/InventoryReportCriteria.aspx.cs
+END
+ViewEvent.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1178/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewEvent.aspx.cs
+END
+BillingHistoryReportCriteria.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/BillingHistoryReportCriteria.aspx
+END
+FarmManagement.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1202/mailingcycle/trunk/develop/src/staging/working/Website/Members/FarmManagement.aspx
+END
+EditBrochure.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1171/mailingcycle/trunk/develop/src/staging/working/Website/Members/EditBrochure.aspx.cs
+END
+ContactListReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ContactListReport.aspx
+END
+OrderDetails.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/OrderDetails.aspx.cs
+END
+MailingLabelsReportCriteria.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/MailingLabelsReportCriteria.aspx.cs
+END
+ModifyUser.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1212/mailingcycle/trunk/develop/src/staging/working/Website/Members/ModifyUser.aspx.cs
+END
+ScheduleManagement.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleManagement.aspx.cs
+END
+FarmDataReportCriteria.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FarmDataReportCriteria.aspx
+END
+ViewMessagesReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewMessagesReport.aspx
+END
+ArchivedContactList.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1198/mailingcycle/trunk/develop/src/staging/working/Website/Members/ArchivedContactList.aspx.cs
+END
+FirmUp.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FirmUp.aspx
+END
+ViewEvents.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewEvents.aspx.cs
+END
+EventMailingLabelsReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/EventMailingLabelsReport.aspx.cs
+END
+DesignExtractor.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignExtractor.aspx
+END
+ShoppingCart.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/Website/Members/ShoppingCart.aspx.cs
+END
+ChangeProfile.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeProfile.aspx
+END
+InventoryDetails.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/InventoryDetails.aspx.cs
+END
+MoveContacts.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1188/mailingcycle/trunk/develop/src/staging/working/Website/Members/MoveContacts.aspx.cs
+END
+ChangeCreditCard.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeCreditCard.aspx
+END
+DesignManagement.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignManagement.aspx.cs
+END
+DatePicker.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DatePicker.aspx
+END
+PlotManagement.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/PlotManagement.aspx
+END
+ProductList.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ProductList.aspx
+END
+ViewCustomMessage.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewCustomMessage.aspx.cs
+END
+ProductCatalog.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ProductCatalog.aspx.cs
+END
+ViewFarm.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Projects/!svn/ver/1199/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewFarm.aspx
+END
+ViewFarm.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1185/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewFarm.aspx.cs
+END
+ContactListReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ContactListReport.aspx.cs
+END
+Feedback.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Feedback.aspx.cs
+END
+Welcome.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Welcome.aspx
+END
+FirmUpCalendar.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FirmUpCalendar.aspx
+END
+ArchivedContactList.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1185/mailingcycle/trunk/develop/src/staging/working/Website/Members/ArchivedContactList.aspx
+END
+AssignMessage.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1178/mailingcycle/trunk/develop/src/staging/working/Website/Members/AssignMessage.aspx.cs
+END
+ViewBillingHistoryReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewBillingHistoryReport.aspx.cs
+END
+FirmUpStatusReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FirmUpStatusReport.aspx
+END
+CreatePlot.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1185/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreatePlot.aspx
+END
+CustomMessages.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1206/mailingcycle/trunk/develop/src/staging/working/Website/Members/CustomMessages.aspx
+END
+CreateProduct.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateProduct.aspx
+END
+MoveContacts.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1185/mailingcycle/trunk/develop/src/staging/working/Website/Members/MoveContacts.aspx
+END
+FirmUpStatus.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FirmUpStatus.aspx
+END
+DesignPageExtractor.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignPageExtractor.aspx.cs
+END
+PlotManagement.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/PlotManagement.aspx.cs
+END
+DatePicker.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DatePicker.aspx.cs
+END
+ArchivedPlotList.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1199/mailingcycle/trunk/develop/src/staging/working/Website/Members/ArchivedPlotList.aspx
+END
+MessageManagement.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1206/mailingcycle/trunk/develop/src/staging/working/Website/Members/MessageManagement.aspx
+END
+MailingLabelsReportCriteria.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/MailingLabelsReportCriteria.aspx
+END
+EditDesign.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1171/mailingcycle/trunk/develop/src/staging/working/Website/Members/EditDesign.aspx.cs
+END
+ArchivedPlotList.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1199/mailingcycle/trunk/develop/src/staging/working/Website/Members/ArchivedPlotList.aspx.cs
+END
+PreviewMessage.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/PreviewMessage.aspx
+END
+ViewContact.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1196/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewContact.aspx
+END
+CreateStandardMessage.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1206/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateStandardMessage.aspx
+END
+SearchFarmDataResults.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchFarmDataResults.aspx.cs
+END
+Welcome.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Welcome.aspx.cs
+END
+FarmPlotContactReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FarmPlotContactReport.aspx.cs
+END
+DesignStatusReportCriteria.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignStatusReportCriteria.aspx.cs
+END
+FarmDataReportCriteria.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FarmDataReportCriteria.aspx.cs
+END
+ViewMessagesReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewMessagesReport.aspx.cs
+END
+ChangeSecurityQuestion.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeSecurityQuestion.aspx.cs
+END
+CreateFarm.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1185/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateFarm.aspx
+END
+ViewUser.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewUser.aspx
+END
+ChangeProfile.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1211/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeProfile.aspx.cs
+END
+ViewCustomMessage.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1206/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewCustomMessage.aspx
+END
+ViewEventContacts.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewEventContacts.aspx
+END
+ViewPlot.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1208/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewPlot.aspx.cs
+END
+EditBrochure.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/EditBrochure.aspx
+END
+ScheduleEventsReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleEventsReport.aspx.cs
+END
+SearchOrders.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchOrders.aspx
+END
+ViewInventoryReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewInventoryReport.aspx
+END
+BillingHistoryReportCriteria.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/BillingHistoryReportCriteria.aspx.cs
+END
+ModifyPlot.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ModifyPlot.aspx
+END
+AboutUs.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/AboutUs.aspx.cs
+END
+AgentMasterPage.master.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/AgentMasterPage.master.cs
+END
+ViewEvents.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewEvents.aspx
+END
+ModifyFarm.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/Website/Members/ModifyFarm.aspx.cs
+END
+DesignPageExtractor.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignPageExtractor.aspx
+END
+ContactUs.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ContactUs.aspx
+END
+ChangeSecurityQuestion.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeSecurityQuestion.aspx
+END
+BillingHistory.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/BillingHistory.aspx.cs
+END
+SiteMap.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SiteMap.aspx.cs
+END
+CheckOut.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/Website/Members/CheckOut.aspx.cs
+END
+DesignStatusReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignStatusReport.aspx
+END
+FirmUpStatus.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FirmUpStatus.aspx.cs
+END
+ChangeUserPassword.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeUserPassword.aspx.cs
+END
+InventoryReportCriteria.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/InventoryReportCriteria.aspx
+END
+ViewEvent.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewEvent.aspx
+END
+ScheduleEventsReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleEventsReport.aspx
+END
+ViewEventContacts.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewEventContacts.aspx.cs
+END
+ScheduleMgmtReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleMgmtReport.aspx.cs
+END
+CreateContact.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateContact.aspx.cs
+END
+test.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/test.aspx.cs
+END
+MessagesReportCriteria.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/MessagesReportCriteria.aspx
+END
+ContactManagement.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ContactManagement.aspx
+END
+PreviewMessage.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/PreviewMessage.aspx.cs
+END
+ViewContact.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1204/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewContact.aspx.cs
+END
+ArchivedFarmList.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ArchivedFarmList.aspx.cs
+END
+SearchUsers.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchUsers.aspx.cs
+END
+ContactManagement.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ContactManagement.aspx.cs
+END
+ModifyFarm.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1188/mailingcycle/trunk/develop/src/staging/working/Website/Members/ModifyFarm.aspx
+END
+ModifyContact.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ModifyContact.aspx
+END
+MailingLabelsReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/MailingLabelsReport.aspx.cs
+END
+CheckOut.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/CheckOut.aspx
+END
+ContactUs.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ContactUs.aspx.cs
+END
+ExcelOrCsvFileDownload.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ExcelOrCsvFileDownload.aspx.cs
+END
+SearchFarmData.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchFarmData.aspx.cs
+END
+SearchUsersResults.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchUsersResults.aspx
+END
+FileUploader.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FileUploader.aspx
+END
+CheckoutConf.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/CheckoutConf.aspx
+END
+ViewProduct.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewProduct.aspx
+END
+ScheduleMgmtReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleMgmtReport.aspx
+END
+EditDesign.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/EditDesign.aspx
+END
+ProductList.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/Website/Members/ProductList.aspx.cs
+END
+OrderDetails.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/OrderDetails.aspx
+END
+AboutUs.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/AboutUs.aspx
+END
+Feedback.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Feedback.aspx
+END
+MessageManagement.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/Projects/!svn/ver/1206/mailingcycle/trunk/develop/src/staging/working/Website/Members/MessageManagement.aspx.cs
+END
+SearchFarmDataResults.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchFarmDataResults.aspx
+END
+ScheduleManagement.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleManagement.aspx
+END
+ModifyPlot.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/Website/Members/ModifyPlot.aspx.cs
+END
+CreateStandardMessage.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Projects/!svn/ver/1209/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateStandardMessage.aspx.cs
+END
+McDesignExtractor.CAB
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/McDesignExtractor.CAB
+END
+FirmUpCalendar.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FirmUpCalendar.aspx.cs
+END
+ViewStandardMessage.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1206/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewStandardMessage.aspx
+END
+EventMailingLabelsReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/EventMailingLabelsReport.aspx
+END
+ShoppingCart.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ShoppingCart.aspx
+END
+BillingHistory.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/BillingHistory.aspx
+END
+SiteMap.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SiteMap.aspx
+END
+CreateCustomMessage.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1206/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateCustomMessage.aspx
+END
+ViewStandardMessage.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewStandardMessage.aspx.cs
+END
+ExcelOrCsvFileDownload.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ExcelOrCsvFileDownload.aspx
+END
+SearchFarmData.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1200/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchFarmData.aspx
+END
+ModifyContact.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ModifyContact.aspx.cs
+END
+vssver2.scc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/vssver2.scc
+END
+CreateProduct.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateProduct.aspx.cs
+END
+FarmDataReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FarmDataReport.aspx
+END
+CreateFarm.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateFarm.aspx.cs
+END
+ViewUser.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1213/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewUser.aspx.cs
+END
+FileUploader.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FileUploader.aspx.cs
+END
+CheckoutConf.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/CheckoutConf.aspx.cs
+END
+ViewProduct.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewProduct.aspx.cs
+END
+ModifyUser.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ModifyUser.aspx
+END
+FarmManagement.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1185/mailingcycle/trunk/develop/src/staging/working/Website/Members/FarmManagement.aspx.cs
+END
+AgentMasterPage.master
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/AgentMasterPage.master
+END
+AssignMessage.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/AssignMessage.aspx
+END
+ViewBillingHistoryReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewBillingHistoryReport.aspx
+END
+MessagesReportCriteria.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/MessagesReportCriteria.aspx.cs
+END
+FarmPlotContactReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FarmPlotContactReport.aspx
+END
+DesignStatusReportCriteria.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignStatusReportCriteria.aspx
+END
+ScheduleEventsReportCriteria.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleEventsReportCriteria.aspx
+END
+Inventory.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Inventory.aspx.cs
+END
+McDesignExtractor.htm
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/McDesignExtractor.htm
+END
+ScheduleEventsReportCriteria.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleEventsReportCriteria.aspx.cs
+END
+FirmUp.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FirmUp.aspx.cs
+END
+DesignManagement.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignManagement.aspx
+END
+ChangeUserPassword.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeUserPassword.aspx
+END
+CreateCustomMessage.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1209/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateCustomMessage.aspx.cs
+END
+DesignStatusReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/DesignStatusReport.aspx.cs
+END
+ChangeCreditCard.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeCreditCard.aspx.cs
+END
+FarmDataReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/FarmDataReport.aspx.cs
+END
+CreateContact.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/CreateContact.aspx
+END
+test.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/test.aspx
+END
+ArchivedFarmList.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1199/mailingcycle/trunk/develop/src/staging/working/Website/Members/ArchivedFarmList.aspx
+END
+SearchUsers.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchUsers.aspx
+END
+SearchOrders.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/SearchOrders.aspx.cs
+END
+ViewInventoryReport.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ViewInventoryReport.aspx.cs
+END
+Inventory.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/Inventory.aspx
+END
+MailingLabelsReport.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/MailingLabelsReport.aspx
+END
+ChangeRegistrationFee.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeRegistrationFee.aspx
+END
+ScheduleMgmtReportCriteria.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleMgmtReportCriteria.aspx
+END
+InventoryDetails.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1207/mailingcycle/trunk/develop/src/staging/working/Website/Members/InventoryDetails.aspx
+END
+ChangeRegistrationFee.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ChangeRegistrationFee.aspx.cs
+END
+ScheduleMgmtReportCriteria.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/Website/Members/ScheduleMgmtReportCriteria.aspx.cs
+END

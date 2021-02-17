@@ -1,0 +1,139 @@
+8
+
+dir
+1225
+http://71.216.124.181:8090/svn/Projects/mailingcycle/trunk/develop/src/staging/working/MailingCycleDesignService/DesignService
+http://71.216.124.181:8090/svn/Projects
+
+
+
+2007-12-21T07:43:26.343750Z
+673
+shaila
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bed9e3a7-481d-f847-879c-9a3caaf28210
+
+App.config
+file
+
+
+
+
+2008-02-13T13:02:20.250000Z
+45a15fe66d7b757bb2d9c86e939ff0c5
+2007-12-16T16:44:35.953125Z
+609
+sai
+
+Lib
+dir
+
+DesignService.csproj.user
+file
+
+
+
+
+2008-02-13T13:02:20.281250Z
+951dc0b6bf3fdc1c443ba8f967ad6bfa
+2007-12-14T07:44:26.546875Z
+589
+sai
+
+bin
+dir
+
+MainForm.resx
+file
+
+
+
+
+2008-02-13T13:02:20.296875Z
+f7c2338d797a964ae36b97b97fa54552
+2007-12-14T07:44:26.546875Z
+589
+sai
+
+DesignService.csproj
+file
+
+
+
+
+2008-02-13T13:02:20.328125Z
+0de94c020aeb4366b9484c58c94f0e0a
+2007-12-16T16:44:35.953125Z
+609
+sai
+
+Resources
+dir
+
+obj
+dir
+
+MainForm.Designer.cs
+file
+
+
+
+
+2008-02-13T13:02:20.359375Z
+3f93a9a1093b9ea82e00928db67cafe0
+2007-12-14T07:44:26.546875Z
+589
+sai
+
+Program.cs
+file
+
+
+
+
+2008-02-13T13:02:20.375000Z
+7ce8efc730ccdee588253778f17a0bff
+2007-12-14T07:44:26.546875Z
+589
+sai
+
+Readme.txt
+file
+
+
+
+
+2008-02-13T13:02:20.390625Z
+972de7a68f3388dcaa07d5df41520dc9
+2007-12-16T16:44:35.953125Z
+609
+sai
+
+Properties
+dir
+
+MainForm.cs
+file
+
+
+
+
+2008-02-13T13:02:20.406250Z
+5c7112d9547ddf093f31ead80413f471
+2007-12-14T07:44:26.546875Z
+589
+sai
+

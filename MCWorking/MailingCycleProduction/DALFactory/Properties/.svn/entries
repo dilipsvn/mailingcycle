@@ -1,0 +1,53 @@
+8
+
+dir
+1225
+http://71.216.124.181:8090/svn/Projects/mailingcycle/trunk/develop/src/staging/working/DALFactory/Properties
+http://71.216.124.181:8090/svn/Projects
+
+
+
+2007-11-08T00:44:42.281250Z
+104
+shaila
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bed9e3a7-481d-f847-879c-9a3caaf28210
+
+AssemblyInfo.cs
+file
+
+
+
+
+2008-02-13T13:01:46.843750Z
+b853395bcd62f41b8be00b662e4f3978
+2007-11-08T00:44:42.281250Z
+104
+shaila
+
+vssver2.scc
+file
+
+
+
+
+2008-02-13T13:01:46.906250Z
+a08f0ab96b768e409fd2341ebaa47061
+2007-11-08T00:44:42.281250Z
+104
+shaila
+has-props
+

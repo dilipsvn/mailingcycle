@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mailing Cycle Help</title>
+    <link href="Map.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="contents">
+        <div id="topic">
+            <h5 class="page_head">
+                Including an image in the message</h5>
+
+            <div class="more_info">
+                <p class="other_head">
+                    Uploading an image from local machine</p>
+                <p >
+                    Click on the "Image" button (<img src="../Whizzywig/images/image.gif" />) inside
+                    the Message text tool bar. The file upload option becomes visible. Browse for the
+                    file using the browse button and click on the "Upload Image" button.</p>
+            </div>
+            
+            <div class="more_info">
+                <p class="other_head">
+                    To insert an image into message
+                </p>
+                1. Click on the "Image" button (<img src="../Whizzywig/images/image.gif" />) inside
+                the Message text tool bar. The list of images appear as a list above the message
+                text box.
+                <br />
+                2. Click on the "select" link corresponding to the image that is required.
+                <br />
+                3. Select the desired alignment, border width for image and margin for the image
+                in the message text tool bar.<br />
+                4. Select the desired location of the image in the message.<br />
+                5. Click on the "Insert Image" button in the message text tool bar.</div>
+            
+
+            
+        </div>
+        <div id="footer">
+            <a href="javascript: window.close();">[Close Window]</a>
+        </div>
+    </div>
+</body>
+</html>

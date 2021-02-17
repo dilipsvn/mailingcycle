@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost:3555/BLLService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost:3555/BLLService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:3555/BLLService/">
+      <s:element name="GetCartItems">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCartItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCartItemsResult" type="tns:ShoppingCartInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShoppingCartInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="GrandTotal" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Discount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="PromotionCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Tax" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="ShippingAndHandling" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="SubTotal" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="CartItems" type="tns:ArrayOfShoppingCartItemInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseInfo" abstract="true" />
+      <s:complexType name="ShoppingCartItemInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalPrice" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfShoppingCartItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShoppingCartItemInfo" nillable="true" type="tns:ShoppingCartItemInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertCartItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartInfo" type="tns:ShoppingCartItemInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertCartItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertCartItemResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCartItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartInfo" type="tns:ArrayOfShoppingCartItemInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCartItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCartItemResult" type="tns:ShoppingCartInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCartItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteCartItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteCartItemResult" type="tns:ShoppingCartInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPromotionDiscount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartInfo" type="tns:ShoppingCartInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPromotionDiscountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPromotionDiscountResult" type="tns:ShoppingCartInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateGrandTotal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cartInfo" type="tns:ShoppingCartInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalculateGrandTotalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CalculateGrandTotalResult" type="tns:ShoppingCartInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCartItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCartItems" />
+  </wsdl:message>
+  <wsdl:message name="GetCartItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCartItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertCartItemSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertCartItem" />
+  </wsdl:message>
+  <wsdl:message name="InsertCartItemSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCartItemSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCartItem" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCartItemSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCartItemSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteCartItem" />
+  </wsdl:message>
+  <wsdl:message name="DeleteCartItemSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteCartItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPromotionDiscountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPromotionDiscount" />
+  </wsdl:message>
+  <wsdl:message name="GetPromotionDiscountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPromotionDiscountResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalculateGrandTotalSoapIn">
+    <wsdl:part name="parameters" element="tns:CalculateGrandTotal" />
+  </wsdl:message>
+  <wsdl:message name="CalculateGrandTotalSoapOut">
+    <wsdl:part name="parameters" element="tns:CalculateGrandTotalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ShoppingCartServiceSoap">
+    <wsdl:operation name="GetCartItems">
+      <wsdl:input message="tns:GetCartItemsSoapIn" />
+      <wsdl:output message="tns:GetCartItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCartItem">
+      <wsdl:input message="tns:InsertCartItemSoapIn" />
+      <wsdl:output message="tns:InsertCartItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCartItem">
+      <wsdl:input message="tns:UpdateCartItemSoapIn" />
+      <wsdl:output message="tns:UpdateCartItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCartItem">
+      <wsdl:input message="tns:DeleteCartItemSoapIn" />
+      <wsdl:output message="tns:DeleteCartItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPromotionDiscount">
+      <wsdl:input message="tns:GetPromotionDiscountSoapIn" />
+      <wsdl:output message="tns:GetPromotionDiscountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateGrandTotal">
+      <wsdl:input message="tns:CalculateGrandTotalSoapIn" />
+      <wsdl:output message="tns:CalculateGrandTotalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ShoppingCartServiceSoap" type="tns:ShoppingCartServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCartItems">
+      <soap:operation soapAction="http://localhost:3555/BLLService/GetCartItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCartItem">
+      <soap:operation soapAction="http://localhost:3555/BLLService/InsertCartItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCartItem">
+      <soap:operation soapAction="http://localhost:3555/BLLService/UpdateCartItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCartItem">
+      <soap:operation soapAction="http://localhost:3555/BLLService/DeleteCartItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromotionDiscount">
+      <soap:operation soapAction="http://localhost:3555/BLLService/GetPromotionDiscount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateGrandTotal">
+      <soap:operation soapAction="http://localhost:3555/BLLService/CalculateGrandTotal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ShoppingCartServiceSoap12" type="tns:ShoppingCartServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCartItems">
+      <soap12:operation soapAction="http://localhost:3555/BLLService/GetCartItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCartItem">
+      <soap12:operation soapAction="http://localhost:3555/BLLService/InsertCartItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCartItem">
+      <soap12:operation soapAction="http://localhost:3555/BLLService/UpdateCartItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCartItem">
+      <soap12:operation soapAction="http://localhost:3555/BLLService/DeleteCartItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPromotionDiscount">
+      <soap12:operation soapAction="http://localhost:3555/BLLService/GetPromotionDiscount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateGrandTotal">
+      <soap12:operation soapAction="http://localhost:3555/BLLService/CalculateGrandTotal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ShoppingCartService">
+    <wsdl:port name="ShoppingCartServiceSoap" binding="tns:ShoppingCartServiceSoap">
+      <soap:address location="http://localhost:1073/ShoppingCartService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ShoppingCartServiceSoap12" binding="tns:ShoppingCartServiceSoap12">
+      <soap12:address location="http://localhost:1073/ShoppingCartService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

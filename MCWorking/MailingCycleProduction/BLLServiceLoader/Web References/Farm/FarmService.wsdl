@@ -1,0 +1,4475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mc.mkbedev.com/BLLService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://mc.mkbedev.com/BLLService/AbstractTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mc.mkbedev.com/BLLService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mc.mkbedev.com/BLLService/">
+      <s:element name="GetUserName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFarmListForUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFarmListForUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFarmListForUserResult" type="tns:ArrayOfFarmInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFarmInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FarmInfo" nillable="true" type="tns:FarmInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FarmInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingPlan" type="tns:MailingPlanInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="Plots" type="tns:ArrayOfPlotInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyBy" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deleted" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Firmup" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="PlotCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContactCount" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseInfo" abstract="true" />
+      <s:complexType name="ContactInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ContactId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="ScheduleNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerFullName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Lot" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Block" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subdivision" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Filing" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SiteAddress" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Bedrooms" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="FullBath" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ThreeQuarterBath" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="HalfBath" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Acres" type="s:float" />
+              <s:element minOccurs="0" maxOccurs="1" name="ActMktComb" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerFirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerLastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerCountry" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SaleDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransAmount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyBy" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PlotId" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="PlotInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PlotId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlotName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyBy" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deleted" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContactCount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Contacts" type="tns:ArrayOfContactInfo" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfContactInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContactInfo" nillable="true" type="tns:ContactInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MailingPlanInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MailingPlanId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfPlotInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PlotInfo" nillable="true" type="tns:PlotInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFarmSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFarmSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFarmSummaryResult" type="tns:ArrayOfFarmInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedFarmSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedFarmSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArchivedFarmSummaryResult" type="tns:ArrayOfFarmInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedFarmSummaryDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedFarmSummaryDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArchivedFarmSummaryDetailsResult" type="tns:FarmInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlotListForFarm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlotListForFarmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlotListForFarmResult" type="tns:ArrayOfPlotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedPlotSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedPlotSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArchivedPlotSummaryResult" type="tns:ArrayOfPlotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedPlotSummaryDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedPlotSummaryDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArchivedPlotSummaryDetailsResult" type="tns:PlotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailingPlanList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMailingPlanListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailingPlanListResult" type="tns:ArrayOfMailingPlanInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMailingPlanInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MailingPlanInfo" nillable="true" type="tns:MailingPlanInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFarmListFromFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fileType" type="tns:ContactFileType" />
+            <s:element minOccurs="0" maxOccurs="1" name="bytes" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="ContactFileType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Excel" />
+          <s:enumeration value="Csv" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetFarmListFromFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFarmListFromFileResult" type="tns:ArrayOfContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateFarmPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="farm" type="tns:FarmInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateFarmPlotResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreatePlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="plot" type="tns:PlotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePlotResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CreatePlotForMoveContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="plot" type="tns:PlotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreatePlotForMoveContactsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreatePlotForMoveContactsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="plot" type="tns:PlotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePlotResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateFarmPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="farm" type="tns:FarmInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateFarmPlotResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFarmDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFarmDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFarmDetailResult" type="tns:FarmInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlotCountForFarm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlotCountForFarmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPlotCountForFarmResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlotListSummaryForFarm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlotListSummaryForFarmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlotListSummaryForFarmResult" type="tns:ArrayOfPlotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlotDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlotDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlotDetailResult" type="tns:PlotInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFarmExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="farmName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFarmExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsFarmExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactCountForPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactCountForPlotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetContactCountForPlotResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPlotExists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="plotName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPlotExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsPlotExistsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIdForFarm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIdForFarmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetUserIdForFarmResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIdForPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserIdForPlotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetUserIdForPlotResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactListForPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactListForPlotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactListForPlotResult" type="tns:ArrayOfContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contactId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactDetailsResult" type="tns:ContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContactDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contact" type="tns:ContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContactDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="AddContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contact" type="tns:ContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddContactResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contactId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifyBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteContactResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RestoreContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contactId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifyBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreContactResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetArchivedContactListForPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetArchivedContactListForPlotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetArchivedContactListForPlotResult" type="tns:ArrayOfContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MoveContactToPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contactId" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newPlotName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="modifiedBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MoveContactToPlotResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteFarm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifyBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFarmResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeletePlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifyBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePlotResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsFarmNameDuplicateWhileAddingNewFarm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="farmName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFarmNameDuplicateWhileAddingNewFarmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsFarmNameDuplicateWhileAddingNewFarmResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFarmNameDuplicateWhileEditingFarm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="farmName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsFarmNameDuplicateWhileEditingFarmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsFarmNameDuplicateWhileEditingFarmResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPlotNameDuplicateWhileAddingNewPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="plotName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPlotNameDuplicateWhileAddingNewPlotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsPlotNameDuplicateWhileAddingNewPlotResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPlotNameDuplicateWhileEditingPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="plotName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsPlotNameDuplicateWhileEditingPlotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsPlotNameDuplicateWhileEditingPlotResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportContactListToExcel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportContactListToExcelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExportContactListToExcelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateContactListFromArrayOfContactID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contactIds" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GenerateContactListFromArrayOfContactIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateContactListFromArrayOfContactIDResult" type="tns:ArrayOfContactInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFarmPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifyBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFarmPlotResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RestoreFarmPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifyBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestoreFarmPlotResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeletePlotContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifyBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePlotContactResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RestorePlotContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifyBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RestorePlotContactResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsDefaultPlot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsDefaultPlotResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsDefaultPlotResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TotalActiveFarmCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="TotalActiveFarmCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TotalActiveFarmCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TotalArchivedFarmCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="TotalArchivedFarmCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TotalArchivedFarmCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TotalActivePlotCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="TotalActivePlotCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TotalActivePlotCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TotalArchivedPlotCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="TotalArchivedPlotCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TotalArchivedPlotCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TotalActiveContactCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="TotalActiveContactCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TotalActiveContactCountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TotalArchivedContactCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="TotalArchivedContactCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TotalArchivedContactCountResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportForFarmDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReportForFarmDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReportForFarmDetailsResult" type="tns:ArrayOfFarmDetailsReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFarmDetailsReportInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FarmDetailsReportInfo" nillable="true" type="tns:FarmDetailsReportInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FarmDetailsReportInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlotName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContactId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="ScheduleNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerFullName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Lot" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Block" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Subdivision" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Filing" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SiteAddress" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Bedrooms" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="FullBath" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ThreeQuarterBath" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="HalfBath" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Acres" type="s:float" />
+              <s:element minOccurs="0" maxOccurs="1" name="ActMktComb" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerFirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerLastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerAddress1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerAddress2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerState" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OwnerCountry" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="SaleDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="TransAmount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastModifyBy" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PlotId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Deleted" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetSearchFarmData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="where" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchFarmDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSearchFarmDataResult" type="tns:ArrayOfFarmDetailsReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmUpStatusSummaryDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="FirmUpStatus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFirmUpStatusSummaryDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFirmUpStatusSummaryDetailsResult" type="tns:ArrayOfFirmUpStatusReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFirmUpStatusReportInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FirmUpStatusReportInfo" nillable="true" type="tns:FirmUpStatusReportInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FirmUpStatusReportInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AgentId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgentFullName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgentPhone" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PlotCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContactCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DeletedContactCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="FarmCreatedDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="FirmUpStatus" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetMailingLabels">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="farmId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="plotId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMailingLabelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMailingLabelsResult" type="tns:ArrayOfMailingLabelInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMailingLabelInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MailingLabelInfo" nillable="true" type="tns:MailingLabelInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MailingLabelInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PlotName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingLabel_1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingLabel_2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingLabel_3" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetFarmDataReportData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="where" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFarmDataReportDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFarmDataReportDataResult" type="tns:ArrayOfFarmDataReportInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFarmDataReportInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FarmDataReportInfo" nillable="true" type="tns:FarmDataReportInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FarmDataReportInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AgentId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgentFullName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgentPhone" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FarmCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="FarmId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FarmName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MailingPlanId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MailingPlanName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PlotCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ContactCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DeletedContactCount" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="FarmCreatedDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="FirmUpStatus" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetDeleteContactConsiquence">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="contactId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDeleteContactConsiquenceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeleteContactConsiquenceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfFarmInfo" nillable="true" type="tns:ArrayOfFarmInfo" />
+      <s:element name="FarmInfo" nillable="true" type="tns:FarmInfo" />
+      <s:element name="ArrayOfPlotInfo" nillable="true" type="tns:ArrayOfPlotInfo" />
+      <s:element name="PlotInfo" nillable="true" type="tns:PlotInfo" />
+      <s:element name="ArrayOfMailingPlanInfo" nillable="true" type="tns:ArrayOfMailingPlanInfo" />
+      <s:element name="ArrayOfContactInfo" nillable="true" type="tns:ArrayOfContactInfo" />
+      <s:element name="int" type="s:int" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ContactInfo" nillable="true" type="tns:ContactInfo" />
+      <s:element name="long" type="s:long" />
+      <s:element name="ArrayOfFarmDetailsReportInfo" nillable="true" type="tns:ArrayOfFarmDetailsReportInfo" />
+      <s:element name="ArrayOfFirmUpStatusReportInfo" nillable="true" type="tns:ArrayOfFirmUpStatusReportInfo" />
+      <s:element name="ArrayOfMailingLabelInfo" nillable="true" type="tns:ArrayOfMailingLabelInfo" />
+      <s:element name="ArrayOfFarmDataReportInfo" nillable="true" type="tns:ArrayOfFarmDataReportInfo" />
+    </s:schema>
+    <s:schema targetNamespace="http://mc.mkbedev.com/BLLService/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserName" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListForUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFarmListForUser" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListForUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFarmListForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetFarmSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetFarmSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetArchivedFarmSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetArchivedFarmSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArchivedFarmSummaryDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArchivedFarmSummaryDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListForFarmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlotListForFarm" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListForFarmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlotListForFarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetArchivedPlotSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetArchivedPlotSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArchivedPlotSummaryDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArchivedPlotSummaryDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlanListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailingPlanList" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlanListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailingPlanListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListFromFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFarmListFromFile" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListFromFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFarmListFromFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateFarmPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateFarmPlot" />
+  </wsdl:message>
+  <wsdl:message name="CreateFarmPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateFarmPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreatePlotSoapIn">
+    <wsdl:part name="parameters" element="tns:CreatePlot" />
+  </wsdl:message>
+  <wsdl:message name="CreatePlotSoapOut">
+    <wsdl:part name="parameters" element="tns:CreatePlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreatePlotForMoveContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:CreatePlotForMoveContacts" />
+  </wsdl:message>
+  <wsdl:message name="CreatePlotForMoveContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:CreatePlotForMoveContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePlotSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePlot" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePlotSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFarmPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateFarmPlot" />
+  </wsdl:message>
+  <wsdl:message name="UpdateFarmPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateFarmPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFarmDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFarmDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotCountForFarmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlotCountForFarm" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotCountForFarmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlotCountForFarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListSummaryForFarmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlotListSummaryForFarm" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListSummaryForFarmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlotListSummaryForFarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlotDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlotDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:IsFarmExists" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:IsFarmExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactCountForPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactCountForPlot" />
+  </wsdl:message>
+  <wsdl:message name="GetContactCountForPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactCountForPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:IsPlotExists" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:IsPlotExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForFarmSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserIdForFarm" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForFarmSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserIdForFarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserIdForPlot" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserIdForPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactListForPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactListForPlot" />
+  </wsdl:message>
+  <wsdl:message name="GetContactListForPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactListForPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContactDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContactDetails" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContactDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContactDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddContactSoapIn">
+    <wsdl:part name="parameters" element="tns:AddContact" />
+  </wsdl:message>
+  <wsdl:message name="AddContactSoapOut">
+    <wsdl:part name="parameters" element="tns:AddContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteContact" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestoreContactSoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreContact" />
+  </wsdl:message>
+  <wsdl:message name="RestoreContactSoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedContactListForPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:GetArchivedContactListForPlot" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedContactListForPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:GetArchivedContactListForPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="MoveContactToPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:MoveContactToPlot" />
+  </wsdl:message>
+  <wsdl:message name="MoveContactToPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:MoveContactToPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFarm" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePlotSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePlot" />
+  </wsdl:message>
+  <wsdl:message name="DeletePlotSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileAddingNewFarmSoapIn">
+    <wsdl:part name="parameters" element="tns:IsFarmNameDuplicateWhileAddingNewFarm" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileAddingNewFarmSoapOut">
+    <wsdl:part name="parameters" element="tns:IsFarmNameDuplicateWhileAddingNewFarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileEditingFarmSoapIn">
+    <wsdl:part name="parameters" element="tns:IsFarmNameDuplicateWhileEditingFarm" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileEditingFarmSoapOut">
+    <wsdl:part name="parameters" element="tns:IsFarmNameDuplicateWhileEditingFarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileAddingNewPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:IsPlotNameDuplicateWhileAddingNewPlot" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileAddingNewPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:IsPlotNameDuplicateWhileAddingNewPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileEditingPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:IsPlotNameDuplicateWhileEditingPlot" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileEditingPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:IsPlotNameDuplicateWhileEditingPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportContactListToExcelSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportContactListToExcel" />
+  </wsdl:message>
+  <wsdl:message name="ExportContactListToExcelSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportContactListToExcelResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateContactListFromArrayOfContactIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateContactListFromArrayOfContactID" />
+  </wsdl:message>
+  <wsdl:message name="GenerateContactListFromArrayOfContactIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateContactListFromArrayOfContactIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFarmPlot" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFarmPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestoreFarmPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:RestoreFarmPlot" />
+  </wsdl:message>
+  <wsdl:message name="RestoreFarmPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:RestoreFarmPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePlotContactSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePlotContact" />
+  </wsdl:message>
+  <wsdl:message name="DeletePlotContactSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePlotContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="RestorePlotContactSoapIn">
+    <wsdl:part name="parameters" element="tns:RestorePlotContact" />
+  </wsdl:message>
+  <wsdl:message name="RestorePlotContactSoapOut">
+    <wsdl:part name="parameters" element="tns:RestorePlotContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsDefaultPlotSoapIn">
+    <wsdl:part name="parameters" element="tns:IsDefaultPlot" />
+  </wsdl:message>
+  <wsdl:message name="IsDefaultPlotSoapOut">
+    <wsdl:part name="parameters" element="tns:IsDefaultPlotResponse" />
+  </wsdl:message>
+  <wsdl:message name="TotalActiveFarmCountSoapIn">
+    <wsdl:part name="parameters" element="tns:TotalActiveFarmCount" />
+  </wsdl:message>
+  <wsdl:message name="TotalActiveFarmCountSoapOut">
+    <wsdl:part name="parameters" element="tns:TotalActiveFarmCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedFarmCountSoapIn">
+    <wsdl:part name="parameters" element="tns:TotalArchivedFarmCount" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedFarmCountSoapOut">
+    <wsdl:part name="parameters" element="tns:TotalArchivedFarmCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="TotalActivePlotCountSoapIn">
+    <wsdl:part name="parameters" element="tns:TotalActivePlotCount" />
+  </wsdl:message>
+  <wsdl:message name="TotalActivePlotCountSoapOut">
+    <wsdl:part name="parameters" element="tns:TotalActivePlotCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedPlotCountSoapIn">
+    <wsdl:part name="parameters" element="tns:TotalArchivedPlotCount" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedPlotCountSoapOut">
+    <wsdl:part name="parameters" element="tns:TotalArchivedPlotCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="TotalActiveContactCountSoapIn">
+    <wsdl:part name="parameters" element="tns:TotalActiveContactCount" />
+  </wsdl:message>
+  <wsdl:message name="TotalActiveContactCountSoapOut">
+    <wsdl:part name="parameters" element="tns:TotalActiveContactCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedContactCountSoapIn">
+    <wsdl:part name="parameters" element="tns:TotalArchivedContactCount" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedContactCountSoapOut">
+    <wsdl:part name="parameters" element="tns:TotalArchivedContactCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReportForFarmDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:ReportForFarmDetails" />
+  </wsdl:message>
+  <wsdl:message name="ReportForFarmDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:ReportForFarmDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchFarmDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSearchFarmData" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchFarmDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSearchFarmDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmUpStatusSummaryDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFirmUpStatusSummaryDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmUpStatusSummaryDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFirmUpStatusSummaryDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMailingLabels" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMailingLabelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDataReportDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFarmDataReportData" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDataReportDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFarmDataReportDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeleteContactConsiquenceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeleteContactConsiquence" />
+  </wsdl:message>
+  <wsdl:message name="GetDeleteContactConsiquenceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeleteContactConsiquenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNameHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListForUserHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListForUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmSummaryHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryDetailsHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:FarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListForFarmHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListForFarmHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryDetailsHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:PlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlanListHttpGetIn" />
+  <wsdl:message name="GetMailingPlanListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMailingPlanInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListFromFileHttpGetIn">
+    <wsdl:part name="fileName" type="s:string" />
+    <wsdl:part name="fileType" type="s:string" />
+    <wsdl:part name="bytes" type="s1:StringArray" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListFromFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDetailHttpGetIn">
+    <wsdl:part name="FarmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDetailHttpGetOut">
+    <wsdl:part name="Body" element="tns:FarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotCountForFarmHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotCountForFarmHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListSummaryForFarmHttpGetIn">
+    <wsdl:part name="FarmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListSummaryForFarmHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotDetailHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotDetailHttpGetOut">
+    <wsdl:part name="Body" element="tns:PlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmExistsHttpGetIn">
+    <wsdl:part name="farmName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmExistsHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetContactCountForPlotHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetContactCountForPlotHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotExistsHttpGetIn">
+    <wsdl:part name="plotName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotExistsHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForFarmHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForFarmHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForPlotHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForPlotHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetContactListForPlotHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetContactListForPlotHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsHttpGetIn">
+    <wsdl:part name="contactId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactHttpGetIn">
+    <wsdl:part name="contactId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactHttpGetOut" />
+  <wsdl:message name="RestoreContactHttpGetIn">
+    <wsdl:part name="contactId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RestoreContactHttpGetOut" />
+  <wsdl:message name="GetArchivedContactListForPlotHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedContactListForPlotHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="MoveContactToPlotHttpGetIn">
+    <wsdl:part name="contactId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="newPlotName" type="s:string" />
+    <wsdl:part name="modifiedBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MoveContactToPlotHttpGetOut" />
+  <wsdl:message name="DeleteFarmHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmHttpGetOut" />
+  <wsdl:message name="DeletePlotHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePlotHttpGetOut" />
+  <wsdl:message name="IsFarmNameDuplicateWhileAddingNewFarmHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="farmName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileAddingNewFarmHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileEditingFarmHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="farmName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileEditingFarmHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileAddingNewPlotHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileAddingNewPlotHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileEditingPlotHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="plotName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileEditingPlotHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ExportContactListToExcelHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExportContactListToExcelHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateContactListFromArrayOfContactIDHttpGetIn">
+    <wsdl:part name="contactIds" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GenerateContactListFromArrayOfContactIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmPlotHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmPlotHttpGetOut" />
+  <wsdl:message name="RestoreFarmPlotHttpGetIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RestoreFarmPlotHttpGetOut" />
+  <wsdl:message name="DeletePlotContactHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePlotContactHttpGetOut" />
+  <wsdl:message name="RestorePlotContactHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RestorePlotContactHttpGetOut" />
+  <wsdl:message name="IsDefaultPlotHttpGetIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsDefaultPlotHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TotalActiveFarmCountHttpGetIn" />
+  <wsdl:message name="TotalActiveFarmCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedFarmCountHttpGetIn" />
+  <wsdl:message name="TotalArchivedFarmCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TotalActivePlotCountHttpGetIn" />
+  <wsdl:message name="TotalActivePlotCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedPlotCountHttpGetIn" />
+  <wsdl:message name="TotalArchivedPlotCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TotalActiveContactCountHttpGetIn" />
+  <wsdl:message name="TotalActiveContactCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedContactCountHttpGetIn" />
+  <wsdl:message name="TotalArchivedContactCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="ReportForFarmDetailsHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReportForFarmDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmDetailsReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchFarmDataHttpGetIn">
+    <wsdl:part name="where" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchFarmDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmDetailsReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmUpStatusSummaryDetailsHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="FirmUpStatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmUpStatusSummaryDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFirmUpStatusReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMailingLabelInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDataReportDataHttpGetIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="where" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDataReportDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmDataReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDeleteContactConsiquenceHttpGetIn">
+    <wsdl:part name="contactId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDeleteContactConsiquenceHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNameHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListForUserHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListForUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmSummaryHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryDetailsHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedFarmSummaryDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:FarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListForFarmHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListForFarmHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryDetailsHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedPlotSummaryDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:PlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingPlanListHttpPostIn" />
+  <wsdl:message name="GetMailingPlanListHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMailingPlanInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListFromFileHttpPostIn">
+    <wsdl:part name="fileName" type="s:string" />
+    <wsdl:part name="fileType" type="s:string" />
+    <wsdl:part name="bytes" type="s1:StringArray" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmListFromFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDetailHttpPostIn">
+    <wsdl:part name="FarmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDetailHttpPostOut">
+    <wsdl:part name="Body" element="tns:FarmInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotCountForFarmHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotCountForFarmHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListSummaryForFarmHttpPostIn">
+    <wsdl:part name="FarmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotListSummaryForFarmHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotDetailHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPlotDetailHttpPostOut">
+    <wsdl:part name="Body" element="tns:PlotInfo" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmExistsHttpPostIn">
+    <wsdl:part name="farmName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmExistsHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetContactCountForPlotHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetContactCountForPlotHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotExistsHttpPostIn">
+    <wsdl:part name="plotName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotExistsHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForFarmHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForFarmHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForPlotHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserIdForPlotHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="GetContactListForPlotHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetContactListForPlotHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsHttpPostIn">
+    <wsdl:part name="contactId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactHttpPostIn">
+    <wsdl:part name="contactId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteContactHttpPostOut" />
+  <wsdl:message name="RestoreContactHttpPostIn">
+    <wsdl:part name="contactId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RestoreContactHttpPostOut" />
+  <wsdl:message name="GetArchivedContactListForPlotHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetArchivedContactListForPlotHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="MoveContactToPlotHttpPostIn">
+    <wsdl:part name="contactId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="newPlotName" type="s:string" />
+    <wsdl:part name="modifiedBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MoveContactToPlotHttpPostOut" />
+  <wsdl:message name="DeleteFarmHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmHttpPostOut" />
+  <wsdl:message name="DeletePlotHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePlotHttpPostOut" />
+  <wsdl:message name="IsFarmNameDuplicateWhileAddingNewFarmHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="farmName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileAddingNewFarmHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileEditingFarmHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="farmName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsFarmNameDuplicateWhileEditingFarmHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileAddingNewPlotHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileAddingNewPlotHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileEditingPlotHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="plotName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsPlotNameDuplicateWhileEditingPlotHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ExportContactListToExcelHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExportContactListToExcelHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateContactListFromArrayOfContactIDHttpPostIn">
+    <wsdl:part name="contactIds" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="GenerateContactListFromArrayOfContactIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfContactInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmPlotHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFarmPlotHttpPostOut" />
+  <wsdl:message name="RestoreFarmPlotHttpPostIn">
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RestoreFarmPlotHttpPostOut" />
+  <wsdl:message name="DeletePlotContactHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePlotContactHttpPostOut" />
+  <wsdl:message name="RestorePlotContactHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+    <wsdl:part name="lastModifyBy" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RestorePlotContactHttpPostOut" />
+  <wsdl:message name="IsDefaultPlotHttpPostIn">
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsDefaultPlotHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TotalActiveFarmCountHttpPostIn" />
+  <wsdl:message name="TotalActiveFarmCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedFarmCountHttpPostIn" />
+  <wsdl:message name="TotalArchivedFarmCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TotalActivePlotCountHttpPostIn" />
+  <wsdl:message name="TotalActivePlotCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedPlotCountHttpPostIn" />
+  <wsdl:message name="TotalArchivedPlotCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="TotalActiveContactCountHttpPostIn" />
+  <wsdl:message name="TotalActiveContactCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="TotalArchivedContactCountHttpPostIn" />
+  <wsdl:message name="TotalArchivedContactCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="ReportForFarmDetailsHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReportForFarmDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmDetailsReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchFarmDataHttpPostIn">
+    <wsdl:part name="where" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchFarmDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmDetailsReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmUpStatusSummaryDetailsHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="FirmUpStatus" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFirmUpStatusSummaryDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFirmUpStatusReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="farmId" type="s:string" />
+    <wsdl:part name="plotId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMailingLabelsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMailingLabelInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDataReportDataHttpPostIn">
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="where" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFarmDataReportDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFarmDataReportInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetDeleteContactConsiquenceHttpPostIn">
+    <wsdl:part name="contactId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDeleteContactConsiquenceHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="FarmServiceSoap">
+    <wsdl:operation name="GetUserName">
+      <wsdl:input message="tns:GetUserNameSoapIn" />
+      <wsdl:output message="tns:GetUserNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListForUser">
+      <wsdl:input message="tns:GetFarmListForUserSoapIn" />
+      <wsdl:output message="tns:GetFarmListForUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSummary">
+      <wsdl:input message="tns:GetFarmSummarySoapIn" />
+      <wsdl:output message="tns:GetFarmSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummary">
+      <wsdl:input message="tns:GetArchivedFarmSummarySoapIn" />
+      <wsdl:output message="tns:GetArchivedFarmSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummaryDetails">
+      <wsdl:input message="tns:GetArchivedFarmSummaryDetailsSoapIn" />
+      <wsdl:output message="tns:GetArchivedFarmSummaryDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListForFarm">
+      <wsdl:input message="tns:GetPlotListForFarmSoapIn" />
+      <wsdl:output message="tns:GetPlotListForFarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummary">
+      <wsdl:input message="tns:GetArchivedPlotSummarySoapIn" />
+      <wsdl:output message="tns:GetArchivedPlotSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummaryDetails">
+      <wsdl:input message="tns:GetArchivedPlotSummaryDetailsSoapIn" />
+      <wsdl:output message="tns:GetArchivedPlotSummaryDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlanList">
+      <wsdl:input message="tns:GetMailingPlanListSoapIn" />
+      <wsdl:output message="tns:GetMailingPlanListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListFromFile">
+      <wsdl:input message="tns:GetFarmListFromFileSoapIn" />
+      <wsdl:output message="tns:GetFarmListFromFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFarmPlot">
+      <wsdl:input message="tns:CreateFarmPlotSoapIn" />
+      <wsdl:output message="tns:CreateFarmPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlot">
+      <wsdl:input message="tns:CreatePlotSoapIn" />
+      <wsdl:output message="tns:CreatePlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlotForMoveContacts">
+      <wsdl:input message="tns:CreatePlotForMoveContactsSoapIn" />
+      <wsdl:output message="tns:CreatePlotForMoveContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlot">
+      <wsdl:input message="tns:UpdatePlotSoapIn" />
+      <wsdl:output message="tns:UpdatePlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFarmPlot">
+      <wsdl:input message="tns:UpdateFarmPlotSoapIn" />
+      <wsdl:output message="tns:UpdateFarmPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDetail">
+      <wsdl:input message="tns:GetFarmDetailSoapIn" />
+      <wsdl:output message="tns:GetFarmDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotCountForFarm">
+      <wsdl:input message="tns:GetPlotCountForFarmSoapIn" />
+      <wsdl:output message="tns:GetPlotCountForFarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListSummaryForFarm">
+      <wsdl:input message="tns:GetPlotListSummaryForFarmSoapIn" />
+      <wsdl:output message="tns:GetPlotListSummaryForFarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotDetail">
+      <wsdl:input message="tns:GetPlotDetailSoapIn" />
+      <wsdl:output message="tns:GetPlotDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmExists">
+      <wsdl:input message="tns:IsFarmExistsSoapIn" />
+      <wsdl:output message="tns:IsFarmExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactCountForPlot">
+      <wsdl:input message="tns:GetContactCountForPlotSoapIn" />
+      <wsdl:output message="tns:GetContactCountForPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotExists">
+      <wsdl:input message="tns:IsPlotExistsSoapIn" />
+      <wsdl:output message="tns:IsPlotExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForFarm">
+      <wsdl:input message="tns:GetUserIdForFarmSoapIn" />
+      <wsdl:output message="tns:GetUserIdForFarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForPlot">
+      <wsdl:input message="tns:GetUserIdForPlotSoapIn" />
+      <wsdl:output message="tns:GetUserIdForPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactListForPlot">
+      <wsdl:input message="tns:GetContactListForPlotSoapIn" />
+      <wsdl:output message="tns:GetContactListForPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <wsdl:input message="tns:GetContactDetailsSoapIn" />
+      <wsdl:output message="tns:GetContactDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContactDetails">
+      <wsdl:input message="tns:UpdateContactDetailsSoapIn" />
+      <wsdl:output message="tns:UpdateContactDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <wsdl:input message="tns:AddContactSoapIn" />
+      <wsdl:output message="tns:AddContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input message="tns:DeleteContactSoapIn" />
+      <wsdl:output message="tns:DeleteContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreContact">
+      <wsdl:input message="tns:RestoreContactSoapIn" />
+      <wsdl:output message="tns:RestoreContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedContactListForPlot">
+      <wsdl:input message="tns:GetArchivedContactListForPlotSoapIn" />
+      <wsdl:output message="tns:GetArchivedContactListForPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveContactToPlot">
+      <wsdl:input message="tns:MoveContactToPlotSoapIn" />
+      <wsdl:output message="tns:MoveContactToPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarm">
+      <wsdl:input message="tns:DeleteFarmSoapIn" />
+      <wsdl:output message="tns:DeleteFarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlot">
+      <wsdl:input message="tns:DeletePlotSoapIn" />
+      <wsdl:output message="tns:DeletePlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileAddingNewFarm">
+      <wsdl:input message="tns:IsFarmNameDuplicateWhileAddingNewFarmSoapIn" />
+      <wsdl:output message="tns:IsFarmNameDuplicateWhileAddingNewFarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileEditingFarm">
+      <wsdl:input message="tns:IsFarmNameDuplicateWhileEditingFarmSoapIn" />
+      <wsdl:output message="tns:IsFarmNameDuplicateWhileEditingFarmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileAddingNewPlot">
+      <wsdl:input message="tns:IsPlotNameDuplicateWhileAddingNewPlotSoapIn" />
+      <wsdl:output message="tns:IsPlotNameDuplicateWhileAddingNewPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileEditingPlot">
+      <wsdl:input message="tns:IsPlotNameDuplicateWhileEditingPlotSoapIn" />
+      <wsdl:output message="tns:IsPlotNameDuplicateWhileEditingPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportContactListToExcel">
+      <wsdl:input message="tns:ExportContactListToExcelSoapIn" />
+      <wsdl:output message="tns:ExportContactListToExcelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateContactListFromArrayOfContactID">
+      <wsdl:input message="tns:GenerateContactListFromArrayOfContactIDSoapIn" />
+      <wsdl:output message="tns:GenerateContactListFromArrayOfContactIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarmPlot">
+      <wsdl:input message="tns:DeleteFarmPlotSoapIn" />
+      <wsdl:output message="tns:DeleteFarmPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreFarmPlot">
+      <wsdl:input message="tns:RestoreFarmPlotSoapIn" />
+      <wsdl:output message="tns:RestoreFarmPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlotContact">
+      <wsdl:input message="tns:DeletePlotContactSoapIn" />
+      <wsdl:output message="tns:DeletePlotContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestorePlotContact">
+      <wsdl:input message="tns:RestorePlotContactSoapIn" />
+      <wsdl:output message="tns:RestorePlotContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsDefaultPlot">
+      <wsdl:input message="tns:IsDefaultPlotSoapIn" />
+      <wsdl:output message="tns:IsDefaultPlotSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveFarmCount">
+      <wsdl:input message="tns:TotalActiveFarmCountSoapIn" />
+      <wsdl:output message="tns:TotalActiveFarmCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedFarmCount">
+      <wsdl:input message="tns:TotalArchivedFarmCountSoapIn" />
+      <wsdl:output message="tns:TotalArchivedFarmCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActivePlotCount">
+      <wsdl:input message="tns:TotalActivePlotCountSoapIn" />
+      <wsdl:output message="tns:TotalActivePlotCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedPlotCount">
+      <wsdl:input message="tns:TotalArchivedPlotCountSoapIn" />
+      <wsdl:output message="tns:TotalArchivedPlotCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveContactCount">
+      <wsdl:input message="tns:TotalActiveContactCountSoapIn" />
+      <wsdl:output message="tns:TotalActiveContactCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedContactCount">
+      <wsdl:input message="tns:TotalArchivedContactCountSoapIn" />
+      <wsdl:output message="tns:TotalArchivedContactCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportForFarmDetails">
+      <wsdl:input message="tns:ReportForFarmDetailsSoapIn" />
+      <wsdl:output message="tns:ReportForFarmDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchFarmData">
+      <wsdl:input message="tns:GetSearchFarmDataSoapIn" />
+      <wsdl:output message="tns:GetSearchFarmDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmUpStatusSummaryDetails">
+      <wsdl:input message="tns:GetFirmUpStatusSummaryDetailsSoapIn" />
+      <wsdl:output message="tns:GetFirmUpStatusSummaryDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <wsdl:input message="tns:GetMailingLabelsSoapIn" />
+      <wsdl:output message="tns:GetMailingLabelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDataReportData">
+      <wsdl:input message="tns:GetFarmDataReportDataSoapIn" />
+      <wsdl:output message="tns:GetFarmDataReportDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteContactConsiquence">
+      <wsdl:input message="tns:GetDeleteContactConsiquenceSoapIn" />
+      <wsdl:output message="tns:GetDeleteContactConsiquenceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FarmServiceHttpGet">
+    <wsdl:operation name="GetUserName">
+      <wsdl:input message="tns:GetUserNameHttpGetIn" />
+      <wsdl:output message="tns:GetUserNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListForUser">
+      <wsdl:input message="tns:GetFarmListForUserHttpGetIn" />
+      <wsdl:output message="tns:GetFarmListForUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSummary">
+      <wsdl:input message="tns:GetFarmSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetFarmSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummary">
+      <wsdl:input message="tns:GetArchivedFarmSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetArchivedFarmSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummaryDetails">
+      <wsdl:input message="tns:GetArchivedFarmSummaryDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetArchivedFarmSummaryDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListForFarm">
+      <wsdl:input message="tns:GetPlotListForFarmHttpGetIn" />
+      <wsdl:output message="tns:GetPlotListForFarmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummary">
+      <wsdl:input message="tns:GetArchivedPlotSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetArchivedPlotSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummaryDetails">
+      <wsdl:input message="tns:GetArchivedPlotSummaryDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetArchivedPlotSummaryDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlanList">
+      <wsdl:input message="tns:GetMailingPlanListHttpGetIn" />
+      <wsdl:output message="tns:GetMailingPlanListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListFromFile">
+      <wsdl:input message="tns:GetFarmListFromFileHttpGetIn" />
+      <wsdl:output message="tns:GetFarmListFromFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDetail">
+      <wsdl:input message="tns:GetFarmDetailHttpGetIn" />
+      <wsdl:output message="tns:GetFarmDetailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotCountForFarm">
+      <wsdl:input message="tns:GetPlotCountForFarmHttpGetIn" />
+      <wsdl:output message="tns:GetPlotCountForFarmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListSummaryForFarm">
+      <wsdl:input message="tns:GetPlotListSummaryForFarmHttpGetIn" />
+      <wsdl:output message="tns:GetPlotListSummaryForFarmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotDetail">
+      <wsdl:input message="tns:GetPlotDetailHttpGetIn" />
+      <wsdl:output message="tns:GetPlotDetailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmExists">
+      <wsdl:input message="tns:IsFarmExistsHttpGetIn" />
+      <wsdl:output message="tns:IsFarmExistsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactCountForPlot">
+      <wsdl:input message="tns:GetContactCountForPlotHttpGetIn" />
+      <wsdl:output message="tns:GetContactCountForPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotExists">
+      <wsdl:input message="tns:IsPlotExistsHttpGetIn" />
+      <wsdl:output message="tns:IsPlotExistsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForFarm">
+      <wsdl:input message="tns:GetUserIdForFarmHttpGetIn" />
+      <wsdl:output message="tns:GetUserIdForFarmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForPlot">
+      <wsdl:input message="tns:GetUserIdForPlotHttpGetIn" />
+      <wsdl:output message="tns:GetUserIdForPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactListForPlot">
+      <wsdl:input message="tns:GetContactListForPlotHttpGetIn" />
+      <wsdl:output message="tns:GetContactListForPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <wsdl:input message="tns:GetContactDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetContactDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input message="tns:DeleteContactHttpGetIn" />
+      <wsdl:output message="tns:DeleteContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreContact">
+      <wsdl:input message="tns:RestoreContactHttpGetIn" />
+      <wsdl:output message="tns:RestoreContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedContactListForPlot">
+      <wsdl:input message="tns:GetArchivedContactListForPlotHttpGetIn" />
+      <wsdl:output message="tns:GetArchivedContactListForPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveContactToPlot">
+      <wsdl:input message="tns:MoveContactToPlotHttpGetIn" />
+      <wsdl:output message="tns:MoveContactToPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarm">
+      <wsdl:input message="tns:DeleteFarmHttpGetIn" />
+      <wsdl:output message="tns:DeleteFarmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlot">
+      <wsdl:input message="tns:DeletePlotHttpGetIn" />
+      <wsdl:output message="tns:DeletePlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileAddingNewFarm">
+      <wsdl:input message="tns:IsFarmNameDuplicateWhileAddingNewFarmHttpGetIn" />
+      <wsdl:output message="tns:IsFarmNameDuplicateWhileAddingNewFarmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileEditingFarm">
+      <wsdl:input message="tns:IsFarmNameDuplicateWhileEditingFarmHttpGetIn" />
+      <wsdl:output message="tns:IsFarmNameDuplicateWhileEditingFarmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileAddingNewPlot">
+      <wsdl:input message="tns:IsPlotNameDuplicateWhileAddingNewPlotHttpGetIn" />
+      <wsdl:output message="tns:IsPlotNameDuplicateWhileAddingNewPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileEditingPlot">
+      <wsdl:input message="tns:IsPlotNameDuplicateWhileEditingPlotHttpGetIn" />
+      <wsdl:output message="tns:IsPlotNameDuplicateWhileEditingPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportContactListToExcel">
+      <wsdl:input message="tns:ExportContactListToExcelHttpGetIn" />
+      <wsdl:output message="tns:ExportContactListToExcelHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateContactListFromArrayOfContactID">
+      <wsdl:input message="tns:GenerateContactListFromArrayOfContactIDHttpGetIn" />
+      <wsdl:output message="tns:GenerateContactListFromArrayOfContactIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarmPlot">
+      <wsdl:input message="tns:DeleteFarmPlotHttpGetIn" />
+      <wsdl:output message="tns:DeleteFarmPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreFarmPlot">
+      <wsdl:input message="tns:RestoreFarmPlotHttpGetIn" />
+      <wsdl:output message="tns:RestoreFarmPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlotContact">
+      <wsdl:input message="tns:DeletePlotContactHttpGetIn" />
+      <wsdl:output message="tns:DeletePlotContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestorePlotContact">
+      <wsdl:input message="tns:RestorePlotContactHttpGetIn" />
+      <wsdl:output message="tns:RestorePlotContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsDefaultPlot">
+      <wsdl:input message="tns:IsDefaultPlotHttpGetIn" />
+      <wsdl:output message="tns:IsDefaultPlotHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveFarmCount">
+      <wsdl:input message="tns:TotalActiveFarmCountHttpGetIn" />
+      <wsdl:output message="tns:TotalActiveFarmCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedFarmCount">
+      <wsdl:input message="tns:TotalArchivedFarmCountHttpGetIn" />
+      <wsdl:output message="tns:TotalArchivedFarmCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActivePlotCount">
+      <wsdl:input message="tns:TotalActivePlotCountHttpGetIn" />
+      <wsdl:output message="tns:TotalActivePlotCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedPlotCount">
+      <wsdl:input message="tns:TotalArchivedPlotCountHttpGetIn" />
+      <wsdl:output message="tns:TotalArchivedPlotCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveContactCount">
+      <wsdl:input message="tns:TotalActiveContactCountHttpGetIn" />
+      <wsdl:output message="tns:TotalActiveContactCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedContactCount">
+      <wsdl:input message="tns:TotalArchivedContactCountHttpGetIn" />
+      <wsdl:output message="tns:TotalArchivedContactCountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportForFarmDetails">
+      <wsdl:input message="tns:ReportForFarmDetailsHttpGetIn" />
+      <wsdl:output message="tns:ReportForFarmDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchFarmData">
+      <wsdl:input message="tns:GetSearchFarmDataHttpGetIn" />
+      <wsdl:output message="tns:GetSearchFarmDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmUpStatusSummaryDetails">
+      <wsdl:input message="tns:GetFirmUpStatusSummaryDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetFirmUpStatusSummaryDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <wsdl:input message="tns:GetMailingLabelsHttpGetIn" />
+      <wsdl:output message="tns:GetMailingLabelsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDataReportData">
+      <wsdl:input message="tns:GetFarmDataReportDataHttpGetIn" />
+      <wsdl:output message="tns:GetFarmDataReportDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteContactConsiquence">
+      <wsdl:input message="tns:GetDeleteContactConsiquenceHttpGetIn" />
+      <wsdl:output message="tns:GetDeleteContactConsiquenceHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FarmServiceHttpPost">
+    <wsdl:operation name="GetUserName">
+      <wsdl:input message="tns:GetUserNameHttpPostIn" />
+      <wsdl:output message="tns:GetUserNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListForUser">
+      <wsdl:input message="tns:GetFarmListForUserHttpPostIn" />
+      <wsdl:output message="tns:GetFarmListForUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSummary">
+      <wsdl:input message="tns:GetFarmSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetFarmSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummary">
+      <wsdl:input message="tns:GetArchivedFarmSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetArchivedFarmSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummaryDetails">
+      <wsdl:input message="tns:GetArchivedFarmSummaryDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetArchivedFarmSummaryDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListForFarm">
+      <wsdl:input message="tns:GetPlotListForFarmHttpPostIn" />
+      <wsdl:output message="tns:GetPlotListForFarmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummary">
+      <wsdl:input message="tns:GetArchivedPlotSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetArchivedPlotSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummaryDetails">
+      <wsdl:input message="tns:GetArchivedPlotSummaryDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetArchivedPlotSummaryDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlanList">
+      <wsdl:input message="tns:GetMailingPlanListHttpPostIn" />
+      <wsdl:output message="tns:GetMailingPlanListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListFromFile">
+      <wsdl:input message="tns:GetFarmListFromFileHttpPostIn" />
+      <wsdl:output message="tns:GetFarmListFromFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDetail">
+      <wsdl:input message="tns:GetFarmDetailHttpPostIn" />
+      <wsdl:output message="tns:GetFarmDetailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotCountForFarm">
+      <wsdl:input message="tns:GetPlotCountForFarmHttpPostIn" />
+      <wsdl:output message="tns:GetPlotCountForFarmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListSummaryForFarm">
+      <wsdl:input message="tns:GetPlotListSummaryForFarmHttpPostIn" />
+      <wsdl:output message="tns:GetPlotListSummaryForFarmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotDetail">
+      <wsdl:input message="tns:GetPlotDetailHttpPostIn" />
+      <wsdl:output message="tns:GetPlotDetailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmExists">
+      <wsdl:input message="tns:IsFarmExistsHttpPostIn" />
+      <wsdl:output message="tns:IsFarmExistsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactCountForPlot">
+      <wsdl:input message="tns:GetContactCountForPlotHttpPostIn" />
+      <wsdl:output message="tns:GetContactCountForPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotExists">
+      <wsdl:input message="tns:IsPlotExistsHttpPostIn" />
+      <wsdl:output message="tns:IsPlotExistsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForFarm">
+      <wsdl:input message="tns:GetUserIdForFarmHttpPostIn" />
+      <wsdl:output message="tns:GetUserIdForFarmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForPlot">
+      <wsdl:input message="tns:GetUserIdForPlotHttpPostIn" />
+      <wsdl:output message="tns:GetUserIdForPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactListForPlot">
+      <wsdl:input message="tns:GetContactListForPlotHttpPostIn" />
+      <wsdl:output message="tns:GetContactListForPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <wsdl:input message="tns:GetContactDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetContactDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <wsdl:input message="tns:DeleteContactHttpPostIn" />
+      <wsdl:output message="tns:DeleteContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreContact">
+      <wsdl:input message="tns:RestoreContactHttpPostIn" />
+      <wsdl:output message="tns:RestoreContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedContactListForPlot">
+      <wsdl:input message="tns:GetArchivedContactListForPlotHttpPostIn" />
+      <wsdl:output message="tns:GetArchivedContactListForPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MoveContactToPlot">
+      <wsdl:input message="tns:MoveContactToPlotHttpPostIn" />
+      <wsdl:output message="tns:MoveContactToPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarm">
+      <wsdl:input message="tns:DeleteFarmHttpPostIn" />
+      <wsdl:output message="tns:DeleteFarmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlot">
+      <wsdl:input message="tns:DeletePlotHttpPostIn" />
+      <wsdl:output message="tns:DeletePlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileAddingNewFarm">
+      <wsdl:input message="tns:IsFarmNameDuplicateWhileAddingNewFarmHttpPostIn" />
+      <wsdl:output message="tns:IsFarmNameDuplicateWhileAddingNewFarmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileEditingFarm">
+      <wsdl:input message="tns:IsFarmNameDuplicateWhileEditingFarmHttpPostIn" />
+      <wsdl:output message="tns:IsFarmNameDuplicateWhileEditingFarmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileAddingNewPlot">
+      <wsdl:input message="tns:IsPlotNameDuplicateWhileAddingNewPlotHttpPostIn" />
+      <wsdl:output message="tns:IsPlotNameDuplicateWhileAddingNewPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileEditingPlot">
+      <wsdl:input message="tns:IsPlotNameDuplicateWhileEditingPlotHttpPostIn" />
+      <wsdl:output message="tns:IsPlotNameDuplicateWhileEditingPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportContactListToExcel">
+      <wsdl:input message="tns:ExportContactListToExcelHttpPostIn" />
+      <wsdl:output message="tns:ExportContactListToExcelHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateContactListFromArrayOfContactID">
+      <wsdl:input message="tns:GenerateContactListFromArrayOfContactIDHttpPostIn" />
+      <wsdl:output message="tns:GenerateContactListFromArrayOfContactIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarmPlot">
+      <wsdl:input message="tns:DeleteFarmPlotHttpPostIn" />
+      <wsdl:output message="tns:DeleteFarmPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreFarmPlot">
+      <wsdl:input message="tns:RestoreFarmPlotHttpPostIn" />
+      <wsdl:output message="tns:RestoreFarmPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlotContact">
+      <wsdl:input message="tns:DeletePlotContactHttpPostIn" />
+      <wsdl:output message="tns:DeletePlotContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RestorePlotContact">
+      <wsdl:input message="tns:RestorePlotContactHttpPostIn" />
+      <wsdl:output message="tns:RestorePlotContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsDefaultPlot">
+      <wsdl:input message="tns:IsDefaultPlotHttpPostIn" />
+      <wsdl:output message="tns:IsDefaultPlotHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveFarmCount">
+      <wsdl:input message="tns:TotalActiveFarmCountHttpPostIn" />
+      <wsdl:output message="tns:TotalActiveFarmCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedFarmCount">
+      <wsdl:input message="tns:TotalArchivedFarmCountHttpPostIn" />
+      <wsdl:output message="tns:TotalArchivedFarmCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActivePlotCount">
+      <wsdl:input message="tns:TotalActivePlotCountHttpPostIn" />
+      <wsdl:output message="tns:TotalActivePlotCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedPlotCount">
+      <wsdl:input message="tns:TotalArchivedPlotCountHttpPostIn" />
+      <wsdl:output message="tns:TotalArchivedPlotCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveContactCount">
+      <wsdl:input message="tns:TotalActiveContactCountHttpPostIn" />
+      <wsdl:output message="tns:TotalActiveContactCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedContactCount">
+      <wsdl:input message="tns:TotalArchivedContactCountHttpPostIn" />
+      <wsdl:output message="tns:TotalArchivedContactCountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReportForFarmDetails">
+      <wsdl:input message="tns:ReportForFarmDetailsHttpPostIn" />
+      <wsdl:output message="tns:ReportForFarmDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchFarmData">
+      <wsdl:input message="tns:GetSearchFarmDataHttpPostIn" />
+      <wsdl:output message="tns:GetSearchFarmDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmUpStatusSummaryDetails">
+      <wsdl:input message="tns:GetFirmUpStatusSummaryDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetFirmUpStatusSummaryDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <wsdl:input message="tns:GetMailingLabelsHttpPostIn" />
+      <wsdl:output message="tns:GetMailingLabelsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDataReportData">
+      <wsdl:input message="tns:GetFarmDataReportDataHttpPostIn" />
+      <wsdl:output message="tns:GetFarmDataReportDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteContactConsiquence">
+      <wsdl:input message="tns:GetDeleteContactConsiquenceHttpPostIn" />
+      <wsdl:output message="tns:GetDeleteContactConsiquenceHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FarmServiceSoap" type="tns:FarmServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserName">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetUserName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListForUser">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmListForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSummary">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummary">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedFarmSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummaryDetails">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedFarmSummaryDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListForFarm">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlotListForFarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummary">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedPlotSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummaryDetails">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedPlotSummaryDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlanList">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetMailingPlanList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListFromFile">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmListFromFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFarmPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/CreateFarmPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/CreatePlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlotForMoveContacts">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/CreatePlotForMoveContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/UpdatePlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFarmPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/UpdateFarmPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDetail">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotCountForFarm">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlotCountForFarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListSummaryForFarm">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlotListSummaryForFarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotDetail">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlotDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmExists">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/IsFarmExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactCountForPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetContactCountForPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotExists">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/IsPlotExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForFarm">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetUserIdForFarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetUserIdForPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactListForPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetContactListForPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetContactDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContactDetails">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/UpdateContactDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/AddContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreContact">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/RestoreContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedContactListForPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedContactListForPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveContactToPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/MoveContactToPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarm">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/DeleteFarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/DeletePlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileAddingNewFarm">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/IsFarmNameDuplicateWhileAddingNewFarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileEditingFarm">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/IsFarmNameDuplicateWhileEditingFarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileAddingNewPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/IsPlotNameDuplicateWhileAddingNewPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileEditingPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/IsPlotNameDuplicateWhileEditingPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportContactListToExcel">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/ExportContactListToExcel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateContactListFromArrayOfContactID">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GenerateContactListFromArrayOfContactID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarmPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/DeleteFarmPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreFarmPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/RestoreFarmPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlotContact">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/DeletePlotContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestorePlotContact">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/RestorePlotContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsDefaultPlot">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/IsDefaultPlot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveFarmCount">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/TotalActiveFarmCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedFarmCount">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/TotalArchivedFarmCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActivePlotCount">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/TotalActivePlotCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedPlotCount">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/TotalArchivedPlotCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveContactCount">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/TotalActiveContactCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedContactCount">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/TotalArchivedContactCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportForFarmDetails">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/ReportForFarmDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchFarmData">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetSearchFarmData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmUpStatusSummaryDetails">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetFirmUpStatusSummaryDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetMailingLabels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDataReportData">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmDataReportData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteContactConsiquence">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetDeleteContactConsiquence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FarmServiceSoap12" type="tns:FarmServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserName">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetUserName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListForUser">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmListForUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSummary">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummary">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedFarmSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummaryDetails">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedFarmSummaryDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListForFarm">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlotListForFarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummary">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedPlotSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummaryDetails">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedPlotSummaryDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlanList">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetMailingPlanList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListFromFile">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmListFromFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFarmPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/CreateFarmPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/CreatePlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlotForMoveContacts">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/CreatePlotForMoveContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/UpdatePlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFarmPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/UpdateFarmPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDetail">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotCountForFarm">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlotCountForFarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListSummaryForFarm">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlotListSummaryForFarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotDetail">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetPlotDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmExists">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/IsFarmExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactCountForPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetContactCountForPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotExists">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/IsPlotExists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForFarm">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetUserIdForFarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetUserIdForPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactListForPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetContactListForPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetContactDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContactDetails">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/UpdateContactDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContact">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/AddContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/DeleteContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreContact">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/RestoreContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedContactListForPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetArchivedContactListForPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveContactToPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/MoveContactToPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarm">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/DeleteFarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/DeletePlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileAddingNewFarm">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/IsFarmNameDuplicateWhileAddingNewFarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileEditingFarm">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/IsFarmNameDuplicateWhileEditingFarm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileAddingNewPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/IsPlotNameDuplicateWhileAddingNewPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileEditingPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/IsPlotNameDuplicateWhileEditingPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportContactListToExcel">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/ExportContactListToExcel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateContactListFromArrayOfContactID">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GenerateContactListFromArrayOfContactID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarmPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/DeleteFarmPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestoreFarmPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/RestoreFarmPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlotContact">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/DeletePlotContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RestorePlotContact">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/RestorePlotContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsDefaultPlot">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/IsDefaultPlot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveFarmCount">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/TotalActiveFarmCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedFarmCount">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/TotalArchivedFarmCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActivePlotCount">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/TotalActivePlotCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedPlotCount">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/TotalArchivedPlotCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveContactCount">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/TotalActiveContactCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedContactCount">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/TotalArchivedContactCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportForFarmDetails">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/ReportForFarmDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchFarmData">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetSearchFarmData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmUpStatusSummaryDetails">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetFirmUpStatusSummaryDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetMailingLabels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDataReportData">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetFarmDataReportData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteContactConsiquence">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetDeleteContactConsiquence" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FarmServiceHttpGet" type="tns:FarmServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetUserName">
+      <http:operation location="/GetUserName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListForUser">
+      <http:operation location="/GetFarmListForUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSummary">
+      <http:operation location="/GetFarmSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummary">
+      <http:operation location="/GetArchivedFarmSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummaryDetails">
+      <http:operation location="/GetArchivedFarmSummaryDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListForFarm">
+      <http:operation location="/GetPlotListForFarm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummary">
+      <http:operation location="/GetArchivedPlotSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummaryDetails">
+      <http:operation location="/GetArchivedPlotSummaryDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlanList">
+      <http:operation location="/GetMailingPlanList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListFromFile">
+      <http:operation location="/GetFarmListFromFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDetail">
+      <http:operation location="/GetFarmDetail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotCountForFarm">
+      <http:operation location="/GetPlotCountForFarm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListSummaryForFarm">
+      <http:operation location="/GetPlotListSummaryForFarm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotDetail">
+      <http:operation location="/GetPlotDetail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmExists">
+      <http:operation location="/IsFarmExists" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactCountForPlot">
+      <http:operation location="/GetContactCountForPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotExists">
+      <http:operation location="/IsPlotExists" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForFarm">
+      <http:operation location="/GetUserIdForFarm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForPlot">
+      <http:operation location="/GetUserIdForPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactListForPlot">
+      <http:operation location="/GetContactListForPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <http:operation location="/GetContactDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <http:operation location="/DeleteContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreContact">
+      <http:operation location="/RestoreContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedContactListForPlot">
+      <http:operation location="/GetArchivedContactListForPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveContactToPlot">
+      <http:operation location="/MoveContactToPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarm">
+      <http:operation location="/DeleteFarm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlot">
+      <http:operation location="/DeletePlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileAddingNewFarm">
+      <http:operation location="/IsFarmNameDuplicateWhileAddingNewFarm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileEditingFarm">
+      <http:operation location="/IsFarmNameDuplicateWhileEditingFarm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileAddingNewPlot">
+      <http:operation location="/IsPlotNameDuplicateWhileAddingNewPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileEditingPlot">
+      <http:operation location="/IsPlotNameDuplicateWhileEditingPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportContactListToExcel">
+      <http:operation location="/ExportContactListToExcel" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateContactListFromArrayOfContactID">
+      <http:operation location="/GenerateContactListFromArrayOfContactID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarmPlot">
+      <http:operation location="/DeleteFarmPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreFarmPlot">
+      <http:operation location="/RestoreFarmPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlotContact">
+      <http:operation location="/DeletePlotContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RestorePlotContact">
+      <http:operation location="/RestorePlotContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="IsDefaultPlot">
+      <http:operation location="/IsDefaultPlot" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveFarmCount">
+      <http:operation location="/TotalActiveFarmCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedFarmCount">
+      <http:operation location="/TotalArchivedFarmCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActivePlotCount">
+      <http:operation location="/TotalActivePlotCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedPlotCount">
+      <http:operation location="/TotalArchivedPlotCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveContactCount">
+      <http:operation location="/TotalActiveContactCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedContactCount">
+      <http:operation location="/TotalArchivedContactCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportForFarmDetails">
+      <http:operation location="/ReportForFarmDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchFarmData">
+      <http:operation location="/GetSearchFarmData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmUpStatusSummaryDetails">
+      <http:operation location="/GetFirmUpStatusSummaryDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <http:operation location="/GetMailingLabels" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDataReportData">
+      <http:operation location="/GetFarmDataReportData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteContactConsiquence">
+      <http:operation location="/GetDeleteContactConsiquence" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FarmServiceHttpPost" type="tns:FarmServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetUserName">
+      <http:operation location="/GetUserName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListForUser">
+      <http:operation location="/GetFarmListForUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmSummary">
+      <http:operation location="/GetFarmSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummary">
+      <http:operation location="/GetArchivedFarmSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedFarmSummaryDetails">
+      <http:operation location="/GetArchivedFarmSummaryDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListForFarm">
+      <http:operation location="/GetPlotListForFarm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummary">
+      <http:operation location="/GetArchivedPlotSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedPlotSummaryDetails">
+      <http:operation location="/GetArchivedPlotSummaryDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingPlanList">
+      <http:operation location="/GetMailingPlanList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmListFromFile">
+      <http:operation location="/GetFarmListFromFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDetail">
+      <http:operation location="/GetFarmDetail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotCountForFarm">
+      <http:operation location="/GetPlotCountForFarm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotListSummaryForFarm">
+      <http:operation location="/GetPlotListSummaryForFarm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlotDetail">
+      <http:operation location="/GetPlotDetail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmExists">
+      <http:operation location="/IsFarmExists" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactCountForPlot">
+      <http:operation location="/GetContactCountForPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotExists">
+      <http:operation location="/IsPlotExists" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForFarm">
+      <http:operation location="/GetUserIdForFarm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdForPlot">
+      <http:operation location="/GetUserIdForPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactListForPlot">
+      <http:operation location="/GetContactListForPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <http:operation location="/GetContactDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContact">
+      <http:operation location="/DeleteContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreContact">
+      <http:operation location="/RestoreContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivedContactListForPlot">
+      <http:operation location="/GetArchivedContactListForPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MoveContactToPlot">
+      <http:operation location="/MoveContactToPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarm">
+      <http:operation location="/DeleteFarm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlot">
+      <http:operation location="/DeletePlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileAddingNewFarm">
+      <http:operation location="/IsFarmNameDuplicateWhileAddingNewFarm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFarmNameDuplicateWhileEditingFarm">
+      <http:operation location="/IsFarmNameDuplicateWhileEditingFarm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileAddingNewPlot">
+      <http:operation location="/IsPlotNameDuplicateWhileAddingNewPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsPlotNameDuplicateWhileEditingPlot">
+      <http:operation location="/IsPlotNameDuplicateWhileEditingPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportContactListToExcel">
+      <http:operation location="/ExportContactListToExcel" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateContactListFromArrayOfContactID">
+      <http:operation location="/GenerateContactListFromArrayOfContactID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFarmPlot">
+      <http:operation location="/DeleteFarmPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RestoreFarmPlot">
+      <http:operation location="/RestoreFarmPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlotContact">
+      <http:operation location="/DeletePlotContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="RestorePlotContact">
+      <http:operation location="/RestorePlotContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="IsDefaultPlot">
+      <http:operation location="/IsDefaultPlot" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveFarmCount">
+      <http:operation location="/TotalActiveFarmCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedFarmCount">
+      <http:operation location="/TotalArchivedFarmCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActivePlotCount">
+      <http:operation location="/TotalActivePlotCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedPlotCount">
+      <http:operation location="/TotalArchivedPlotCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalActiveContactCount">
+      <http:operation location="/TotalActiveContactCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TotalArchivedContactCount">
+      <http:operation location="/TotalArchivedContactCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReportForFarmDetails">
+      <http:operation location="/ReportForFarmDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchFarmData">
+      <http:operation location="/GetSearchFarmData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFirmUpStatusSummaryDetails">
+      <http:operation location="/GetFirmUpStatusSummaryDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMailingLabels">
+      <http:operation location="/GetMailingLabels" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFarmDataReportData">
+      <http:operation location="/GetFarmDataReportData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeleteContactConsiquence">
+      <http:operation location="/GetDeleteContactConsiquence" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FarmService">
+    <wsdl:port name="FarmServiceSoap" binding="tns:FarmServiceSoap">
+      <soap:address location="http://mc1.mkbedev.com/BLLService/FarmService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FarmServiceSoap12" binding="tns:FarmServiceSoap12">
+      <soap12:address location="http://mc1.mkbedev.com/BLLService/FarmService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FarmServiceHttpGet" binding="tns:FarmServiceHttpGet">
+      <http:address location="http://mc1.mkbedev.com/BLLService/FarmService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FarmServiceHttpPost" binding="tns:FarmServiceHttpPost">
+      <http:address location="http://mc1.mkbedev.com/BLLService/FarmService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

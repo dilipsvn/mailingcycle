@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Irmac.MailingCycle.BLLServiceLoader.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Registration_RegistrationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/RegistrationService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Order_OrderService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/OrderService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Farm_FarmService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/FarmService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Design_DesignService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/DesignService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Message_MessageService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/MessageService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Product_ProductService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/ProductService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Schedule_ScheduleService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/ScheduleService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_ShoppingCart_ShoppingCartService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/ShoppingCartService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Common_CommonService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/CommonService.asmx</Value>
+    </Setting>
+    <Setting Name="Irmac_MailingCycle_BLLServiceLoader_Acca_AccaService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:3207/BLLService/AccaService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

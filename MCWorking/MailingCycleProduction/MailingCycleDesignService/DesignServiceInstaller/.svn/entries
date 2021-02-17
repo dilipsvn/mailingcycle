@@ -1,0 +1,46 @@
+8
+
+dir
+1225
+http://71.216.124.181:8090/svn/Projects/mailingcycle/trunk/develop/src/staging/working/MailingCycleDesignService/DesignServiceInstaller
+http://71.216.124.181:8090/svn/Projects
+
+
+
+2007-12-16T16:45:15.718750Z
+610
+sai
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bed9e3a7-481d-f847-879c-9a3caaf28210
+
+Release
+dir
+
+Debug
+dir
+
+DesignServiceInstaller.vdproj
+file
+
+
+
+
+2008-02-13T13:02:14.625000Z
+b0b6398a2b79f609820f7bfec4732e29
+2007-12-16T16:45:15.718750Z
+610
+sai
+

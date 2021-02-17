@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/BLLService
+END
+AccaService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/AccaService.asmx
+END
+CommonService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/CommonService.asmx
+END
+DesignService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/DesignService.asmx
+END
+Web.Config
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/Web.Config
+END
+vssver2.scc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/vssver2.scc
+END
+RegistrationService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/RegistrationService.asmx
+END
+OrderService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/OrderService.asmx
+END
+ScheduleService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/ScheduleService.asmx
+END
+ProductService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/ProductService.asmx
+END
+ShoppingCartService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/ShoppingCartService.asmx
+END
+MessageService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/MessageService.asmx
+END
+FarmService.asmx
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/FarmService.asmx
+END

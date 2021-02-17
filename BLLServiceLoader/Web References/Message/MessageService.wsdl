@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost:3130/BLLService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost:3130/BLLService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost:3130/BLLService/">
+      <s:element name="GetStandardMessageList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isAgent" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStandardMessageListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStandardMessageListResult" type="tns:ArrayOfMessageInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessageInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MessageInfo" nillable="true" type="tns:MessageInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IsDefaultMessage" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EventInProgress" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UsageCount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsImage" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MessageTextShort" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MessageType" type="tns:MessageType" />
+              <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:MessageStatus" />
+              <s:element minOccurs="0" maxOccurs="1" name="ShortDesc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MessageText" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseInfo" abstract="true" />
+      <s:simpleType name="MessageType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Standard" />
+          <s:enumeration value="Custom" />
+          <s:enumeration value="NullType" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MessageStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Active" />
+          <s:enumeration value="InActive" />
+          <s:enumeration value="NullStatus" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetCustomMessageList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomMessageListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomMessageListResult" type="tns:ArrayOfMessageInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="messageInfo" type="tns:MessageInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="messageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="deletedBy" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msgInfo" type="tns:MessageInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ownerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMessageResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchMessages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="messageId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageStatus" type="tns:MessageStatus" />
+            <s:element minOccurs="1" maxOccurs="1" name="messageType" type="tns:MessageType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSearchMessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSearchMessagesResult" type="tns:ArrayOfMessageInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetStandardMessageListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStandardMessageList" />
+  </wsdl:message>
+  <wsdl:message name="GetStandardMessageListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStandardMessageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomMessageListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomMessageList" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomMessageListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomMessageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertMessage" />
+  </wsdl:message>
+  <wsdl:message name="InsertMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteMessage" />
+  </wsdl:message>
+  <wsdl:message name="DeleteMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMessage" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchMessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSearchMessages" />
+  </wsdl:message>
+  <wsdl:message name="GetSearchMessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSearchMessagesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MessageServiceSoap">
+    <wsdl:operation name="GetStandardMessageList">
+      <wsdl:input message="tns:GetStandardMessageListSoapIn" />
+      <wsdl:output message="tns:GetStandardMessageListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomMessageList">
+      <wsdl:input message="tns:GetCustomMessageListSoapIn" />
+      <wsdl:output message="tns:GetCustomMessageListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMessage">
+      <wsdl:input message="tns:InsertMessageSoapIn" />
+      <wsdl:output message="tns:InsertMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <wsdl:input message="tns:DeleteMessageSoapIn" />
+      <wsdl:output message="tns:DeleteMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <wsdl:input message="tns:UpdateMessageSoapIn" />
+      <wsdl:output message="tns:UpdateMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchMessages">
+      <wsdl:input message="tns:GetSearchMessagesSoapIn" />
+      <wsdl:output message="tns:GetSearchMessagesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MessageServiceSoap" type="tns:MessageServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetStandardMessageList">
+      <soap:operation soapAction="http://localhost:3130/BLLService/GetStandardMessageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomMessageList">
+      <soap:operation soapAction="http://localhost:3130/BLLService/GetCustomMessageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMessage">
+      <soap:operation soapAction="http://localhost:3130/BLLService/InsertMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <soap:operation soapAction="http://localhost:3130/BLLService/DeleteMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <soap:operation soapAction="http://localhost:3130/BLLService/UpdateMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchMessages">
+      <soap:operation soapAction="http://localhost:3130/BLLService/GetSearchMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MessageServiceSoap12" type="tns:MessageServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetStandardMessageList">
+      <soap12:operation soapAction="http://localhost:3130/BLLService/GetStandardMessageList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomMessageList">
+      <soap12:operation soapAction="http://localhost:3130/BLLService/GetCustomMessageList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMessage">
+      <soap12:operation soapAction="http://localhost:3130/BLLService/InsertMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMessage">
+      <soap12:operation soapAction="http://localhost:3130/BLLService/DeleteMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessage">
+      <soap12:operation soapAction="http://localhost:3130/BLLService/UpdateMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSearchMessages">
+      <soap12:operation soapAction="http://localhost:3130/BLLService/GetSearchMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MessageService">
+    <wsdl:port name="MessageServiceSoap" binding="tns:MessageServiceSoap">
+      <soap:address location="http://localhost:1073/MessageService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MessageServiceSoap12" binding="tns:MessageServiceSoap12">
+      <soap12:address location="http://localhost:1073/MessageService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

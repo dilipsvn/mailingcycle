@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:1073/DesignService.asmx?wsdl" docRef="http://localhost:1073/DesignService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:1073/DesignService.asmx" xmlns:q1="http://irmac.com/webservices/" binding="q1:DesignServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:1073/DesignService.asmx" xmlns:q2="http://irmac.com/webservices/" binding="q2:DesignServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

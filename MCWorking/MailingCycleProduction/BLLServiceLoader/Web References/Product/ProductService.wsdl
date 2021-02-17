@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://mc.mkbedev.com/BLLService/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://mc.mkbedev.com/BLLService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://mc.mkbedev.com/BLLService/">
+      <s:element name="GetProductItems">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProductItemsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductItemsResult" type="tns:ArrayOfProductItemInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProductItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductItemInfo" nillable="true" type="tns:ProductItemInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductItemInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ProductTypeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentUserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Size" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCustomSize" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productInfo" type="tns:ProductInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ProductInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BaseInfo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="BriefDescWithQuantity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalPrice" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="OwnerId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProductItems" type="tns:ArrayOfProductItemInfo" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProductStatus" type="tns:ProductStatus" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExtDesc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BriefDesc" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ProductId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProductCatalog" type="tns:ProductCatalogType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseInfo" abstract="true" />
+      <s:simpleType name="ProductStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Inactive" />
+          <s:enumeration value="Active" />
+          <s:enumeration value="OnHold" />
+          <s:enumeration value="Obsolete" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ProductCatalogType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Standard" />
+          <s:enumeration value="Custom" />
+          <s:enumeration value="Generic" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="InsertProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertProductResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="productTypeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentUserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductsResult" type="tns:ArrayOfProductInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProductInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductInfo" nillable="true" type="tns:ProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProductDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductDetailsResult" type="tns:ProductInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProductDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productInfo" type="tns:ProductInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateProductDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateProductDetailsResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="productId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DeleteProductResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryTotalCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="agentUserId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInventoryTotalCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInventoryTotalCountResult" type="tns:ArrayOfProductItemInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfProductItemInfo" nillable="true" type="tns:ArrayOfProductItemInfo" />
+      <s:element name="ArrayOfProductInfo" nillable="true" type="tns:ArrayOfProductInfo" />
+      <s:element name="ProductInfo" nillable="true" type="tns:ProductInfo" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProductItemsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductItems" />
+  </wsdl:message>
+  <wsdl:message name="GetProductItemsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertProductSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertProduct" />
+  </wsdl:message>
+  <wsdl:message name="InsertProductSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProductDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateProductDetails" />
+  </wsdl:message>
+  <wsdl:message name="UpdateProductDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateProductDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryTotalCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInventoryTotalCount" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryTotalCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInventoryTotalCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductItemsHttpGetIn" />
+  <wsdl:message name="GetProductItemsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProductItemInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsHttpGetIn">
+    <wsdl:part name="productTypeId" type="s:string" />
+    <wsdl:part name="agentUserId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProductInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDetailsHttpGetIn">
+    <wsdl:part name="productId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ProductInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductHttpGetIn">
+    <wsdl:part name="productId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryTotalCountHttpGetIn">
+    <wsdl:part name="agentUserId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryTotalCountHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProductItemInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProductItemsHttpPostIn" />
+  <wsdl:message name="GetProductItemsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProductItemInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsHttpPostIn">
+    <wsdl:part name="productTypeId" type="s:string" />
+    <wsdl:part name="agentUserId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProductInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDetailsHttpPostIn">
+    <wsdl:part name="productId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetProductDetailsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ProductInfo" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductHttpPostIn">
+    <wsdl:part name="productId" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryTotalCountHttpPostIn">
+    <wsdl:part name="agentUserId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetInventoryTotalCountHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProductItemInfo" />
+  </wsdl:message>
+  <wsdl:portType name="ProductServiceSoap">
+    <wsdl:operation name="GetProductItems">
+      <wsdl:input message="tns:GetProductItemsSoapIn" />
+      <wsdl:output message="tns:GetProductItemsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertProduct">
+      <wsdl:input message="tns:InsertProductSoapIn" />
+      <wsdl:output message="tns:InsertProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input message="tns:GetProductsSoapIn" />
+      <wsdl:output message="tns:GetProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <wsdl:input message="tns:GetProductDetailsSoapIn" />
+      <wsdl:output message="tns:GetProductDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductDetails">
+      <wsdl:input message="tns:UpdateProductDetailsSoapIn" />
+      <wsdl:output message="tns:UpdateProductDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input message="tns:DeleteProductSoapIn" />
+      <wsdl:output message="tns:DeleteProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTotalCount">
+      <wsdl:input message="tns:GetInventoryTotalCountSoapIn" />
+      <wsdl:output message="tns:GetInventoryTotalCountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProductServiceHttpGet">
+    <wsdl:operation name="GetProductItems">
+      <wsdl:input message="tns:GetProductItemsHttpGetIn" />
+      <wsdl:output message="tns:GetProductItemsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input message="tns:GetProductsHttpGetIn" />
+      <wsdl:output message="tns:GetProductsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <wsdl:input message="tns:GetProductDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetProductDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input message="tns:DeleteProductHttpGetIn" />
+      <wsdl:output message="tns:DeleteProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTotalCount">
+      <wsdl:input message="tns:GetInventoryTotalCountHttpGetIn" />
+      <wsdl:output message="tns:GetInventoryTotalCountHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProductServiceHttpPost">
+    <wsdl:operation name="GetProductItems">
+      <wsdl:input message="tns:GetProductItemsHttpPostIn" />
+      <wsdl:output message="tns:GetProductItemsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input message="tns:GetProductsHttpPostIn" />
+      <wsdl:output message="tns:GetProductsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <wsdl:input message="tns:GetProductDetailsHttpPostIn" />
+      <wsdl:output message="tns:GetProductDetailsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input message="tns:DeleteProductHttpPostIn" />
+      <wsdl:output message="tns:DeleteProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTotalCount">
+      <wsdl:input message="tns:GetInventoryTotalCountHttpPostIn" />
+      <wsdl:output message="tns:GetInventoryTotalCountHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductServiceSoap" type="tns:ProductServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductItems">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetProductItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProduct">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/InsertProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetProductDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductDetails">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/UpdateProductDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTotalCount">
+      <soap:operation soapAction="http://mc.mkbedev.com/BLLService/GetInventoryTotalCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductServiceSoap12" type="tns:ProductServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProductItems">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetProductItems" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertProduct">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/InsertProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetProductDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProductDetails">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/UpdateProductDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTotalCount">
+      <soap12:operation soapAction="http://mc.mkbedev.com/BLLService/GetInventoryTotalCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductServiceHttpGet" type="tns:ProductServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetProductItems">
+      <http:operation location="/GetProductItems" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <http:operation location="/GetProducts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <http:operation location="/GetProductDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <http:operation location="/DeleteProduct" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTotalCount">
+      <http:operation location="/GetInventoryTotalCount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductServiceHttpPost" type="tns:ProductServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetProductItems">
+      <http:operation location="/GetProductItems" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <http:operation location="/GetProducts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductDetails">
+      <http:operation location="/GetProductDetails" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <http:operation location="/DeleteProduct" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInventoryTotalCount">
+      <http:operation location="/GetInventoryTotalCount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductService">
+    <wsdl:port name="ProductServiceSoap" binding="tns:ProductServiceSoap">
+      <soap:address location="http://mc1.mkbedev.com/BLLService/ProductService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductServiceSoap12" binding="tns:ProductServiceSoap12">
+      <soap12:address location="http://mc1.mkbedev.com/BLLService/ProductService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductServiceHttpGet" binding="tns:ProductServiceHttpGet">
+      <http:address location="http://mc1.mkbedev.com/BLLService/ProductService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductServiceHttpPost" binding="tns:ProductServiceHttpPost">
+      <http:address location="http://mc1.mkbedev.com/BLLService/ProductService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

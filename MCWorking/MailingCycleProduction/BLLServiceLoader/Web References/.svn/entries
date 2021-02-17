@@ -1,0 +1,58 @@
+8
+
+dir
+1225
+http://71.216.124.181:8090/svn/Projects/mailingcycle/trunk/develop/src/staging/working/BLLServiceLoader/Web%20References
+http://71.216.124.181:8090/svn/Projects
+
+
+
+2008-02-20T06:13:09.484375Z
+1214
+shaila
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+bed9e3a7-481d-f847-879c-9a3caaf28210
+
+Product
+dir
+
+ShoppingCart
+dir
+
+Message
+dir
+
+Farm
+dir
+
+Acca
+dir
+
+Common
+dir
+
+Design
+dir
+
+Registration
+dir
+
+Order
+dir
+
+Schedule
+dir
+

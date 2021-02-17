@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/Projects/!svn/ver/1214/mailingcycle/trunk/develop/src/staging/working/IDAL
+END
+IMessage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/IDAL/IMessage.cs
+END
+vssver2.scc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/IDAL/vssver2.scc
+END
+IFarm.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Projects/!svn/ver/1188/mailingcycle/trunk/develop/src/staging/working/IDAL/IFarm.cs
+END
+IAccaProcess.cs
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/IDAL/IAccaProcess.cs
+END
+ICommon.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/IDAL/ICommon.cs
+END
+IDesign.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Projects/!svn/ver/1166/mailingcycle/trunk/develop/src/staging/working/IDAL/IDesign.cs
+END
+IRegistration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Projects/!svn/ver/1214/mailingcycle/trunk/develop/src/staging/working/IDAL/IRegistration.cs
+END
+IDAL.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/IDAL/IDAL.csproj
+END
+IDAL.csproj.vspscc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/IDAL/IDAL.csproj.vspscc
+END
+IOrder.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/IDAL/IOrder.cs
+END
+ISchedule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Projects/!svn/ver/1173/mailingcycle/trunk/develop/src/staging/working/IDAL/ISchedule.cs
+END
+mssccprj.scc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/IDAL/mssccprj.scc
+END
+IProduct.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/IDAL/IProduct.cs
+END
+IShoppingCart.cs
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/IDAL/IShoppingCart.cs
+END

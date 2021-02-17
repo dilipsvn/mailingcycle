@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/Projects/!svn/ver/1214/mailingcycle/trunk/develop/src/staging/working/BLL
+END
+Order.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/BLL/Order.cs
+END
+vssver2.scc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLL/vssver2.scc
+END
+Product.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/BLL/Product.cs
+END
+Exceptions.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLL/Exceptions.cs
+END
+Message.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/BLL/Message.cs
+END
+Farm.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLL/Farm.cs
+END
+AccaProcess.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLL/AccaProcess.cs
+END
+mssccprj.scc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLL/mssccprj.scc
+END
+Common.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLL/Common.cs
+END
+Schedule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Projects/!svn/ver/1175/mailingcycle/trunk/develop/src/staging/working/BLL/Schedule.cs
+END
+ShoppingCart.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/BLL/ShoppingCart.cs
+END
+BLL.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLL/BLL.csproj
+END
+BLL.csproj.vspscc
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLL/BLL.csproj.vspscc
+END
+Design.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Projects/!svn/ver/1168/mailingcycle/trunk/develop/src/staging/working/BLL/Design.cs
+END
+Registration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Projects/!svn/ver/1214/mailingcycle/trunk/develop/src/staging/working/BLL/Registration.cs
+END

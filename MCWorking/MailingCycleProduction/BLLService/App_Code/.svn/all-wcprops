@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code
+END
+RegistrationService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1214/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/RegistrationService.cs
+END
+MailingCycleClassDiagram.cd
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/MailingCycleClassDiagram.cd
+END
+OrderService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/OrderService.cs
+END
+ScheduleService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Projects/!svn/ver/1176/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/ScheduleService.cs
+END
+Util.cs
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/Util.cs
+END
+vssver2.scc
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/vssver2.scc
+END
+ProductService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/ProductService.cs
+END
+ShoppingCartService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/ShoppingCartService.cs
+END
+MessageService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/MessageService.cs
+END
+FarmService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/FarmService.cs
+END
+AccaService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/AccaService.cs
+END
+CommonService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/CommonService.cs
+END
+DesignService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Projects/!svn/ver/1169/mailingcycle/trunk/develop/src/staging/working/BLLService/App_Code/DesignService.cs
+END

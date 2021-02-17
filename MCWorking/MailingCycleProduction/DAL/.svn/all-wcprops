@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/DAL
+END
+Order.cs
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Projects/!svn/ver/1183/mailingcycle/trunk/develop/src/staging/working/DAL/Order.cs
+END
+vssver2.scc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/DAL/vssver2.scc
+END
+Product.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/DAL/Product.cs
+END
+Message.cs
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/DAL/Message.cs
+END
+Farm.cs
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Projects/!svn/ver/1223/mailingcycle/trunk/develop/src/staging/working/DAL/Farm.cs
+END
+AccaProcess.cs
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/DAL/AccaProcess.cs
+END
+mssccprj.scc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/DAL/mssccprj.scc
+END
+Common.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/DAL/Common.cs
+END
+SQL.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/Projects/!svn/ver/1188/mailingcycle/trunk/develop/src/staging/working/DAL/SQL.xml
+END
+DAL.csproj.vspscc
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/DAL/DAL.csproj.vspscc
+END
+DAL.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Projects/!svn/ver/1163/mailingcycle/trunk/develop/src/staging/working/DAL/DAL.csproj
+END
+Schedule.cs
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/Projects/!svn/ver/1174/mailingcycle/trunk/develop/src/staging/working/DAL/Schedule.cs
+END
+SQLHelper.cs
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/Projects/!svn/ver/1109/mailingcycle/trunk/develop/src/staging/working/DAL/SQLHelper.cs
+END
+ShoppingCart.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Projects/!svn/ver/1179/mailingcycle/trunk/develop/src/staging/working/DAL/ShoppingCart.cs
+END
+AuditTrail.cs
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/Projects/!svn/ver/1163/mailingcycle/trunk/develop/src/staging/working/DAL/AuditTrail.cs
+END
+Design.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/Projects/!svn/ver/1167/mailingcycle/trunk/develop/src/staging/working/DAL/Design.cs
+END
+Registration.cs
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Projects/!svn/ver/1216/mailingcycle/trunk/develop/src/staging/working/DAL/Registration.cs
+END

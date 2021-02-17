@@ -1,0 +1,93 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F377FBE-9FD7-4902-929A-C4C782324383}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Irmac.MailingCycle.Model</RootNamespace>
+    <AssemblyName>Irmac.MailingCycle.Model</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressInfo.cs" />
+    <Compile Include="AuditEntryInfo.cs" />
+    <Compile Include="BaseInfo.cs" />
+    <Compile Include="ContactInfo.cs" />
+    <Compile Include="ScheduleEventMailingLabelInfo.cs" />
+    <Compile Include="ScheduleEventContactInfo.cs" />
+    <Compile Include="FarmDataReportInfo.cs" />
+    <Compile Include="MailingLabelInfo.cs" />
+    <Compile Include="DesignStatusInfo.cs" />
+    <Compile Include="ScheduleSummaryInfo.cs" />
+    <Compile Include="AccaInfo.cs" />
+    <Compile Include="FirmUpStatusReportInfo.cs" />
+    <Compile Include="InventoryItemReportInfo.cs" />
+    <Compile Include="InventoryInfo.cs" />
+    <Compile Include="FarmDetailsReportInfo.cs" />
+    <Compile Include="InventoryItemInfo.cs" />
+    <Compile Include="ScheduleEventEntryInfo.cs" />
+    <Compile Include="ScheduleEventInfo.cs" />
+    <Compile Include="ScheduleInfo.cs" />
+    <Compile Include="CountryInfo.cs" />
+    <Compile Include="CreditCardInfo.cs" />
+    <Compile Include="DesignInfo.cs" />
+    <Compile Include="FarmInfo.cs" />
+    <Compile Include="LoginInfo.cs" />
+    <Compile Include="LookupInfo.cs" />
+    <Compile Include="MailingPlanInfo.cs" />
+    <Compile Include="MessageInfo.cs" />
+    <Compile Include="OrderInfo.cs" />
+    <Compile Include="OrderItemInfo.cs" />
+    <Compile Include="PlotInfo.cs" />
+    <Compile Include="ProductInfo.cs" />
+    <Compile Include="ProductItemInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyInfo.cs" />
+    <Compile Include="RegistrationInfo.cs" />
+    <Compile Include="RoleInfo.cs" />
+    <Compile Include="ShoppingCartInfo.cs" />
+    <Compile Include="ShoppingCartItemInfo.cs" />
+    <Compile Include="StateInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

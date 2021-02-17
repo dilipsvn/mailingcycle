@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -17,6 +17,11 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,6 +40,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -66,6 +73,11 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\Farm\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\localhost\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -112,10 +124,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:1073/BLLService/AccaService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/AccaService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Acca\</RelPath>
-      <UpdateFromURL>http://localhost:1073/BLLService/AccaService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/AccaService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -123,10 +135,21 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Acca_AccaService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/CommonService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/CommonService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost\</RelPath>
+      <UpdateFromURL>http://localhost:1073/CommonService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_localhost_CommonService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost:1073/CommonService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Common\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/CommonService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/CommonService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -134,10 +157,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Common_CommonService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/DesignService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/DesignService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Design\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/DesignService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/DesignService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -145,10 +168,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Design_DesignService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/FarmService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/FarmService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Farm\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/FarmService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/FarmService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -156,10 +179,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Farm_FarmService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/MessageService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/MessageService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Message\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/MessageService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/MessageService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -167,10 +190,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Message_MessageService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/OrderService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/OrderService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Order\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/OrderService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/OrderService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -178,10 +201,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Order_OrderService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/ProductService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/ProductService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Product\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/ProductService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/ProductService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -189,10 +212,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Product_ProductService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/RegistrationService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/RegistrationService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Registration\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/RegistrationService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/RegistrationService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -200,10 +223,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Registration_RegistrationService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/ScheduleService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/ScheduleService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Schedule\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/ScheduleService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/ScheduleService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -211,10 +234,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Irmac_MailingCycle_BLLServiceLoader_Schedule_ScheduleService</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:3207/BLLService/ShoppingCartService.asmx">
+    <WebReferenceUrl Include="http://localhost:1073/ShoppingCartService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ShoppingCart\</RelPath>
-      <UpdateFromURL>http://localhost:3207/BLLService/ShoppingCartService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:1073/ShoppingCartService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -224,9 +247,110 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web References\Acca\AccaInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Common\CountryInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Common\LookupInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Common\PropertyInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Common\RegistrationInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Common\StateInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Design\DesignInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Design\DesignStatusInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Farm\ContactInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Farm\FarmDataReportInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Farm\FarmDetailsReportInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Farm\FarmInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Farm\FirmUpStatusReportInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Farm\MailingLabelInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Farm\MailingPlanInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Farm\PlotInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\CommonService.wsdl" />
+    <None Include="Web References\localhost\CountryInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\LookupInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\PropertyInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\localhost\RegistrationInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\localhost\StateInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Message\MessageInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Order\CreditCardInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Order\InventoryInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Order\InventoryItemReportInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Order\OrderInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Order\OrderItemInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Product\ProductInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Product\ProductItemInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Registration\CreditCardInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Registration\LoginInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\Registration\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Registration\RegistrationInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\Registration\RegistrationService.disco" />
     <None Include="Web References\Registration\RegistrationService.wsdl" />
@@ -340,14 +464,35 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Web References\Registration\RegistrationStatus2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Schedule\DesignInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\Schedule\MessageInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Schedule\MessageInfo1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\Schedule\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Web References\Schedule\ScheduleEventContactInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Schedule\ScheduleEventInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Schedule\ScheduleEventMailingLabelInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\Schedule\ScheduleInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Schedule\ScheduleInfo1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\Schedule\ScheduleService.disco" />
@@ -369,11 +514,17 @@
     <None Include="Web References\Schedule\ScheduleEventInfo.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\Schedule\ScheduleSummaryInfo1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\ShoppingCart\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\ShoppingCart\ShoppingCartInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ShoppingCart\ShoppingCartInfo1.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\ShoppingCart\ShoppingCartService.disco" />
@@ -410,6 +561,12 @@
     <None Include="Web References\Schedule\ScheduleSummaryInfo.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\localhost\CommonService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

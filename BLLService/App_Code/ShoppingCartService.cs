@@ -3,7 +3,7 @@ using System.Web;
 using System.Collections;
 using System.Web.Services;
 using System.Web.Services.Protocols;
-using System.Web.UI.MobileControls;
+//using System.Web.UI.MobileControls;
 using System.Collections.Generic;
 using Irmac.MailingCycle.Model;
 using Irmac.MailingCycle.BLL;

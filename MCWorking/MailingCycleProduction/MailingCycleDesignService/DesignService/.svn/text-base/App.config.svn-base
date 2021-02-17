@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<appSettings>
+		<add key="DesignRoot" value="E:\MailingCycleProduction\Website\Members\ApprovedDesignPages"/>
+		<add key="DesignInterval" value="600"/>
+	</appSettings>
+</configuration>

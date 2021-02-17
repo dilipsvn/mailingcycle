@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mailing Cycle Help</title>
+    <link href="Map.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="contents">
+        <div id="topic">
+            <h5 class="page_head">
+                Message Rendering</h5>
+
+            <div class="more_info">                
+                <p >
+                    A message may contain special place holders and wild cards. </p>
+                    <p> An example of a special place holder is
+                    {ON_DESIGN_NAME}. Such place holders will be replaced by the agent name specified while creating the design.
+                     </p>
+                     <p>An example of wild cards is [He understands/She understands/They understand]. Based on the gender information
+                     specified while creating the design, the appropriate wild card will be used. If gender is specified as "Male", the
+                     first part (i.e. He understands) will be used in place of the wild cards. 
+                     If gender is specified as "Female", the second part (i.e. She understands)
+                     will be used in place of the wild cards. 
+                     If gender is specified as "Group", the third part (i.e. They understand) will be used in place of the wild cards..</p>
+            </div>     
+        </div>
+        <div id="footer">
+            <a href="javascript: window.close();">[Close Window]</a>
+        </div>
+    </div>
+</body>
+</html>

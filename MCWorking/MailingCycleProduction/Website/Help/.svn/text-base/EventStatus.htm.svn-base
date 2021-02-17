@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mailing Cycle Help</title>
+    <link href="Map.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="contents">
+        <div id="topic">
+            <h5 class="page_head">
+                Event Status</h5>
+            <p align="justify">
+                Represents the state of a scheduled event.</p>
+            <ul style="list-style-type: disc">
+                <li><u>Scheduled</u>: A state that indicates the event is prepared to run on the
+                scheduled date.
+                <li><u>In Progress</u>: A state that indicates the event is currently running. Any
+                changes to the farm list will not reflect to this event and will only apply to the
+                upcoming events.
+                <li><u>Completed</u>: The event has completed executing with a success result. Please
+                look at the event details for complete information.
+                <li><u>Cancelled</u>: The event was canceled. Please look at the printer comments
+                for more information or contact Mailing Cycle’s customer service representative.
+            </ul>
+        </div>
+        <div id="footer">
+            <a href="javascript: window.close();">[Close Window]</a>
+        </div>
+    </div>
+</body>
+</html>
