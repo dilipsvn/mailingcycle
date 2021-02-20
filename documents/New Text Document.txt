@@ -1,0 +1,4 @@
+http://www.irmdemo.com/mailingcycle
+
+username: dileepkumar
+password: killer_123
